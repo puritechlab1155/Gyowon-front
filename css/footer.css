@@ -1,0 +1,195 @@
+footer {
+    position: relative; /* 자식 요소의 absolute 포지셔닝 기준 */
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    padding: 80px 20px;
+    overflow: hidden; /* 배경 이미지가 푸터 영역을 넘치지 않도록 */
+}
+.mob-br {
+    display: none;
+}
+.footer-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+}
+
+.footer-background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지 비율 유지하며 영역 꽉 채우기 */
+}
+
+.footer-content {
+    position: relative;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    max-width: 1374px;
+    margin: 0 auto;
+}
+
+/* 나머지 푸터 내용 스타일 (기존 CSS 코드 활용) */
+.footer-top {
+    
+}
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+}
+.footer-links .mob-br {
+    display: block;
+}
+.footer-links .link {
+    color: #fff;
+    font-size: clamp(16px, 2vw, 24px);
+}
+.footer-links .bar {
+    color: #fff;
+    margin: 0 5px;
+    font-size: clamp(16px, 2vw, 24px);
+}
+.footer-middle {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 70px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.footer-logo {
+    text-align: left;
+    max-width: 353px;
+    height: 66px;
+}
+.footer-logo img {
+    /* width: 50px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px; */
+}
+.footer-info {
+    text-align: left;
+    max-width: 647px;
+}
+.info-links .link {
+    color: #fff;
+}
+.info-links .bar {
+    color: #fff;
+    margin: 0 15px;
+    font-weight: 500;
+}
+.footer-info .info-bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-info .info-bottom .info-left {
+  
+}
+.footer-info .info-bottom .info-center .fw-6 {
+  font-weight: 600;
+}
+.footer-info .info-bottom .info-left .space-10 {
+  margin-left: 10px;
+}
+.footer-info .info-bottom .info-right {
+   
+}
+.footer-info .info-bottom .ft-16 {
+    font-size: 16px;
+    color: #DDDDDD;
+    letter-spacing: -0.45px;
+}
+.footer-info .info-bottom .ft-16-b {
+    font-size: 16px;
+    color: #DDDDDD;
+    font-weight: bold;
+}
+.footer-bottom {
+    padding-top: 15px;
+}
+.footer-bottom .ft-18 {
+    font-size: 18px;
+    color: #888888;
+    margin-top: 92px;
+}
+
+
+
+
+
+
+/* footer */
+
+
+/* footer 모달 팝업 */
+
+.mt_15 { margin-top: 15px; }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 반투명 배경 */
+    overflow: auto;
+    padding-top: 60px;
+}
+.modal-content {
+    background-color: #fff;
+    margin: 2% auto;
+    padding: 25px 30px;
+    max-width: 1200px;
+    border-radius: 20px;
+}
+.close {
+    float: right;
+}
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal .h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+.modal .ul {
+    list-style-type: none;
+    padding: 0;
+}
+.modal .f_gnb {
+    display: flex !important;
+    justify-content: space-around !important
+}
+.modal .ul .li {
+    margin: 10px 0;
+}
+.modal .ul .li .a:hover {
+    color: #007bff;
+}
+
+
+
+@media (max-width: 767px) {
+    .footer-info .info-bottom {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+    }
+    .info-center .fw-6 {
+        display: none;
+    }
+    .info-bottom .mt-10 {
+        margin-top: 0;
+    }
+}
+

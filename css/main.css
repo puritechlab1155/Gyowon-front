@@ -1,0 +1,763 @@
+@charset "UTF-8";
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
+
+@font-face {
+    font-family: 'Paperlogy'; /* 원하는 폰트 이름 정의 */
+    src: url('path/to/paperlogy.woff2') format('woff2'),
+         url('path/to/paperlogy.woff') format('woff');
+    /* 필요에 따라 다른 형식의 폰트 파일 추가 */
+    font-weight: normal; /* 폰트 굵기 */
+    font-style: normal; /* 폰트 스타일 (기울임 등) */
+    font-display: swap; /* 폰트 로딩 방식 설정 (선택 사항) */
+}
+/* 
+@font-face {
+  font-family: "Pretendard-Thin";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-ExtraLight";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-Light";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-Medium";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-SemiBold";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-Bold";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-ExtraBold";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-Black";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+} */
+
+*{
+  font-family: 'Pretendard Variable';
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  letter-spacing: -0.36px;
+  line-height: 160%;
+  color: #333;
+  font-size: 18px;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+ul, ol {
+    list-style: none;
+    padding-inline-start: 0;
+}
+button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+img {
+    width: 100%;
+}
+
+/* 사파리 input아이콘 초기화 */
+@supports (-webkit-appearance:none) {
+  input {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+  }
+}
+
+
+
+.w-80 {
+  width: 80px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.mt-150 {
+  margin-top: 150px;
+}
+.btn01 {
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  background: #005AAB;
+  padding: 17px;
+  border-radius: 10px;
+}
+.btn02 {
+  font-size: 20px;
+  color: #fff;
+  background: #005AAB;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.btn02 .btn02-icon {
+  width: 8px;
+  margin-left: 10px;
+}
+
+
+/* 팝업창 */
+#home .pop-container {
+  width: fit-content;
+  padding: 0 20px;
+  position: fixed;
+  top: 120px;
+  left: 20px;
+  transform: none !important;
+  z-index: 1000;
+}
+
+#home .pop-inner {
+  height: auto;
+  overflow: hidden;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: #fafafa;
+  box-shadow: 2px 2px 10px #00000044;
+}
+#home .pop-content-wrap {
+  padding: 0 20px;
+}
+#home .pop-title {
+  margin-top: 40px;
+  line-height: 150%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+}
+#home .pop-content {
+  text-align: center;
+  white-space: pre-line;
+  margin-top: 20px;
+  color: #333;
+}
+#home .pop-content input {
+  padding: 10px;
+  font-size: 18px;
+  border: 2px solid #bdbfc2;
+  border-radius: 6px;
+  text-align: center;
+}
+#home .pop-content input::placeholder {
+  font-size: 15px;
+}
+#home .popup-button-wrap {
+  margin-top: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#home .popup-button-wrap .btn-item-container {
+  flex: 0 0 50%;
+}
+#home .popup-button-wrap .btn-item {
+  width: 100%;
+  padding: 16px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}
+#home .popup-button-wrap .finishBtn {
+  color: #fff;
+  background-color: #144974;
+}
+#home .popup-button-wrap .closeBtn {
+  color: #777;
+  background-color: #ddd;
+}
+#home .pop-content .space_mob {
+  display: none !important;
+}
+
+/* --------------메인비주얼 */
+/* --- 소개 페이지 index.html 스타일   --- */
+#home .mainIndex .blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+  }
+#home .mainIndex .inner {
+  width: 100%;
+  max-width: 1248px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+#home .mainIndex .main_visual .text-box {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+#home .mainIndex .main_visual .text-box .text-box-inner {
+  width: 100%;
+  max-width: 1248px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+/* 메인비주얼 텍스트 위치별 박스 */
+#home .mainIndex .main_visual .text-box .text-left-box {
+  text-align: left;
+  /* display: none; */
+}
+#home .mainIndex .main_visual .text-box .text-middle-box {
+  display: none;
+  text-align: center;
+}
+#home .mainIndex .main_visual .text-box .text-right-box {
+  display: none;
+  text-align: right;
+}
+
+#home .mainIndex .main_visual .text-box .text-box-inner .text span {
+
+}
+#home .mainIndex .main_visual .text-box .text-box-inner .text span img {
+  /* display: inline-block;
+  vertical-align: middle;
+  padding: 0 8px; */
+}
+#home .mainIndex .main_visual .text-box .text-box-inner .text .txt-top {
+  color: #fff;
+  font-size: 28px;
+  line-height: 120%;
+  font-family: 'Paperlogy', 'Pretendard-Regular';
+}
+#home .mainIndex .main_visual .text-box .text-box-inner .text .txt-middle {
+  color: #fff;
+  font-size: 90px;
+  line-height: 120%;
+  font-weight: 700;
+  font-family: 'Paperlogy', 'Pretendard-Regular';
+
+}
+#home .mainIndex .main_visual .text-box .text-box-inner .text .txt-bottom {
+  color: #fff;
+  font-size: 20px;
+  margin-top: 30px;
+}
+#home .mainIndex .main_visual .text-box .text-box-inner .text .txt-bottom-b {
+  color: #fff;
+  /* font-family: "Elice DX Neolli"; */
+  font-size: 20px;
+  font-weight: 300;
+
+  display: block;
+}
+
+#home .mainIndex .main_visual .text-box .text-box-inner .slide-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  background: #fff;
+  margin-top: 25px;
+}
+#home .mainIndex .main_visual .text-box .text-box-inner .slide-link .button-text {
+  color: #0657CE;
+  font-family: "Pretendard-Bold";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 180%; /* 32.4px */
+  letter-spacing: -0.36px;
+}
+#home .mainIndex .main_visual .text-box .text-box-inner .slide-link img {
+  /* display: block; */
+}
+
+
+/* ------------ 메인버튼 */
+.mainIndex .mainBtn-container {
+  max-width: 1700px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  transform: translateY(-50%);
+  position: relative;
+  z-index: 2;
+}
+/* 왼쪽 - 즐겨찾기 */
+.mainIndex .mainBtn-container .quickMenu {
+  background-color: #FEFEFE;
+  max-width: 1102px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 46px 70px;
+  border-radius: 40px;
+  box-shadow: 0px 4px 20px rgb(140 130 130 / 50%);
+  
+}
+.mainIndex .mainBtn-container .enName {
+  font-size: 20px;
+  font-weight: 500;
+  color: #949494;
+}
+.mainIndex .mainBtn-container .koName {
+  font-size: 30px;
+  font-weight: 700;
+}
+.mainIndex .mainBtn-container .quick-btnBox {
+  display: flex;
+  gap: 20px;
+}
+.mainIndex .mainBtn-container .quick-btnBox .q-btn {
+  max-width: 177px;
+  max-height: 200px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #5F95C3 0%, #3A465F 100%);
+  padding: 40px 30px;
+}
+.mainIndex .mainBtn-container .quick-btnBox .btnName {
+  font-size: 20px;
+  color: #FEFEFE;
+  display: block;
+}
+/* 오른쪽 -  로그인 */
+.mainIndex .mainBtn-container .logIn {
+  background-color: #FEFEFE;
+  max-width: 450px;
+  width: 100%;
+  padding: 46px 70px;
+  border-radius: 40px;
+  box-shadow: 0px 4px 20px rgb(140 130 130 / 50%)
+}
+.mainIndex .mainBtn-container .logIn .logIn-btnBox {
+  margin-top: 30px;
+}
+.logIn-btnBox .login-btBox {
+  display: flex;
+  justify-content: space-between;
+}
+.logIn-btnBox .login-btBox .btn {
+  font-size: 16px;
+  color: #6F6F6F;
+  margin-top: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.logIn-btnBox .login-btBox .btn::after {
+  content: '|';
+  display: block;
+
+}
+.logIn-btnBox .login-btBox .btn:nth-child(3)::after{
+  display: none;
+}
+
+/* 1. 공지, 질문 */
+.home .mainIndex .section01 {
+
+}
+.home .mainIndex .section01 .notice-faq-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* gap: 20px; */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.home .mainIndex .section01 .notice-section, 
+.home .mainIndex .section01 .faq-section {
+  max-width: 568px;
+  flex: 1; /* 동일한 너비로 분할 */
+  min-width: 300px; /* 최소 너비 설정 */
+}
+.home .mainIndex .section01 .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.home .mainIndex .section01 .section-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.home .mainIndex .section01 .more-link {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+.home .mainIndex .section01 .more-icon {
+  width: 24px;
+  margin-left: 10px;
+}
+.home .mainIndex .section01 .more-link:hover {
+  text-decoration: underline;
+  color: #005AAB;
+}
+.home .mainIndex .section01 .notice-list, 
+.home .mainIndex .section01 .faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #D9D9D9;
+  border-bottom: 1px solid #D9D9D9;
+}
+.home .mainIndex .section01 .notice-item, 
+.home .mainIndex .section01 .faq-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+.home .mainIndex .section01 .notice-item:last-child, 
+.home .mainIndex .section01 .faq-item:last-child {
+  border-bottom: none;
+}
+.home .mainIndex .section01 .notice-info, 
+.home .mainIndex .section01 .faq-info {
+  display: flex;
+  align-items: center;
+  width: 100%; /* 제목이 부모 요소의 너비를 기준으로 줄어들도록 설정 */
+  overflow: hidden; /* 넘치는 텍스트를 숨김 */
+}
+.home .mainIndex .section01 .label {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px 8px;
+  margin-right: 24px;
+  flex-shrink: 0;
+}
+.home .mainIndex .section01 .notice-title, 
+.home .mainIndex .section01 .faq-title {
+  font-weight: 500;
+  white-space: nowrap; /* 텍스트가 한 줄로 표시되도록 설정 */
+  overflow: hidden; /* 넘치는 텍스트를 숨김 */
+  text-overflow: ellipsis; /* 넘치는 텍스트를 ...으로 표시 */
+  flex-grow: 1; /* 제목이 가능한 공간을 모두 차지하도록 설정 */
+  font-size: 20px;
+}
+.home .mainIndex .section01 .notice-title:hover, 
+.home .mainIndex .section01 .faq-title:hover {
+  text-decoration: underline;
+}
+.home .mainIndex .section01 .date {
+  color: #999;
+  font-size: 20px;
+  flex-shrink: 0; /* 날짜가 줄어들지 않도록 설정 */
+  margin-left: 32px; /* 날짜와 제목 사이 간격 */
+}
+
+
+/* --- 2. KTDA 소개 */
+.title-area .title {
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 140%;
+  color: #6F6F6F;
+  text-align: center;
+}
+.title-area .font-bold {
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 140%;
+  color: #005AAB;
+  text-align: center;
+}
+.title-area .title .fontColor-blue {
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 140%;
+  color: #005AAB;
+}
+.mainIndex .flex-area {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+.mainIndex .left-box {
+  max-width: 510px;
+}
+.mainIndex .right-box {
+  max-width: 612px;
+}
+.mainIndex .text-box .sub-title {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 140%;
+}
+.mainIndex .text-box .font-bold {
+  font-size: 40px;
+  font-weight: 700;
+  display: block;
+}
+.mainIndex .text-box .desc {
+  font-size: 20px;
+  font-weight: 500;
+  color: #6F6F6F;
+  margin-top: 20px;
+}
+
+/* ---3. 내게 딱 맞는 */
+.mainIndex .section03 {
+  background: #F4F7FC;
+  padding: 20px 0 60px;
+}
+.mainIndex .section03 .left-box {
+  max-width: 274px;
+}
+.mainIndex .section03-card  {
+  height: 0;
+}
+.mainIndex .section03-card .swiper-container {
+  max-width: 714px;
+  width: 100%;
+  height: auto; /* 내용에 따라 높이 자동 조절 */
+  overflow: hidden; /* 슬라이드 영역 숨김 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  background-color: #fff;
+  position: relative; 
+  transform: translateX(69%) translateY(-115%);
+  z-index: 2;
+}
+.mainIndex .section03-card .swiper-wrapper {
+  display: flex; /* 슬라이드 가로 배치 */
+  transition-property: transform;
+  box-sizing: content-box;
+}
+.mainIndex .section03-card .swiper-slide {
+  flex-shrink: 0; 
+  width: 100%; 
+  display: flex; 
+  align-items: center;
+  padding: 60px 90px;
+  box-sizing: border-box;
+  border: 2px solid #EFEFEF;
+  border-radius: 20px;
+}
+.mainIndex .section03-card .slide-content {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.mainIndex .section03-card .img-box {
+  flex: 0 0 50%; 
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+.mainIndex .section03-card .right-box {
+  flex: 0 0 49%; 
+  box-sizing: border-box;
+}
+.mainIndex .section03-card .text-box {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Swiper Navigation Arrows Styles */
+.mainIndex .swiper-button-prev,
+.mainIndex .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  margin-top: -20px;
+  z-index: 10;
+  cursor: pointer;
+  background-color: #E7F0FF;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #005AAB;
+  transition: background-color 0.3s ease;
+}
+.mainIndex .swiper-button-prev:hover,
+.mainIndex .swiper-button-next:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.mainIndex .swiper-button-prev {
+  left: 10px;
+  margin-left: 20px;
+}
+.mainIndex .swiper-button-next {
+  right: 10px;
+  margin-right: 20px;
+}
+.mainIndex .swiper-button-prev::after,
+.mainIndex .swiper-button-next::after {
+  display: none;
+}
+.mainIndex .swiper-button-prev,
+.mainIndex .swiper-button-next {
+  background-image: url('../img/flat-color-icons_pre.png'); /* 이전 화살표 이미지 URL */
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: center;
+}
+.mainIndex .swiper-button-next {
+  background-image: url('../img/flat-color-icons_next.png'); /* 다음 화살표 이미지 URL */
+
+}
+
+/* 4. KTDA Media */
+.mainIndex .section04 .swiper-container {
+  width: 100%;
+  /* max-width: 492px;  */
+  height: auto;
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+  padding: 0 240px; /* 좌우 버튼 공간 확보 */
+}
+
+.mainIndex .section04 .swiper-wrapper {
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+  align-items: center; /* 세로 중앙 정렬 */
+}
+
+.mainIndex .section04 .swiper-slide {
+  flex-shrink: 0;
+  width: 70%; /* 가운데 이미지 크게 */
+  height: auto;
+  opacity: 0.5; /* 기본적으로 흐릿하게 */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(0.8); /* 기본적으로 작게 */
+}
+.mainIndex .section04 .swiper-slide-prev,
+.mainIndex .section04 .swiper-slide-next {
+  opacity: 0.7; /* 이전/다음 슬라이드 약간 더 보이게 */
+  transform: scale(0.9);
+}
+.mainIndex .section04 .swiper-slide-active {
+  opacity: 1; /* 활성 슬라이드 선명하게 */
+  transform: scale(1); /* 활성 슬라이드 크게 */
+}
+.mainIndex .section04 .swiper-container .swiper-wrapper .swiper-slide.swiper-slide-active {
+  width: 492px !important;
+}
+.mainIndex .section04 .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px; 
+}
+
+/* 텍스트 컨테이너 스타일 */
+.mainIndex .section04 .swiper-text-container {
+  text-align: center;
+  padding: 10px;
+  color: #555;
+  position: absolute; /* 이미지 가운데 아래 배치 */
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10; /* 이미지 위에 표시 */
+  opacity: 0; /* 기본적으로 숨김 */
+  transition: opacity 0.3s ease;
+}
+
+.mainIndex .section04 .swiper-slide-active .swiper-text-container {
+  opacity: 1; /* 활성 슬라이드에서 텍스트 보이기 */
+}
+
+.mainIndex .section04 .swiper-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.mainIndex .section04 .swiper-date {
+  font-size: 0.9em;
+}
+
+/* Navigation Arrows 스타일 */
+.mainIndex .section04 .swiper-button-prev,
+.mainIndex .section04 .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  z-index: 10;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.mainIndex .section04 .swiper-button-prev:hover,
+.mainIndex .section04 .swiper-button-next:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.mainIndex .section04 .swiper-button-prev::after,
+.mainIndex .section04 .swiper-button-next::after {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.mainIndex .section04 .swiper-button-prev {
+  left: 10px;
+}
+
+.mainIndex .section04 .swiper-button-next {
+  right: 10px;
+}
+
+/* 리사이징 */
+
+@media (max-width: 768px) {
+  .notice-section,
+  .faq-section {
+      flex: 1 0 100%; /* 작은 화면에서 전체 너비 사용 */
+  }
+}

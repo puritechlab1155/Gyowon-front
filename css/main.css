@@ -133,7 +133,9 @@ img {
   width: 8px;
   margin-left: 10px;
 }
-
+.f-white {
+  color: #FEFEFE;
+}
 
 /* 팝업창 */
 #home .pop-container {
@@ -224,7 +226,7 @@ img {
   }
 #home .mainIndex .inner {
   width: 100%;
-  max-width: 1248px;
+  /* max-width: 1200px; */
   padding: 0 24px;
   margin: 0 auto;
 }
@@ -237,7 +239,7 @@ img {
 }
 #home .mainIndex .main_visual .text-box .text-box-inner {
   width: 100%;
-  max-width: 1248px;
+  /* max-width: 1200px; */
   padding: 0 24px;
   margin: 0 auto;
 }
@@ -402,7 +404,7 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
   /* gap: 20px; */
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
 }
 .home .mainIndex .section01 .notice-section, 
@@ -517,6 +519,7 @@ img {
 }
 .mainIndex .left-box {
   max-width: 510px;
+  width: 62%;
 }
 .mainIndex .right-box {
   max-width: 612px;
@@ -530,6 +533,7 @@ img {
   font-size: 40px;
   font-weight: 700;
   display: block;
+  color: #005AAB;
 }
 .mainIndex .text-box .desc {
   font-size: 20px;
@@ -539,7 +543,7 @@ img {
 }
 
 /* ---3. 내게 딱 맞는 */
-.mainIndex .section03 {
+.mainIndex> .section03 {
   background: #F4F7FC;
   padding: 20px 0 60px;
 }
@@ -596,8 +600,10 @@ img {
 }
 
 /* Swiper Navigation Arrows Styles */
-.mainIndex .swiper-button-prev,
-.mainIndex .swiper-button-next {
+.mainIndex .sec03-swiper-button-prev,
+.mainIndex .sec03-swiper-button-next,
+.mainIndex .sec04-swiper-button-prev,
+.mainIndex .sec04-swiper-button-next {
   position: absolute;
   top: 50%;
   width: 48px;
@@ -613,30 +619,39 @@ img {
   color: #005AAB;
   transition: background-color 0.3s ease;
 }
-.mainIndex .swiper-button-prev:hover,
-.mainIndex .swiper-button-next:hover {
-  background-color: rgba(255, 255, 255, 0.9);
+.mainIndex .sec03-swiper-button-prev:hover,
+.mainIndex .sec03-swiper-button-next:hover,
+.mainIndex .sec04-swiper-button-prev:hover,
+.mainIndex .sec04-swiper-button-next:hover {
+  background-color: #c6d6f3;
 }
-.mainIndex .swiper-button-prev {
+.mainIndex .sec03-swiper-button-prev,
+.mainIndex .sec04-swiper-button-prev {
   left: 10px;
   margin-left: 20px;
 }
-.mainIndex .swiper-button-next {
+.mainIndex .sec03-swiper-button-next,
+.mainIndex .sec04-swiper-button-next {
   right: 10px;
   margin-right: 20px;
 }
-.mainIndex .swiper-button-prev::after,
-.mainIndex .swiper-button-next::after {
+.mainIndex .sec03-swiper-button-prev::after,
+.mainIndex .sec03-swiper-button-next::after,
+.mainIndex .sec04-swiper-button-prev::after,
+.mainIndex .sec04-swiper-button-next::after {
   display: none;
 }
-.mainIndex .swiper-button-prev,
-.mainIndex .swiper-button-next {
+.mainIndex .sec03-swiper-button-prev,
+.mainIndex .sec03-swiper-button-next,
+.mainIndex .sec04-swiper-button-prev,
+.mainIndex .sec04-swiper-button-next {
   background-image: url('../img/flat-color-icons_pre.png'); /* 이전 화살표 이미지 URL */
   background-repeat: no-repeat;
   background-size: 24px;
   background-position: center;
 }
-.mainIndex .swiper-button-next {
+.mainIndex .sec03-swiper-button-next,
+.mainIndex .sec04-swiper-button-next {
   background-image: url('../img/flat-color-icons_next.png'); /* 다음 화살표 이미지 URL */
 
 }
@@ -646,19 +661,17 @@ img {
   width: 100%;
   /* max-width: 492px;  */
   height: auto;
-  margin: 20px auto;
+  margin: 60px auto;
   overflow: hidden;
   position: relative;
-  padding: 0 240px; /* 좌우 버튼 공간 확보 */
+  padding: 0 275px; /* 좌우 버튼 공간 확보 */
 }
-
 .mainIndex .section04 .swiper-wrapper {
   display: flex;
   transition-property: transform;
   box-sizing: content-box;
   align-items: center; /* 세로 중앙 정렬 */
 }
-
 .mainIndex .section04 .swiper-slide {
   flex-shrink: 0;
   width: 70%; /* 가운데 이미지 크게 */
@@ -670,14 +683,14 @@ img {
 .mainIndex .section04 .swiper-slide-prev,
 .mainIndex .section04 .swiper-slide-next {
   opacity: 0.7; /* 이전/다음 슬라이드 약간 더 보이게 */
-  transform: scale(0.9);
+  transform: scale(0.6);
 }
 .mainIndex .section04 .swiper-slide-active {
   opacity: 1; /* 활성 슬라이드 선명하게 */
   transform: scale(1); /* 활성 슬라이드 크게 */
 }
 .mainIndex .section04 .swiper-container .swiper-wrapper .swiper-slide.swiper-slide-active {
-  width: 492px !important;
+  width: 450px !important;
 }
 .mainIndex .section04 .swiper-slide img {
   display: block;
@@ -692,66 +705,190 @@ img {
   padding: 10px;
   color: #555;
   position: absolute; /* 이미지 가운데 아래 배치 */
-  bottom: 10px;
+  bottom: -88px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10; /* 이미지 위에 표시 */
   opacity: 0; /* 기본적으로 숨김 */
   transition: opacity 0.3s ease;
 }
-
 .mainIndex .section04 .swiper-slide-active .swiper-text-container {
   opacity: 1; /* 활성 슬라이드에서 텍스트 보이기 */
 }
-
 .mainIndex .section04 .swiper-title {
   font-size: 1.2em;
   font-weight: bold;
   margin-bottom: 5px;
 }
-
 .mainIndex .section04 .swiper-date {
   font-size: 0.9em;
 }
-
-/* Navigation Arrows 스타일 */
-.mainIndex .section04 .swiper-button-prev,
-.mainIndex .section04 .swiper-button-next {
-  position: absolute;
-  top: 50%;
-  width: 30px;
-  height: 30px;
-  margin-top: -15px;
-  z-index: 10;
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #333;
-  font-size: 1em;
-  transition: background-color 0.3s ease;
-}
-
-.mainIndex .section04 .swiper-button-prev:hover,
-.mainIndex .section04 .swiper-button-next:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
 .mainIndex .section04 .swiper-button-prev::after,
 .mainIndex .section04 .swiper-button-next::after {
   font-size: 1em;
   font-weight: bold;
 }
-
 .mainIndex .section04 .swiper-button-prev {
-  left: 10px;
+  left: 288px;
+}
+.mainIndex .section04 .swiper-button-next {
+  right: 288px;
+}
+/* ---------swiper 관련 추가css */
+/* main_visual */
+.main_visual .swiper {
+  width: 100%;
+  height: 800px;
+}
+.main_visual .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.main_visual .swiper-slide .mv-slide-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.main_visual .swiper-button-next {
+  right: 10%;
+}
+.main_visual .swiper-button-prev {
+  left: 10%;
+}
+.main_visual .swiper-button-next,
+.main_visual .swiper-button-prev {
+  width: 100px;
+  height: 100px;
+}
+.main_visual .swiper-button-next::after,
+.main_visual .swiper-button-prev::after {
+  display: none;
+}
+.main_visual .swiper-button-disabled {
+  opacity: 1;
+}
+.swiper-pagination {
+  position: absolute;
+  transition: .3s opacity;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+  bottom: 230px !important;
+  left: -30% !important;
+}
+.main_visual .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 1;
+  /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.25); */
+}
+.main_visual .swiper-pagination-bullet-active {
+  background: #005AAB;
+  width: 30px;
+  height: 10px;
+  border-radius: 30px;
+  /* box-shadow: none; */
+  opacity: 1;
+  /* vertical-align: middle; */
 }
 
-.mainIndex .section04 .swiper-button-next {
-  right: 10px;
+/* 5. 결제계좌 정보, 연수지원센터 */
+.mainIndex .section05 {
+  
 }
+.mainIndex .section05 .section05-inner {
+
+}
+.mainIndex .section05 .content {
+  /* max-width: 1200px;
+  padding: 0 24px;
+  margin: 0 auto; */
+}
+.mainIndex .section05 .content .content-inner {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  flex-wrap: wrap;
+}
+.mainIndex .section05 .content .flex-left,
+.mainIndex .section05 .content .flex-right {
+  background: #34496B;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 4% 5% 19%;
+}
+.mainIndex .section05 .content .flex-right {
+  background: #0B68E3;
+  width: 50%;
+  padding: 2% 19% 5% 4%;
+}
+.mainIndex .section05 .content .left-box {
+
+}
+.mainIndex .section05 .content .sub-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #FEFEFE;
+}
+.mainIndex .section05 .content .account-list {
+  color: #FEFEFE;
+  font-size: 16px;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 26px;
+}
+.mainIndex .section05 .content .account-list .account-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  /* flex-wrap: wrap; */
+}
+.mainIndex .section05 .content .account-list .account-item .list {
+  flex: 1;
+  min-width: 200px;
+  color: #FEFEFE;
+  /* margin-bottom: 10px; */
+}
+.mainIndex .section05 .content .account-list .account-item .copy-target {
+  color: #FEFEFE;
+
+}
+.mainIndex .section05 .content .account-list .account-item .copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #FEFEFE;
+}
+.mainIndex .section05 .content .account-list .account-item .copy-btn:hover {
+  border-bottom: 1px solid #FEFEFE;
+}
+.copy-btn img {
+  width: 20px;
+  height: 20px;
+}
+.mainIndex .section05 .content .right-img {
+  max-width: 160px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* 리사이징 */
 
@@ -759,5 +896,17 @@ img {
   .notice-section,
   .faq-section {
       flex: 1 0 100%; /* 작은 화면에서 전체 너비 사용 */
+  }
+}
+
+@media (max-width: 480px) {
+  .account-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .copy-btn {
+    padding-left: 0;
   }
 }

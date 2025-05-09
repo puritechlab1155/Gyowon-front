@@ -11,7 +11,7 @@
     position: relative;
 }
 
-.main_visual .swiper-slide>img {
+.main_visual .swiper-slide .mv-slide-btn {
     display: block;
     width: 100%;
     height: 100%;
@@ -33,11 +33,11 @@
     height: 100px;
 }
 
-.main_visual .swiper-button-next img,
+/* .main_visual .swiper-button-next img,
 .main_visual .swiper-button-prev img {
     width: 100%;
     height: 100%;
-}
+} */
 
 .main_visual .swiper-button-next::after,
 .main_visual .swiper-button-prev::after {

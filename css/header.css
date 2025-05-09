@@ -250,6 +250,9 @@
 .quick-contain .quick-item {
     border-bottom: 1px solid #D9D9D9;
 }
+.lms-btn {
+    display: none;  /* 관리자에게만 보여지는 버튼 */
+}
 .quick-contain .quick-item:last-child {
     border-bottom: none;
 }

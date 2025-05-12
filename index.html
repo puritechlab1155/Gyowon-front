@@ -458,10 +458,14 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div class="swiper-button-next mv-swiper-button-next"><img class="mv-slide-btn" src="img/mv_slide_next.svg" alt="다음 슬라이드로"></div>
+                            <div class="swiper-button-prev mv-swiper-button-prev"><img class="mv-slide-btn" src="img/mv_slide_prev.svg" alt="이전 슬라이드로"></div>
+                            <div class="swiper-pagination mv-swiper-pagination"></div>
+
+                            
                         </div>
-                        <div class="swiper-button-next mv-swiper-button-next"><img class="mv-slide-btn" src="img/mv_slide_next.svg" alt="다음 슬라이드로"></div>
-                        <div class="swiper-button-prev mv-swiper-button-prev"><img class="mv-slide-btn" src="img/mv_slide_prev.svg" alt="이전 슬라이드로"></div>
-                        <div class="swiper-pagination mv-swiper-pagination"></div>
                     </div>
                 </div>
             </div><!-- //main_visual -->
@@ -494,8 +498,8 @@
                     </div>
                 </div>
 
-                <!-- 로그인 -->
-                <div class="logIn">
+                <!-- 로그인 전 -->
+                <!-- <div class="logIn ver-01">
                     <div class="logIn-title">
                         <span class="enName">Log-in</span>
                         <h4 class="koName">간편하게 시작하기</h4>
@@ -508,7 +512,42 @@
                             <button class="btn find-pw" type="button" onclick="">비밀번호 찾기</button>
                         </div>
                     </div>
+                </div> -->
+
+                <!-- 일반 회원 로그인 후 (회원 아이디 물러오기) -->
+                <!-- <div class="logIn ver-02">
+                    <div class="logIn-title">
+                        <span class="enName"><span id="loginId" class="enName">abcd1234</span>님</span> 
+                        <div class="flex-area mt-10">
+                            <h4 class="koName">환영합니다!</h4>
+                            <button id="logOut" class="btn" type="button">로그아웃</button>
+                        </div>
+                    </div>
+                    <div class="logIn-btnBox mt-10">
+                        <button class="btn01" type="button" onclick="">나의 강의실</button>
+                        <button class="btn01" type="button" onclick="">내 정보</button>
+                    </div>
+                </div> -->
+
+                <!-- 관리자 로그인 후 -->
+                <div class="logIn ver-03">
+                    <div class="logIn-title">
+                        <span class="enName">관리자님</span>
+                        <div class="flex-area mt-10">
+                            <h4 class="koName">환영합니다!</h4>
+                            <button id="logOut" class="btn" type="button">로그아웃</button>
+                        </div>
+                        
+                    </div>
+                    <div class="logIn-btnBox mt-10">
+                        <button class="btn01" type="button" onclick="">나의 강의실</button>
+                        <div class="flex-area mt-0">
+                            <button class="btn01 lms-btn" type="button" onclick="">관리자 페이지</button>
+                            <button class="btn01" type="button" onclick="">내 정보</button>
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
             <!-- 1. 공지, 질문 -->
@@ -522,7 +561,7 @@
                                     <h2 class="section-title">공지사항</h2>
                                     <a href="#" class="more-link">
                                         더보기 
-                                        <img class="more-icon" src="img/flat-color-icons_next.png" alt="더보기 아이콘">
+                                        <img class="more-icon" src="img/flat-color-icons_next.svg" alt="더보기 아이콘">
                                     </a>
                                 </div>
                                 <ul class="notice-list">
@@ -576,7 +615,7 @@
                                     <h2 class="section-title">자주하는 질문</h2>
                                     <a href="#" class="more-link">
                                         더보기 
-                                        <img class="more-icon" src="img/flat-color-icons_next.png" alt="더보기 아이콘">
+                                        <img class="more-icon" src="img/flat-color-icons_next.svg" alt="더보기 아이콘">
                                     </a>
                                 </div>
                                 <ul class="faq-list">
@@ -704,7 +743,7 @@
                                         <div class="right-box">
                                             <div class="text-box">
                                                 <h4 class="sub-title">
-                                                    <span class="font-bold">댄스스포츠(모던/라틴)</span>
+                                                    <span class="font-bold">댄스스포츠<br>(모던/라틴)</span>
                                                 </h4>
                                                 <p class="desc">
                                                     빠르고 경쾌한 리듬과 화려한 스텝이 특징으로, 자이브는 신나는 스윙 스타일, 차차차는 리드미컬한 스텝이 매력적이에요.
@@ -716,7 +755,7 @@
                                 <!-- 2. 웰빙댄스 카드-->
                                 <div class="swiper-slide">
                                     <div class="slide-content">
-                                        <div class="left-box">
+                                        <div class="img-box">
                                             <img src="img/wellbeing.png" alt="웰빙댄스 이미지">
                                         </div>
                                         <div class="right-box">
@@ -734,7 +773,7 @@
                                 <!-- 3. 필라테스 카드-->
                                 <div class="swiper-slide">
                                     <div class="slide-content">
-                                        <div class="left-box">
+                                        <div class="img-box">
                                             <img src="img/pilates.png" alt="필라테스 이미지">
                                         </div>
                                         <div class="right-box">
@@ -752,7 +791,7 @@
                                 <!-- 4. 라인댄스 카드-->
                                 <div class="swiper-slide">
                                     <div class="slide-content">
-                                        <div class="left-box">
+                                        <div class="img-box">
                                             <img src="img/line.png" alt="라인댄스 이미지">
                                         </div>
                                         <div class="right-box">
@@ -779,7 +818,7 @@
             </div><!-- //section03 -->
 
             <!-- 4. KTDA Media -->
-            <div class="section04">
+            <div class="section04 mt-150">
                 <div class="inner">
                     <div class="content">
                         <div class="title-area">
@@ -814,7 +853,7 @@
             
             
                         <div class="swiper-container section04">
-                            <div class="swiper-wrapper">
+                            <div class="swiper-wrapper media-wrapper">
                               <!-- 첫 번째 슬라이드 -->
                               <div class="swiper-slide" data-title="라틴댄스 지도자 연수" data-date="2024-12-10">
                                 <img src="img/KTDA-Media01.png" alt="KTDA-Media 이미지 1">
@@ -832,13 +871,13 @@
                             <!-- 네비게이션 버튼 -->
                             <div class="swiper-button-prev sec04-swiper-button-prev"></div>
                             <div class="swiper-button-next sec04-swiper-button-next"></div>
-                          </div>
+                        </div>
                           
-                          <!-- 아래 문구 출력 영역 -->
-                          <div class="swiper-text-container">
+                        <!-- 아래 문구 출력 영역 -->
+                        <div class="swiper-text-container">
                             <p class="swiper-title">텍스트 타이틀</p>
                             <p class="swiper-date">날짜</p>
-                          </div>
+                        </div>
 
 
                     </div>
@@ -854,26 +893,29 @@
                             <!-- 결제계좌 정보 -->
                             <div class="flex-left">
                                 <div class="left-box text-box">
-                                    <h4 class="sub-title">결제계좌 정보</h4>
+                                    <div class="flex-area-mob">
+                                        <h4 class="sub-title">결제계좌 정보</h4>
+                                        <img class="right-img-mob" src="img/credit-card.png" alt="결제계좌 정보 이미지">
+                                    </div>
                                     <div class="account-list">
                                         <div class="account-item">
                                             <span class="list">농협 : <span class="copy-target">333-02-312393</span></span>
                                             <button class="copy-btn">
-                                                <img src="img/copy.svg" alt="복사 아이콘">
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
                                                 복사
                                             </button>
                                         </div>  
                                         <div class="account-item">
                                             <span class="list">농협 : <span class="copy-target">421012-82-145151</span></span>
                                             <button class="copy-btn">
-                                                <img src="img/copy.svg" alt="복사 아이콘">
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
                                                 복사
                                             </button>
                                         </div>
                                         <div class="account-item">
                                             <span class="list">기업 : <span class="copy-target">010-6661-99901</span></span>
                                             <button class="copy-btn">
-                                                <img src="img/copy.svg" alt="복사 아이콘">
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
                                                 복사
                                             </button>
                                         </div>
@@ -891,28 +933,28 @@
                                         <div class="account-item">
                                             <span class="list">PHONE 1 : <span class="copy-target">010-9222-2949</span></span>
                                             <button class="copy-btn">
-                                                <img src="img/copy.svg" alt="복사 아이콘">
-                                                <span class="f-white">복사</span>
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
+                                                복사
                                             </button>
                                         </div>
                                         <div class="account-item">
                                             <span class="list">PHONE 2 : <span class="copy-target">010-2544-2949</span></span>
                                             <button class="copy-btn">
-                                                <img src="img/copy.svg" alt="복사 아이콘">
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
                                                 복사
                                             </button>
                                         </div>
                                         <div class="account-item">
                                             <span class="list">E-MAIL : <span class="copy-target">tango@hanmail.net</span></span>
                                             <button class="copy-btn">
-                                                <img src="img/copy.svg" alt="복사 아이콘">
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
                                                 복사
                                             </button>
                                         </div>
                                         <div class="account-item">
                                             <span class="list">FAX : <span class="copy-target">02-938-1960</span></span>
                                             <button class="copy-btn">
-                                                <img src="img/copy.svg" alt="복사 아이콘">
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
                                                 복사
                                             </button>
                                         </div>
@@ -1407,6 +1449,39 @@
 
 
        
+        
+
+
+        // const swiperSection04 = new Swiper('.mainIndex .section04 .swiper-container', {
+        //     slidesPerView: 'auto',
+        //     centeredSlides: true,
+        //     spaceBetween: 30,
+        //     loop: true,
+        //     navigation: {
+        //         nextEl: '.sec04-swiper-button-next',
+        //         prevEl: '.sec04-swiper-button-prev',
+        //     },
+        //     slideToClickedSlide: true,
+        //     initialSlide: 1, // 초기 활성 슬라이드를 가운데로 설정 (인덱스 1)
+        //     on: {
+        //         slideChangeTransitionEnd: function () {
+        //             const activeSlide = this.slides[this.activeIndex];
+        //             const title = activeSlide.dataset.title;
+        //             const date = activeSlide.dataset.date;
+        //             const textContainer = document.querySelector('.mainIndex .section04 .swiper-text-container');
+        //             const titleElement = textContainer.querySelector('.swiper-title');
+        //             const dateElement = textContainer.querySelector('.swiper-date');
+
+        //             titleElement.textContent = title;
+        //             dateElement.textContent = date;
+        //         },
+        //     },
+        // });
+
+
+
+
+
 
         // 복사하기 기능
         document.querySelectorAll('.copy-btn').forEach(function (button) {

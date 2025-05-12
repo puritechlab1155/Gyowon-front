@@ -22,11 +22,117 @@
     <!-- 메인공통 -->
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/main.css">
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
 
     <style>
-        
-    </style>
+.mainIndex .section04 .swiper-container {
+    width: 100%;
+    max-width: 700px; /* 이미지와 버튼 배치 고려한 최대 너비 */
+    height: auto;
+    margin: 60px auto;
+    overflow: visible; /* 이미지가 컨테이너 밖으로 나올 수 있도록 */
+    position: relative;
+    padding: 0 60px; /* 좌우 버튼 공간 확보 */
+}
+
+.mainIndex .section04 .swiper-wrapper {
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.mainIndex .section04 .swiper-slide {
+    flex-shrink: 0;
+    width: 200px; /* 옆 이미지 크기 */
+    height: 200px;
+    opacity: 0.5; /* 기본적으로 흐릿하게 */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(calc(50% + 110px)) scale(0.7); /* 오른쪽으로 이동 */
+}
+
+.mainIndex .section04 .swiper-slide.swiper-slide-prev {
+    transform: translateX(calc(-50% - 110px)) scale(0.7); /* 왼쪽으로 이동 */
+}
+
+.mainIndex .section04 .swiper-slide.swiper-slide-active {
+    width: 492px !important;
+    height: 492px !important;
+    opacity: 1; /* 활성 슬라이드 선명하게 */
+    transform: translateX(0) scale(1); /* 가운데로 확대 */
+}
+
+.mainIndex .section04 .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+}
+
+/* 텍스트 컨테이너 스타일 */
+.mainIndex .section04 .swiper-text-container {
+    text-align: center;
+    padding: 10px;
+    color: #555;
+    position: absolute; /* 이미지 가운데 아래 배치 */
+    bottom: -88px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* 이미지 위에 표시 */
+    opacity: 1; /* 기본적으로 보이게 */
+    transition: opacity 0.3s ease;
+}
+
+.mainIndex .section04 .swiper-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.mainIndex .section04 .swiper-date {
+    font-size: 0.9em;
+}
+
+/* Navigation Arrows 스타일 */
+.mainIndex .section04 .swiper-button-prev,
+.mainIndex .section04 .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    z-index: 10;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.mainIndex .section04 .swiper-button-prev:hover,
+.mainIndex .section04 .swiper-button-next:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.mainIndex .section04 .swiper-button-prev::after,
+.mainIndex .section04 .swiper-button-next::after {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.mainIndex .section04 .swiper-button-prev {
+    left: 10px;
+}
+
+.mainIndex .section04 .swiper-button-next {
+    right: 10px;
+}    </style>
 
 </head>
 <body>
@@ -627,23 +733,39 @@
                 </div>
             </div><!-- //section01 -->
 
-            <!-- 섹션 1 -->
-            <div class="section02 mt-150">
+            <!-- 섹션 4 -->
+            <div class="section04">
                 <div class="inner">
                     <div class="content">
                         <div class="title-area">
                             <h3 class="title">
-                                <span class="fontColor-blue">KTDA</span> 소개
+                                <span class="font-bold">KTDA</span> Media
                             </h3>
-                        </div><!-- //title-area -->
-
-
-                        
-                        
-
+                        </div><div class="swiper-container section04">
+                            <div class="swiper-wrapper media-wrapper">
+                                <div class="swiper-slide" data-title="라틴댄스 지도자 연수" data-date="2024-12-10">
+                                    <img src="img/KTDA-Media01.png" alt="KTDA-Media 이미지 1">
+                                </div>
+                                <div class="swiper-slide swiper-slide-active" data-title="모던댄스 심화 과정" data-date="2025-01-15">
+                                    <img src="img/KTDA-Media02.png" alt="KTDA-Media 이미지 2">
+                                </div>
+                                <div class="swiper-slide" data-title="차차차 마스터 워크숍" data-date="2025-02-05">
+                                    <img src="img/KTDA-Media03.png" alt="KTDA-Media 이미지 3">
+                                </div>
+                            </div>
+            
+                            <div class="swiper-button-prev sec04-swiper-button-prev"></div>
+                            <div class="swiper-button-next sec04-swiper-button-next"></div>
+                        </div>
+            
+                        <div class="swiper-text-container">
+                            <p class="swiper-title">모던댄스 심화 과정</p>
+                            <p class="swiper-date">2025-01-15</p>
+                        </div>
+            
                     </div>
                 </div>
-            </div><!-- //section01 -->
+            </div>
 
                         
             <!-- 팝업창 -->
@@ -1123,6 +1245,41 @@
         });
     });
 
+
+
+
+
+
+
+
+
+
+
+    const swiperSection04 = new Swiper('.mainIndex .section04 .swiper-container', {
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+        nextEl: '.sec04-swiper-button-next',
+        prevEl: '.sec04-swiper-button-prev',
+    },
+    slideToClickedSlide: true,
+    initialSlide: 1, // 초기 활성 슬라이드를 가운데로 설정 (인덱스 1)
+    on: {
+        slideChangeTransitionEnd: function () {
+            const activeSlide = this.slides[this.activeIndex];
+            const title = activeSlide.dataset.title;
+            const date = activeSlide.dataset.date;
+            const textContainer = document.querySelector('.mainIndex .section04 .swiper-text-container');
+            const titleElement = textContainer.querySelector('.swiper-title');
+            const dateElement = textContainer.querySelector('.swiper-date');
+
+            titleElement.textContent = title;
+            dateElement.textContent = date;
+        },
+    },
+});
     </script>
 
     <script>

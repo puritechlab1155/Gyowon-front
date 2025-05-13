@@ -95,13 +95,15 @@ window.onclick = function(event) {
 //-- 퀵메뉴
 document.addEventListener('DOMContentLoaded', function() {
     const quickMenu = document.querySelector('.quick-contain');
+    const quickMenuButton = document.querySelector('.quick-menu');
+    const qItemWrapper = document.querySelector('.qItem-wrapper');
     const mainVisual = document.querySelector('.content');
     let mainVisualHeight = 0;
 
     if (mainVisual) {
         mainVisualHeight = mainVisual.offsetHeight;
     }
-    const triggerOffset = mainVisualHeight + 30; // 메인 비주얼 아래 100px 벗어났을 때
+    const triggerOffset = mainVisualHeight + 30;
 
     window.addEventListener('scroll', function() {
         if (window.scrollY > triggerOffset) {
@@ -117,5 +119,15 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollTopBtn.addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+    }
+
+    // 퀵메뉴 열고 닫기
+    const quickBtnInitial = document.querySelector('.quick-btn-initial');
+    if (quickBtnInitial) {
+        quickBtnInitial.addEventListener('click', toggleQuickMenu);
+    }
+
+    function toggleQuickMenu() {
+        quickMenuButton.classList.toggle('open');
     }
 });

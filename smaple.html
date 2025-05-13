@@ -24,115 +24,226 @@
     <link rel="stylesheet" href="css/footer.css">
     <!-- <link rel="stylesheet" href="css/main.css"> -->
 
-    <style>
-.mainIndex .section04 .swiper-container {
-    width: 100%;
-    max-width: 700px; /* 이미지와 버튼 배치 고려한 최대 너비 */
-    height: auto;
-    margin: 60px auto;
-    overflow: visible; /* 이미지가 컨테이너 밖으로 나올 수 있도록 */
-    position: relative;
-    padding: 0 60px; /* 좌우 버튼 공간 확보 */
-}
-
-.mainIndex .section04 .swiper-wrapper {
+<style>
+/* 퀵메뉴 전체 컨테이너 (배경 및 위치) */
+.quick-contain {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     display: flex;
-    transition-property: transform;
-    box-sizing: content-box;
-    align-items: center; /* 세로 중앙 정렬 */
+    flex-direction: column;
+    align-items: flex-end; /* 오른쪽 정렬 */
 }
 
-.mainIndex .section04 .swiper-slide {
-    flex-shrink: 0;
-    width: 200px; /* 옆 이미지 크기 */
-    height: 200px;
-    opacity: 0.5; /* 기본적으로 흐릿하게 */
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateX(calc(50% + 110px)) scale(0.7); /* 오른쪽으로 이동 */
+.quick-contain.show {
+    opacity: 1;
+    visibility: visible;
 }
 
-.mainIndex .section04 .swiper-slide.swiper-slide-prev {
-    transform: translateX(calc(-50% - 110px)) scale(0.7); /* 왼쪽으로 이동 */
+/* TOP 버튼 스타일 */
+.quick-menu-button .scrollTop.quick-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background-color: #FEFEFE;
+    border-radius: 50%;
+    box-shadow: 0px 3px 12px #D9D9D9;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 8px;
+    cursor: pointer;
 }
 
-.mainIndex .section04 .swiper-slide.swiper-slide-active {
-    width: 492px !important;
-    height: 492px !important;
-    opacity: 1; /* 활성 슬라이드 선명하게 */
-    transform: translateX(0) scale(1); /* 가운데로 확대 */
+.quick-menu-button .scrollTop .icon {
+    width: 24px;
+    height: 24px;
 }
 
-.mainIndex .section04 .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 8px;
+.quick-menu-button .scrollTop .quick-txt {
+    font-size: 12px;
+    font-weight: 600;
+    color: #2A5AB9;
 }
 
-/* 텍스트 컨테이너 스타일 */
-.mainIndex .section04 .swiper-text-container {
-    text-align: center;
-    padding: 10px;
-    color: #555;
-    position: absolute; /* 이미지 가운데 아래 배치 */
-    bottom: -88px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10; /* 이미지 위에 표시 */
-    opacity: 1; /* 기본적으로 보이게 */
+/* 퀵메뉴 버튼 (열기 버튼) 및 아이템 래퍼 */
+.quick-menu-button .quick-menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.quick-menu-button .quick-btn-initial {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    width: 60px;
+    height: 60px;
+    background-color: #2A5AB9;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0px 3px 12px #D9D9D9;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: width 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;
+    overflow: hidden; /* 내용 숨김 */
+}
+
+.quick-menu-button .quick-menu.open .quick-btn-initial {
+    width: auto; /* 내용에 따라 너비 자동 조절 */
+    border-radius: 30px; /* 길쭉한 형태 */
+    padding: 8px 15px; /* 패딩 추가 */
+}
+
+.quick-menu-button .quick-text-initial {
+    white-space: nowrap;
+    opacity: 1;
     transition: opacity 0.3s ease;
 }
 
-.mainIndex .section04 .swiper-title {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 5px;
+.quick-menu-button .quick-menu:not(.open) .quick-text-initial {
+    opacity: 1;
 }
 
-.mainIndex .section04 .swiper-date {
-    font-size: 0.9em;
-}
-
-/* Navigation Arrows 스타일 */
-.mainIndex .section04 .swiper-button-prev,
-.mainIndex .section04 .swiper-button-next {
-    position: absolute;
-    top: 50%;
-    width: 40px;
-    height: 40px;
-    margin-top: -20px;
-    z-index: 10;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
+.quick-menu-button .qItem-wrapper {
     display: flex;
-    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 65px; /* 초기 버튼 바로 옆 */
+}
+
+.quick-menu-button .quick-menu.open .qItem-wrapper {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 퀵메뉴 아이템 스타일 */
+.quick-menu-button .quick-item {
+    border-right: 1px solid #D9D9D9;
+}
+
+.quick-menu-button .quick-item:last-child {
+    border-right: none;
+}
+
+.quick-menu-button .quick-btn {
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    color: #333;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
+    justify-content: center;
+    text-align: left;
+    padding: 8px 10px;
 }
 
-.mainIndex .section04 .swiper-button-prev:hover,
-.mainIndex .section04 .swiper-button-next:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+.quick-menu-button .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
 }
 
-.mainIndex .section04 .swiper-button-prev::after,
-.mainIndex .section04 .swiper-button-next::after {
-    font-size: 1em;
-    font-weight: bold;
+.quick-menu-button .quick-txt {
+    font-size: 12px;
+    font-weight: 600;
+    color: #2A5AB9;
 }
 
-.mainIndex .section04 .swiper-button-prev {
-    left: 10px;
-}
+/* 모바일 스타일 (필요하다면) */
+@media (max-width: 767px) {
+    .quick-contain {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        align-items: center;
+    }
 
-.mainIndex .section04 .swiper-button-next {
-    right: 10px;
-}    </style>
+    .quick-menu-button {
+        align-items: center;
+    }
+
+    .quick-menu-button .scrollTop.quick-btn {
+        margin-bottom: 4px;
+    }
+
+    .quick-menu-button .quick-menu {
+        align-items: center;
+    }
+
+    .quick-menu-button .quick-btn-initial {
+        justify-content: center;
+    }
+
+    .quick-menu-button .qItem-wrapper {
+        position: static;
+        left: auto;
+        flex-direction: row;
+        border-radius: 30px;
+        padding: 8px 15px;
+        justify-content: space-around;
+        width: auto;
+        margin-top: 8px;
+    }
+
+    .quick-menu-button .quick-item {
+        border-right: 1px solid #D9D9D9;
+        padding: 0 10px;
+    }
+
+    .quick-menu-button .icon {
+        margin-right: 5px;
+    }
+
+    .quick-menu-button .quick-txt {
+        font-size: 12px;
+    }
+}
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const quickMenu = document.querySelector('.quick-contain');
+        const quickMenuButton = document.querySelector('.quick-menu');
+        const qItemWrapper = document.querySelector('.qItem-wrapper');
+        const quickBtnInitial = document.querySelector('.quick-btn-initial');
+        const mainVisual = document.querySelector('.content');
+        let mainVisualHeight = 0;
+
+        if (mainVisual) {
+            mainVisualHeight = mainVisual.offsetHeight;
+        }
+        const triggerOffset = mainVisualHeight + 30;
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > triggerOffset) {
+                quickMenu.classList.add('show');
+            } else {
+                quickMenu.classList.remove('show');
+            }
+        });
+
+        const scrollTopBtn = document.querySelector('.scrollTop');
+        if (scrollTopBtn) {
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        function toggleQuickMenu() {
+            quickMenuButton.classList.toggle('open');
+        }
+    });
+</script>
+
+
 
 </head>
 <body>
@@ -185,7 +296,7 @@
                                             <a class="sItem" href="#">자주 묻는 질문</a>
                                         </li>
                                         <li class="gnb-sub-item">
-                                            <a class="sItem" href="#">자유게시판</a>
+                                            <a class="sItem" href="#">Q&A</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -478,38 +589,60 @@
         </header>
         <!-- 퀵메뉴 // 로그인 전 클릭하면 로그인페이지로 이동 -->
         <div class="quick-contain">
-            <!-- 관리자에게만 보여지는 버튼 -->
-            <div class="quick-item">
-                <button type="button" class="quick-btn" onclick="window.location.href='https://puritechlab1155.github.io/Gyowon/index.html';">
-                    <div class="icon"><img src="img/lms.svg" alt="관리자 아이콘"/></div>
-                    <span class="quick-txt">관리자</span>
-                </button>
-            </div>
-            <div class="quick-item">
-                <button type="button" class="quick-btn" onclick="window.location.href='#';">
-                    <div class="icon"><img src="img/training.svg" alt="신청내역 아이콘"/></div>
-                    <span class="quick-txt">신청내역</span>
-                </button>
-            </div>
-            <div class="quick-item">
-                <button type="button" class="quick-btn" onclick="window.location.href='#';">
-                    <div class="icon"><img src="img/daum.svg" alt="다음카페 아이콘"/></div>
-                    <span class="quick-txt">다음카페</span>
-                </button>
-            </div>
-            <div class="quick-item">
-                <button type="button" class="quick-btn" onclick="window.location.href='#';">
-                    <div class="icon"><img src="img/video.svg" alt="영상자료 아이콘"/></div>
-                    <span class="quick-txt">영상자료</span>
-                </button>
-            </div>
-            <div class="quick-item">
+
+            <div class="quick-menu-button">
                 <button type="button" class="scrollTop quick-btn">
                     <div class="icon"><img src="img/top.svg" alt="TOP 아이콘"/></div>
                     <span class="quick-txt">TOP</span>
                 </button>
+
+                <div class="quick-menu">
+                    <button type="button" class="quick-btn-initial" onclick="toggleQuickMenu()">
+                        <span class="quick-text-initial">퀵메뉴</span>
+
+                        <div class="qItem-wrapper">
+                            <!-- 관리자에게만 보여지는 버튼 -->
+                            <div class="quick-item lms-btn">
+                                <button type="button" class="quick-btn" onclick="window.location.href='https://puritechlab1155.github.io/Gyowon/index.html';">
+                                    <div class="icon"><img src="img/lms.svg" alt="관리자 아이콘"/></div>
+                                    <span class="quick-txt">관리자</span>
+                                </button>
+                            </div>
+                            <!-- 공통으로 보여지는 버튼 -->
+                            <div class="quick-item">
+                                <button type="button" class="quick-btn" onclick="window.location.href='#';">
+                                    <div class="icon"><img src="img/training.svg" alt="신청내역 아이콘"/></div>
+                                    <span class="quick-txt">신청내역</span>
+                                </button>
+                            </div>
+                            <div class="quick-item">
+                                <button type="button" class="quick-btn" onclick="window.location.href='#';">
+                                    <div class="icon"><img src="img/daum.svg" alt="다음카페 아이콘"/></div>
+                                    <span class="quick-txt">다음카페</span>
+                                </button>
+                            </div>
+                            <div class="quick-item">
+                                <button type="button" class="quick-btn" onclick="window.location.href='#';">
+                                    <div class="icon"><img src="img/video.svg" alt="영상자료 아이콘"/></div>
+                                    <span class="quick-txt">영상자료</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </button>
+
+
+
+                </div>
+                
             </div>
+
         </div>
+
+        
+
+       
+
 
         <main id="main" class="mainIndex">
             <!-- main_visual -->
@@ -767,7 +900,6 @@
                 </div>
             </div>
 
-                        
             <!-- 팝업창 -->
             <div class="pop-container">
                 <div class="pop-inner">

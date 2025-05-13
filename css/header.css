@@ -222,7 +222,7 @@
 }
 
 /* 퀵메뉴 */
-.quick-contain {
+/* .quick-contain {
     position: fixed;
     bottom: 20px;
     right: 0%;
@@ -237,37 +237,55 @@
     box-shadow: 0px 3px 12px #D9D9D9;
     flex-direction: column;
     max-width: 76px;
+} */
+
+#home .quick-contain {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; /* 모바일에서 오른쪽으로 위치 */
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    display: flex;
+    background-color: #FEFEFE;
+    border-radius: 20px;
+    box-shadow: 0px 3px 12px #D9D9D9;
+    flex-direction: column;
+    max-width: 76px;
 }
-.quick-contain.show {
+#home .quick-contain.show {
     opacity: 1;
     visibility: visible;
 }
-.quick-contain .quick-item {
+#home .quick-contain .quick-item {
     border-bottom: 1px solid #D9D9D9;
 }
-.lms-btn {  /* 관리자에게만 보여지는 버튼 */
+#home .lms-btn {  /* 관리자에게만 보여지는 버튼 */
     /* display: none;   */
 }
-.quick-contain .quick-item:last-child {
+#home .quick-contain .quick-item:last-child {
     border-bottom: none;
 }
-.quick-contain .quick-btn {
+#home .quick-contain .quick-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 8px;
 }
-.quick-contain .icon {
+#home .quick-contain .icon {
     width: 48px;
     height: 48px;
 }
-.quick-contain .quick-txt {
-    font-size: 14px;
+#home .quick-contain .quick-txt {
+    font-size: clamp(10px, 1vw, 14px);
     font-weight: 600;
     color: #2A5AB9;
 }
-
+#home .quick-contain .quick-mob {
+    display: none;
+}
 
 
 @media (max-width: 928px) {
@@ -411,3 +429,79 @@
         transform: rotate(-45deg);
     }
 }
+
+
+@media (max-width: 767px) {
+    .quick-menu-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px; /* 이미지처럼 좌측에 위치 */
+        z-index: 101; /* quick-contain 보다 위에 */
+    }
+    
+    .quick-btn-initial {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px; /* 이미지와 비슷한 크기 */
+        height: 60px;
+        background-color: #2A5AB9; /* 이미지와 비슷한 색상 */
+        color: #fff;
+        border-radius: 50%;
+        box-shadow: 0px 3px 12px #D9D9D9;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .quick-btn-initial:hover {
+        background-color: #1e4286;
+    }
+    
+    .quick-text-initial {
+        white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+    }
+    .quick-contain.show {
+        transform: translateY(0); /* 나타날 때 제자리로 */
+    }
+
+    
+    #home .quick-contain {
+        right: 9%;
+        transform: translateX(-50%);
+        flex-direction: row; 
+        max-width: none; 
+        width: auto;
+        border-radius: 30px;
+        padding: 8px 15px;
+        justify-content: space-around; 
+    }
+    #home .quick-contain .quick-item {
+        border-bottom: none; 
+        border-right: 1px solid #D9D9D9; 
+    }
+    #home .quick-contain .quick-item:last-child {
+        border-right: none; 
+    }
+    #home .quick-contain .quick-btn {
+        flex-direction: column; 
+        padding: 8px;
+    }
+    #home .quick-contain .icon {
+        width: 24px; 
+        height: 24px;
+        margin-bottom: 4px; 
+    }
+    #home .quick-contain .quick-txt {
+        font-size: 12px; 
+    }
+    /* 모바일 전용 퀵메뉴 */
+    #home .quick-pc {
+        display: none;
+    }
+    #home .quick-mob {
+        display: block;
+    }
+}
+

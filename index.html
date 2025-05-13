@@ -371,6 +371,7 @@
             </div>
         </header>
         <!-- 퀵메뉴 // 로그인 전 클릭하면 로그인페이지로 이동 -->
+        <!-- <div class="quick-contain quick-pc"> -->
         <div class="quick-contain">
             <!-- 관리자에게만 보여지는 버튼 -->
             <div class="quick-item lms-btn">
@@ -405,6 +406,56 @@
                 </button>
             </div>
         </div>
+
+
+        <!-- quick-mob -->
+        <div class="quick-contain quick-mob">
+
+            <div class="quick-menu-button">
+                <button type="button" class="quick-btn-initial" onclick="toggleQuickMenu()">
+                    <span class="quick-text-initial">퀵메뉴</span>
+                </button>
+                <button type="button" class="scrollTop quick-btn">
+                    <div class="icon"><img src="img/top.svg" alt="TOP 아이콘"/></div>
+                    <span class="quick-txt">TOP</span>
+                </button>
+            </div>
+
+            <!-- <div class="quick-wrapper"> -->
+                <!-- 관리자에게만 보여지는 버튼 -->
+                <!-- <div class="quick-item lms-btn">
+                    <button type="button" class="quick-btn" onclick="window.location.href='https://puritechlab1155.github.io/Gyowon/index.html';">
+                        <div class="icon"><img src="img/lms.svg" alt="관리자 아이콘"/></div>
+                        <span class="quick-txt">관리자</span>
+                    </button>
+                </div> -->
+
+                <!-- 공통으로 보여지는 버튼 -->
+                <!-- <div class="quick-item">
+                    <button type="button" class="quick-btn" onclick="window.location.href='#';">
+                        <div class="icon"><img src="img/training.svg" alt="신청내역 아이콘"/></div>
+                        <span class="quick-txt">신청내역</span>
+                    </button>
+                </div>
+                <div class="quick-item">
+                    <button type="button" class="quick-btn" onclick="window.location.href='#';">
+                        <div class="icon"><img src="img/daum.svg" alt="다음카페 아이콘"/></div>
+                        <span class="quick-txt">다음카페</span>
+                    </button>
+                </div>
+                <div class="quick-item">
+                    <button type="button" class="quick-btn" onclick="window.location.href='#';">
+                        <div class="icon"><img src="img/video.svg" alt="영상자료 아이콘"/></div>
+                        <span class="quick-txt">영상자료</span>
+                    </button>
+                </div> -->
+               
+            <!-- </div> -->
+
+        </div>
+
+
+
 
         <main id="main" class="mainIndex">
             <!-- main_visual -->
@@ -826,31 +877,6 @@
                                 <span class="font-bold">KTDA</span> Media
                             </h3>
                         </div>
-                        
-                        <!-- <div class="swiper-container section04">
-            
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="img/KTDA-Media01.png" alt="KTDA-Media 이미지 1">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/KTDA-Media02.png" alt="KTDA-Media 이미지 2">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="img/KTDA-Media03.png" alt="KTDA-Media 이미지 3">
-                                </div>
-                            </div>
-            
-                            <div class="swiper-button-prev sec04-swiper-button-prev"></div>
-                            <div class="swiper-button-next sec04-swiper-button-next"></div>
-            
-                            <div class="swiper-text-container">
-                                <p class="swiper-title">댄스스포츠 지도자 자격 연수</p>
-                                <p class="swiper-date">2024-12-25</p>
-                            </div>
-            
-                        </div> -->
-            
             
                         <div class="swiper-container section04">
                             <div class="swiper-wrapper media-wrapper">
@@ -886,89 +912,96 @@
 
             <!-- 5. 결제계좌 정보, 연수지원센터 -->
             <div class="section05 mt-150">
-                <!-- <div class="inner"> -->
                 <div class="section05-inner">
-                    <div class="content">
-                        <div class="content-inner">
-                            <!-- 결제계좌 정보 -->
-                            <div class="flex-left">
+                    <div class="content-inner">
+                        
+                        <!-- 결제계좌 정보 -->
+                        <div class="flex-left">
+                            <div class="inner-box">
                                 <div class="left-box text-box">
+                                    
                                     <div class="flex-area-mob">
                                         <h4 class="sub-title">결제계좌 정보</h4>
                                         <img class="right-img-mob" src="img/credit-card.png" alt="결제계좌 정보 이미지">
                                     </div>
+
                                     <div class="account-list">
+                                        <!-- 계좌 아이템들 -->
                                         <div class="account-item">
                                             <span class="list">농협 : <span class="copy-target">333-02-312393</span></span>
                                             <button class="copy-btn">
-                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
-                                                복사
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘"> 복사
                                             </button>
-                                        </div>  
+                                        </div>
                                         <div class="account-item">
                                             <span class="list">농협 : <span class="copy-target">421012-82-145151</span></span>
                                             <button class="copy-btn">
-                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
-                                                복사
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘"> 복사
                                             </button>
                                         </div>
                                         <div class="account-item">
                                             <span class="list">기업 : <span class="copy-target">010-6661-99901</span></span>
                                             <button class="copy-btn">
-                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
-                                                복사
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘"> 복사
                                             </button>
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="right-box">
-                                    <img class="right-img" src="img/credit-card.png" alt="결제계좌 정보 이미지">
+                                  <img class="right-img" src="img/credit-card.png" alt="결제계좌 정보 이미지">
                                 </div>
                             </div>
-                            <!-- 연수지원센터 -->
-                            <div class="flex-right">
+                        </div>
+                
+                        <!-- 연수지원센터 -->
+                        <div class="flex-right">
+                            <div class="inner-box">
                                 <div class="left-box text-box">
-                                    <h4 class="sub-title">연수지원센터</h4>
+
+                                    <div class="flex-area-mob">
+                                        <h4 class="sub-title">연수지원센터</h4>
+                                        <img class="right-img-mob" src="img/innovation-center.png" alt="연수지원센터 이미지">
+                                    </div>
+
                                     <div class="account-list">
                                         <div class="account-item">
                                             <span class="list">PHONE 1 : <span class="copy-target">010-9222-2949</span></span>
                                             <button class="copy-btn">
-                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
-                                                복사
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘"> 복사
                                             </button>
                                         </div>
                                         <div class="account-item">
                                             <span class="list">PHONE 2 : <span class="copy-target">010-2544-2949</span></span>
                                             <button class="copy-btn">
-                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
-                                                복사
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘"> 복사
                                             </button>
                                         </div>
                                         <div class="account-item">
                                             <span class="list">E-MAIL : <span class="copy-target">tango@hanmail.net</span></span>
                                             <button class="copy-btn">
-                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
-                                                복사
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘"> 복사
                                             </button>
                                         </div>
                                         <div class="account-item">
                                             <span class="list">FAX : <span class="copy-target">02-938-1960</span></span>
                                             <button class="copy-btn">
-                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘">
-                                                복사
+                                                <img class="copy-icon" src="img/copy.svg" alt="복사 아이콘"> 복사
                                             </button>
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="right-box">
-                                    <img class="right-img" src="img/innovation-center.png" alt="결제계좌 정보 이미지">
+                                    <img class="right-img" src="img/innovation-center.png" alt="연수지원센터 이미지">
                                 </div>
                             </div>
-
                         </div>
+                
                     </div>
                 </div>
-            </div><!-- //section05 -->
+            </div>
+            <!-- //section05 -->
                         
             <!-- 팝업창 -->
             <!-- <div class="pop-container">

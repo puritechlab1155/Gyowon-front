@@ -3,69 +3,41 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
 
 @font-face {
-    font-family: 'Paperlogy'; /* 원하는 폰트 이름 정의 */
-    src: url('path/to/paperlogy.woff2') format('woff2'),
-         url('path/to/paperlogy.woff') format('woff');
-    /* 필요에 따라 다른 형식의 폰트 파일 추가 */
-    font-weight: normal; /* 폰트 굵기 */
-    font-style: normal; /* 폰트 스타일 (기울임 등) */
-    font-display: swap; /* 폰트 로딩 방식 설정 (선택 사항) */
+  font-family: 'NanumSquareNeoLight';
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf) format("truetype");
 }
-/* 
+
 @font-face {
-  font-family: "Pretendard-Thin";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff") format("woff");
-  font-weight: 100;
-  font-style: normal;
+  font-family: 'NanumSquareNeo';
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.ttf) format("truetype");
 }
+
 @font-face {
-  font-family: "Pretendard-ExtraLight";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff") format("woff");
-  font-weight: 200;
-  font-style: normal;
+  font-family: 'NanumSquareNeoBold';
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.ttf) format("truetype");
 }
+
 @font-face {
-  font-family: "Pretendard-Light";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
+  font-family: 'NanumSquareNeoExtraBold';
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.ttf) format("truetype");
 }
+
 @font-face {
-  font-family: "Pretendard-Regular";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
+  font-family: 'NanumSquareNeoHeavy';
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.ttf) format("truetype");
 }
+
 @font-face {
-  font-family: "Pretendard-Medium";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
+  font-family: 'NanumSquareNeoVariable';
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot);
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf) format("truetype");
 }
-@font-face {
-  font-family: "Pretendard-SemiBold";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Pretendard-Bold";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Pretendard-ExtraBold";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff") format("woff");
-  font-weight: 800;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Pretendard-Black";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff") format("woff");
-  font-weight: 900;
-  font-style: normal;
-} */
+
 
 *{
   font-family: 'Pretendard Variable';
@@ -293,14 +265,13 @@ img {
   color: #fff;
   font-size: clamp(18px,2vw,28px);
   line-height: 120%;
-  font-family: 'Paperlogy', 'Pretendard-Regular';
+  font-family: 'NanumSquareNeo', 'Pretendard-Regular';
 }
 #home .mainIndex .main_visual .text-box .text-box-inner .text .txt-middle {
   color: #fff;
   font-size: clamp(48px,5vw,90px);
   line-height: 120%;
-  font-weight: 700;
-  font-family: 'Paperlogy', 'Pretendard-Regular';
+  font-family: 'NanumSquareNeoExtraBold', 'Pretendard-Regular';
 
 }
 #home .mainIndex .main_visual .text-box .text-box-inner .text .txt-bottom {
@@ -363,12 +334,12 @@ img {
 }
 .mainIndex .mainBtn-container .enName {
   font-size: 20px;
-  font-weight: 500;
   color: #949494;
+  font-family: 'NanumSquareNeoBold';
 }
 .mainIndex .mainBtn-container .koName {
   font-size: 30px;
-  font-weight: 700;
+  font-family: 'NanumSquareNeoExtraBold';
 }
 .mainIndex .mainBtn-container .quick-btnBox {
   display: flex;
@@ -545,17 +516,17 @@ img {
 /* --- 2. KTDA 소개 */
 .title-area .title {
   font-size: 50px;
-  font-weight: 800;
   line-height: 140%;
   color: #6F6F6F;
   text-align: center;
+  font-family: 'NanumSquareNeoHeavy';
 }
 .title-area .font-bold {
   font-size: 50px;
-  font-weight: 800;
   line-height: 140%;
   color: #005AAB;
   text-align: center;
+  font-family: 'NanumSquareNeoHeavy';
 }
 .title-area .title .fontColor-blue {
   font-size: 50px;
@@ -582,19 +553,21 @@ img {
 }
 .mainIndex .text-box .sub-title {
   font-size: clamp(28px, 3vw, 40px);
-  font-weight: 500;
   line-height: 140%;
+  font-family: 'NanumSquareNeoBold';
 }
 .mainIndex .section02 .text-box .font-bold,
 .mainIndex .section03 .text-box .font-bold {
   color: #333;
+  font-family: 'NanumSquareNeoExtraBold';
+  font-size: clamp(28px, 2vw, 40px);
 }
 .mainIndex .text-box .font-bold, 
 .mainIndex .section03-card .text-box .font-bold {
   font-size: clamp(28px,2vw, 40px);
-  font-weight: 700;
   display: block;
   color: #005AAB;
+  font-family: 'NanumSquareNeoExtraBold';
 }
 
 .mainIndex .text-box .desc {
@@ -872,90 +845,131 @@ img {
 
 /* 5. 결제계좌 정보, 연수지원센터 */
 .mainIndex .section05 {
-  
+  width: 100%;
 }
-.mainIndex .section05 .section05-inner {
 
-}
-.mainIndex .section05 .content {
-  /* max-width: 1200px;
-  padding: 0 24px;
-  margin: 0 auto; */
-}
-.mainIndex .section05 .content .content-inner {
+/* section05-inner */
+.mainIndex .section05 .section05-inner {
   display: flex;
-  justify-content: space-between;
-  /* align-items: center; */
   flex-wrap: wrap;
 }
-.mainIndex .section05 .content .flex-left,
-.mainIndex .section05 .content .flex-right {
-  background: #34496B;
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  padding: 2% 4% 5% 19%;
-  /* padding: 0 24px; */
-}
-.mainIndex .section05 .content .flex-right {
-  background: #0B68E3;
-  width: 50%;
-  padding: 2% 19% 5% 4%;
-}
-.mainIndex .section05 .content .left-box {
 
+/* content-inner */
+.mainIndex .section05 .content-inner {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
-.mainIndex .section05 .content .sub-title {
+
+/* 왼쪽/오른쪽 영역 */
+.mainIndex .section05 .flex-left,
+.mainIndex .section05 .flex-right {
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.mainIndex .section05 .flex-left {
+  background-color: #34496B;
+}
+
+.mainIndex .section05 .flex-right {
+  background: #0B68E3;
+}
+
+/* 내용 정렬 박스 */
+.mainIndex .section05 .inner-box {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-right: 5%;
+}
+.mainIndex .section05 .flex-right .inner-box {
+  max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-left: 5%;
+}
+
+/* 텍스트 박스 */
+.mainIndex .section05 .left-box {
+  /* flex: 1 1 60%; */
+  max-width: 320px;
+}
+
+/* 제목 */
+.mainIndex .section05 .sub-title {
   font-size: clamp(20px, 2vw, 30px);
   font-weight: 700;
   color: #FEFEFE;
 }
-.mainIndex .section05 .content .account-list {
+
+/* 계좌 리스트 */
+.mainIndex .section05 .account-list {
   color: #FEFEFE;
   font-size: 16px;
   width: 100%;
-  max-width: 500px;
+  max-width: 380px;
   margin-top: 26px;
 }
-.mainIndex .section05 .content .account-list .account-item {
+
+.mainIndex .section05 .account-list .account-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
   width: 100%;
   box-sizing: border-box;
-  /* flex-wrap: wrap; */
 }
-.mainIndex .section05 .content .account-list .account-item .list {
-  flex: 1;
-  min-width: 200px;
-  color: #FEFEFE;
-  /* margin-bottom: 10px; */
-}
-.mainIndex .section05 .content .account-list .account-item .copy-target {
-  color: #FEFEFE;
 
+/* 리스트 텍스트 */
+.mainIndex .section05 .account-list .account-item .list {
+  flex: 1;
+  min-width: 220px;
+  color: #FEFEFE;
 }
-.mainIndex .section05 .content .account-list .account-item .copy-btn {
+
+/* 복사 타겟 */
+.mainIndex .section05 .account-list .account-item .copy-target {
+  color: #FEFEFE;
+}
+
+/* 복사 버튼 */
+.mainIndex .section05 .account-list .account-item .copy-btn {
   display: flex;
   align-items: center;
   gap: 4px;
   color: #FEFEFE;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
-.mainIndex .section05 .content .account-list .account-item .copy-btn:hover {
+
+.mainIndex .section05 .account-list .account-item .copy-btn:hover {
   border-bottom: 1px solid #FEFEFE;
 }
-.copy-btn .copy-icon {
+
+/* 복사 아이콘 */
+.mainIndex .section05 .copy-btn .copy-icon {
   width: 20px;
   height: 20px;
 }
-.mainIndex .section05 .content .right-img {
+
+/* 오른쪽 이미지 */
+.mainIndex .section05 .right-img {
   max-width: 160px;
 }
+
 .mainIndex .section05 .right-img-mob {
   display: none;
 }
-
 
 
 
@@ -998,12 +1012,41 @@ img {
   .mainIndex .section03 .left-box {
     max-width: 220px;
   }
+
 }
 
-@media (max-width: 1249px) {
-  .mainIndex .section05 .content .flex-left, 
-  .mainIndex .section05 .content .flex-right {
-    padding: 40px 24px;
+@media (max-width: 1199px) {
+  .mainIndex .section05 .right-img {
+    /* width: 70%; */
+  }
+  .mainIndex .section05 .inner-box {
+    justify-content: space-between;
+    margin: 0 !important;
+  }
+  .mainIndex .section05 .account-list, 
+  .mainIndex .section05 .left-box {
+    max-width: 600px;
+    flex: 1 1 100%;
+  }
+  .mainIndex .section05 .right-box {
+    display: none;
+  }
+  .mainIndex .section05 .flex-area-mob {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  .mainIndex .section05 .right-img-mob {
+    display: block;
+    max-width: 60px;
+  }
+  .mainIndex .section05 .account-list .account-item {
+    justify-content: center;
+    gap: 30px;
+  }
+  .mainIndex .section05 .account-list .account-item .list {
+    flex: none;
   }
 }
 @media (max-width: 1023px) {
@@ -1057,19 +1100,23 @@ img {
   .home .mainIndex .section01 .label {
     display: none;
   }
-  .mainIndex .section05 .content .right-img {
-    width: 70%;
+  .mainIndex .section05.right-img {
+    /* width: 70%; */
+    /* max-width: 160px; */
   }
-  .mainIndex .section05 .content .flex-left, 
-  .mainIndex .section05 .content .flex-right {
-    flex-direction: column-reverse;
-    justify-content: start;
+  .mainIndex .section05.flex-left, 
+  .mainIndex .section05.flex-right {
+    /* flex-direction: column-reverse;
+    justify-content: start; */
   }
   .mainIndex .section05 .right-box {
-    text-align: center;
+    /* flex: 1 1 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; */
   }
-  .mainIndex .section05 .content .left-box {
-    width: 100%;
+  .mainIndex .section05.left-box {
+    /* width: 100%; */
   }
 }
 
@@ -1117,17 +1164,30 @@ img {
   .mainIndex .section03-card .text-box {
     padding-left: 0;
   }
-  .mainIndex .section05 .content .account-list .account-item {
-    font-size: 16px;
+  /* 05 */
+  .mainIndex .section05 .flex-left, .flex-right {
+    /* width: 100%; */
   }
 
+  .mainIndex .section05 .inner-box {
+    /* flex-direction: column;
+    align-items: flex-start; */
+  }
+
+  .mainIndex .section05 .right-box {
+    /* justify-content: flex-start;
+    margin-top: 20px; */
+  }
+  .mainIndex .section05.account-list .account-item {
+    font-size: 16px;
+  }
   
 }
 
 @media (max-width: 730px) {
   .home .mainIndex .section01 .notice-faq-container,
   .mainIndex .section02 .flex-area,
-  .mainIndex .section05 .content .content-inner {
+  .mainIndex .section05 .content-inner {
     flex-direction: column;
     justify-content: center;
   }
@@ -1136,13 +1196,13 @@ img {
     width: 100%;
     text-align: center;
   }
-  .mainIndex .section05 .content .flex-left, 
-  .mainIndex .section05 .content .flex-right {
+  .mainIndex .section05 .flex-left, 
+  .mainIndex .section05 .flex-right {
     width: 100%;
   }
-  .mainIndex .section05 .content .flex-left, 
-  .mainIndex .section05 .content .flex-right {
-    position: relative;
+  .mainIndex .section05 .flex-left, 
+  .mainIndex .section05 .flex-right {
+    /* position: relative; */
   }
   .mainIndex .section05 .right-box {
     /* position: absolute;
@@ -1151,24 +1211,19 @@ img {
     display: none;
   }
   .mainIndex .section05 .right-img-mob {
-    display: block;
-    max-width: 60px;
+    /* display: block;
+    max-width: 60px; */
   }
   .flex-area-mob {
     
   }
-  .mainIndex .section05 .content .sub-title {
+  .mainIndex .section05.sub-title {
     /* text-align: center;
     margin-bottom: 50px; */
   }
 
 }
 @media (max-width: 480px) {
-  .account-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
   .copy-btn {
     padding-left: 0;
   }

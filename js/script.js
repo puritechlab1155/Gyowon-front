@@ -63,20 +63,32 @@ document.querySelector('.sitemapBtn').onclick = function() {
     const sitemapModal = document.getElementById('sitemap-modal');
     if (sitemapModal && sitemapModal.classList.contains('modal')) {
         sitemapModal.style.display = "block";
+        document.body.classList.add('modal-open');
+    }
+}
+// '이용약관' 버튼 클릭 시 terms-modal 열기
+document.querySelector('.termBtn').onclick = function () {
+    const termsModal = document.getElementById('terms-modal');
+    if (termsModal && termsModal.classList.contains('modal')) {
+        termsModal.style.display = "block";
+        document.body.classList.add('modal-open');
     }
 }
 
 // 모달 닫기 버튼 클릭 시 닫기
 document.getElementById('close-sitemap').onclick = function() {
     document.getElementById('sitemap-modal').style.display = "none";
+    document.body.classList.remove('modal-open');
 }
 
 document.getElementById('close-terms').onclick = function() {
     document.getElementById('terms-modal').style.display = "none";
+    document.body.classList.remove('modal-open');
 }
 
 document.getElementById('close-privacy').onclick = function() {
     document.getElementById('privacy-modal').style.display = "none";
+    document.body.classList.remove('modal-open');
 }
 
 // 모달 외부 클릭 시 닫기

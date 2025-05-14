@@ -93,41 +93,49 @@ window.onclick = function(event) {
 }
 
 //-- 퀵메뉴
-document.addEventListener('DOMContentLoaded', function() {
-    const quickMenu = document.querySelector('.quick-contain');
-    const quickMenuButton = document.querySelector('.quick-menu');
-    const qItemWrapper = document.querySelector('.qItem-wrapper');
-    const mainVisual = document.querySelector('.content');
-    let mainVisualHeight = 0;
-
-    if (mainVisual) {
-        mainVisualHeight = mainVisual.offsetHeight;
-    }
-    const triggerOffset = mainVisualHeight + 30;
-
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > triggerOffset) {
-            quickMenu.classList.add('show');
-        } else {
-            quickMenu.classList.remove('show');
-        }
-    });
-
-    // TOP 버튼 스크롤 기능
+document.addEventListener('DOMContentLoaded', function () {
+    const quickMenu = document.getElementById('quickMenu'); // 핵심 수정
+    const quickInitialBtn = document.querySelector('.quick-btn-initial');
     const scrollTopBtn = document.querySelector('.scrollTop');
+    const mainVisual = document.querySelector('.content'); // 없으면 기본값 사용
+  
+    const triggerOffset = mainVisual ? mainVisual.offsetHeight + 30 : 300;
+  
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > triggerOffset) {
+        quickMenu.classList.add('show');
+      } else {
+        quickMenu.classList.remove('show');
+      }
+    });
+  
     if (scrollTopBtn) {
-        scrollTopBtn.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+      scrollTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     }
+  
+    if (quickInitialBtn) {
+      quickInitialBtn.addEventListener('click', function () {
+        quickMenu.classList.toggle('open'); // 핵심 수정
+      });
+    }
+  });
+  
 
-    // 퀵메뉴 열고 닫기
-    const quickBtnInitial = document.querySelector('.quick-btn-initial');
-    if (quickBtnInitial) {
-        quickBtnInitial.addEventListener('click', toggleQuickMenu);
-    }
-
-    function toggleQuickMenu() {
-        quickMenuButton.classList.toggle('open');
-    }
-});
+// function toggleQuickMenu(button) {
+//     const container = document.getElementById('quickMenu');
+//     const isOpen = container.classList.toggle('open');
+//     const target = document.getElementById('qItemWrapper');
+  
+//     // toggle hidden 속성으로 display 자동 제어
+//     if (isOpen) {
+//       target.removeAttribute('hidden');
+//       button.setAttribute('aria-expanded', 'true');
+//     } else {
+//       target.setAttribute('hidden', '');
+//       button.setAttribute('aria-expanded', 'false');
+//     }
+// }
+  
+  

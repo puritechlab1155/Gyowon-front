@@ -288,7 +288,7 @@ body.modal-open {
 #home .mainIndex .main_visual .text-box {
   position: absolute;
   left: 1.5%;
-  top: 60%;
+  top: 65%;
   transform: translateY(-50%);
   width: 100%;
   padding: 0 15%;
@@ -364,10 +364,6 @@ body.modal-open {
   line-height: 180%; /* 32.4px */
   letter-spacing: -0.36px;
 }
-#home .mainIndex .main_visual .text-box .text-box-inner .slide-link img {
-  /* display: block; */
-}
-
 
 /* ------------ 메인버튼 */
 .mainIndex .mainBtn-container {
@@ -378,8 +374,8 @@ body.modal-open {
   transform: translateY(-50%);
   position: relative;
   z-index: 2;
-  gap: 20px;
-  padding: 0 20px;
+  gap: 40px;
+  padding: 0 40px;
 }
 /* 왼쪽 - 즐겨찾기 */
 .mainIndex .mainBtn-container .quickMenu {
@@ -422,9 +418,9 @@ body.modal-open {
   padding: 40px 30px;
 } */
 .q-btn {
-  flex: 0 0 19%; 
+  flex: 0 0 18%; 
   border-radius: 10px;
-  padding: 35px 30px;
+  padding: 30px 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -610,14 +606,14 @@ body.modal-open {
 
 /* --- 2. KTDA 소개 */
 .title-area .title {
-  font-size: 50px;
+  font-size: clamp(35px, 3vw, 50px);
   line-height: 140%;
   color: #6F6F6F;
   text-align: center;
   font-family: 'NanumSquareNeoHeavy';
 }
 .title-area .font-bold {
-  font-size: 50px;
+  font-size: clamp(35px, 3vw, 50px);
   line-height: 140%;
   color: #005AAB;
   text-align: center;
@@ -665,7 +661,7 @@ body.modal-open {
 }
 
 .mainIndex .text-box .desc {
-  font-size: clamp(16px, 1.5vw, 20px);
+  font-size: clamp(16px, 1vw, 20px);
   font-weight: 400;
   color: #6F6F6F;
   margin-top: 20px;
@@ -712,6 +708,7 @@ body.modal-open {
   display: flex;
   width: 100%;
   align-items: flex-start;
+  padding: 0 20px;
 }
 .mainIndex .section03-card .img-box {
   flex: 0 0 50%; 
@@ -722,7 +719,7 @@ body.modal-open {
   margin-top: 0px;
 }
 .mainIndex .section03-card .swiper-slide:nth-child(3) .img-box {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .mainIndex .section03-card .swiper-slide:nth-child(4) .img-box {
   margin-top: 70px;
@@ -989,7 +986,7 @@ body.modal-open {
   transition: .3s opacity;
   transform: translate3d(0, 0, 0);
   z-index: 10;
-  bottom: 29% !important;
+  bottom: 26% !important;
   left: -30% !important;
 }
 .main_visual .swiper-pagination-bullet {
@@ -1196,18 +1193,25 @@ body.modal-open {
 
 /* 리사이징 */
 
+
 @media (max-width: 1369px) {
   .mainIndex .section03-card .swiper-container {
-    transform: translateX(50%) translateY(-100%);
+    transform: translateX(60%) translateY(-110%);
   }
   .mainIndex .section03-card .swiper-slide {
     max-height: 320px;
     padding: 20px 40px;
   }
+  .mainIndex .section03 .flex-area {
+    margin-left: 2%;
+  }
   .mainIndex .section03-card .img-box,
   .mainIndex .section03-card .text-box {
-    margin-top: 0px;
-    padding: 40px;
+    margin-top: 25px;
+    padding: 20px;
+  }
+  .mainIndex .section03-card .text-box {
+    margin-top: 25px;
   }
   
   .mainIndex .section03-card .swiper-slide:nth-child(2) .img-box,
@@ -1217,15 +1221,8 @@ body.modal-open {
   .mainIndex .section03-card .swiper-slide:nth-child(4) .img-box  {
     margin-top: 30px;
   }
-
-}
-
-@media (max-width: 1369px) {
-  .mainIndex .section03-card .swiper-container {
-    transform: translateX(40%) translateY(-132%);
-  }
   .mainIndex .section03 .left-box {
-    max-width: 220px;
+    max-width: 300px;
   }
   .mainIndex .mainBtn-container .logIn {
     max-width: 350px;
@@ -1275,30 +1272,23 @@ body.modal-open {
     margin-bottom: 10px;
     font-size: 16px;
   }
-  /* .mainIndex .mainBtn-container .ver-03 .flex-area .btn01{
-    padding: 12px 5px !important;
-  } */
-  /* .mainIndex .mainBtn-container .quick-btnBox .q-btn {
-    width: 22%;
-    padding: 35px 30px;
-    box-sizing: border-box;
-  } */
+  .main_visual .swiper-button-prev,
+  .main_visual .swiper-button-next{
+    width: 60px;
+  }
 
-  /* .mainIndex .mainBtn-container {
-    padding: 0 130px;
-    margin-left: 40px;
-  } */
   .mainIndex .mainBtn-container {
     justify-content: center;
     gap: 60px;
     /* margin-right: 60px; */
     position: absolute;
-    top: 65%;
+    top: 540px; 
     /* transform: translateY(-170%); */
     align-items: center;
     max-width: 1300px;
-    height: 0px;
-    left: 15%;
+    height: 10px;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .mainIndex .mainBtn-container .quickMenu {
     background-color: transparent;
@@ -1308,32 +1298,25 @@ body.modal-open {
     flex-wrap: none;
     gap: 10px;
     max-width: 600px;
+    transform: none;
   }
 
   .mainIndex .mainBtn-container .quick-title {
     display: none;
   }
-  /* .mainIndex .mainBtn-container .quick-btnBox {
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    gap: 20px;
-  } */
+
   .mainIndex .mainBtn-container .quick-btnBox .q-btn .svg {
     width: 50px;
   }
   .mainIndex .mainBtn-container .logIn {
     padding: 30px 40px;
     max-width: 350px;
+    flex-shrink: 0;
   }
   .mainIndex .mainBtn-container .quick-btnBox .btnName {
     margin-top: 5px;
   }
 
-  /* #home .mainIndex .main_visual .text-box .text-box-inner {
-    padding: 0 20px;
-    margin: 0 auto;
-  } */
   .swiper-pagination {
     bottom: 37% !important;
     left: -32% !important;
@@ -1343,14 +1326,17 @@ body.modal-open {
     left: -2%;
     top: 50%;
   }
-  /* .home .mainIndex .section01 {
+  .home .mainIndex .section01 {
     margin-top: 100px;
-  }  */
+  } 
 
 
 }
 
 @media (max-width: 1199px) {
+  .mainIndex .section03-card .swiper-container {
+    transform: translateX(47%) translateY(-100%);
+  }
   .mainIndex .section04 .arrow-left {
     left: 27%;
   }
@@ -1398,9 +1384,7 @@ body.modal-open {
   .mainIndex .none{
     display: none;
   }
-  .mainIndex .flex-area {
-    gap: 20px;
-  }
+
 
   .mainIndex .mainIndex .quickMenu {
     max-width: none;
@@ -1431,9 +1415,7 @@ body.modal-open {
     bottom: 40% !important;
     left: -31% !important;
   }
-  .mainIndex .mainBtn-container .logIn {
-    max-width: 300px;
-  }
+
 
 
 }
@@ -1459,6 +1441,7 @@ body.modal-open {
 
   .mainIndex .section03 .left-box {
     text-align: center;
+    max-width: 500px;
   }
   
   .mainIndex .section03-card {
@@ -1513,22 +1496,20 @@ body.modal-open {
   } */
   .mainIndex .mainBtn-container {
     gap: 40px;
-  }
-  .mainIndex .section02 .text-box .font-bold, .mainIndex .section03 .text-box .font-bold {
-    line-height: 200%;
-  }
-  .mainIndex .flex-area {
-
-  }
-  .mainIndex .mainBtn-container {
-
     position: absolute;
-    top: 63%;
-    /* transform: translateY(-170%); */
-    left: 10%;
+    top: 530px;
+    /* left: 10%; */
   }
-}
 
+  .mainIndex .section02 .text-box .font-bold {
+    line-height: 180%;
+  }
+  .mainIndex .section03 .flex-area {
+    justify-content: center;
+  }
+
+
+}
 
 @media (max-width: 868px) {
 
@@ -1552,7 +1533,7 @@ body.modal-open {
     margin-right: 0;
     gap: 0; */
     position: absolute;
-    top: 73%;
+    top: 530px;
     margin-right: 0;
     margin: 0 auto;
     width: 100%;
@@ -1583,9 +1564,7 @@ body.modal-open {
     line-height: 180%;
     font-size: 40px;
   }
-  #home .mainIndex .main_visual .text-box .text-box-inner .text .txt-bottom {
-    display: none;
-  }
+
   #home .mainIndex .main_visual .text-box .text-box-inner {
     max-width: 400px;
     padding: 0;
@@ -1606,6 +1585,29 @@ body.modal-open {
   .mainIndex .section03-card .text-box {
     padding-left: 0;
   }
+  .mainIndex .section03-card .slide-content {
+    flex-direction: column;
+  }
+  .mainIndex .section03-card .swiper-slide {
+    max-height: 500px;
+  }
+  .mainIndex .section03-card .text-box {
+    text-align: center;
+  }
+  .mainIndex .section03-card .img-box {
+      max-width: 200px;
+      padding: 20px 0 0;
+      margin: 0 auto;
+  }
+  .mainIndex .section03-card .text-box {
+    max-width: 400px;
+    padding: 20px 0 0;
+    margin: 0 auto;
+  }
+  .mainIndex .section03-card .right-box  {
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
 
   .mainIndex .section04 .carousel-container {
     margin-top: -30px;
@@ -1621,11 +1623,14 @@ body.modal-open {
       font-size: 16px;
   }
   .mainIndex .section04 .visible-left {
-      transform: translateX(-85%) scale(0.6);
+      transform: translateX(-40%) scale(0.7);
   }
 
   .mainIndex .section04 .visible-right {
-      transform: translateX(85%) scale(0.6);
+      transform: translateX(40%) scale(0.7);
+  }
+  .mainIndex .section04 .eventItem {
+    width: calc(70% - 10px);
   }
   /* 05 */
   .mainIndex .section05 .flex-left, .flex-right {
@@ -1660,9 +1665,15 @@ body.modal-open {
     margin-top: 100px;
   } */
   .main_visual {
-    height: 100vw;
-    position: relative;
+    max-height: 100vh;
   }
+  .main_visual .swiper {
+    height: 100vh;
+  }
+  /* .main_visual .content {
+    height: 100%;
+    position: relative;
+  } */
 }
 
 @media (max-width: 730px) {
@@ -1718,35 +1729,11 @@ body.modal-open {
   .copy-btn {
     padding-left: 0;
   }
-  .mainIndex .section03-card .slide-content {
-    flex-direction: column;
-  }
-  .mainIndex .section03-card .swiper-slide {
-    max-height: 500px;
-  }
-  .mainIndex .section03-card .text-box {
-    text-align: center;
-  }
-  .mainIndex .section03-card .img-box, 
-  .mainIndex .section03-card .text-box {
-      max-width: 200px;
-      padding: 20px 0 0;
-      margin: 0 auto;
-  }
-  .mainIndex .section03-card .right-box  {
-    margin: 0 auto;
-    padding-bottom: 20px;
-  }
+
   .mainIndex .section04 .carousel-container {
     margin-top: -80px;
   }
-  .mainIndex .section04 .visible-left {
-      transform: translateX(-90%) scale(0.7);
-  }
 
-  .mainIndex .section04 .visible-right {
-      transform: translateX(90%) scale(0.7);
-  }
   .mainIndex .section04 .event-date {
       margin-top: 5px;
   }
@@ -1756,11 +1743,9 @@ body.modal-open {
   .mainIndex .sec04-swiper-button-next {
     display: none;
   }
-  .q-btn{
-    padding: 10px 5px;
-  }
   .mainIndex .mainBtn-container .quick-btnBox .btnName {
     font-size: 11px;
+    font-weight: 500;
   }
   .mainIndex .mainBtn-container .quick-btnBox {
     gap: 10px;
@@ -1771,7 +1756,16 @@ body.modal-open {
   .q-btn{
     padding: 10px 0px;
   }
+  #home .mainIndex .main_visual .text-box .text-box-inner .text .txt-bottom {
+    display: none;
+  }
   /* .mainIndex .mainBtn-container {
     transform: translateY(-300%);
   } */
+  .mainIndex .mainBtn-container { 
+    padding: 0 20px;
+  }
+  .mainIndex .section03-card .swiper-slide {
+    padding: 10px 20px;
+  }
 }

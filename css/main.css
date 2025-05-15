@@ -226,7 +226,7 @@ body.modal-open {
 }
 .swiper-slide.visual-content {
   position: relative;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   overflow: hidden;
 }
@@ -288,7 +288,7 @@ body.modal-open {
 #home .mainIndex .main_visual .text-box {
   position: absolute;
   left: 1.5%;
-  top: 50%;
+  top: 60%;
   transform: translateY(-50%);
   width: 100%;
   padding: 0 15%;
@@ -1217,6 +1217,7 @@ body.modal-open {
   .mainIndex .section03-card .swiper-slide:nth-child(4) .img-box  {
     margin-top: 30px;
   }
+
 }
 
 @media (max-width: 1369px) {
@@ -1290,7 +1291,14 @@ body.modal-open {
   .mainIndex .mainBtn-container {
     justify-content: center;
     gap: 60px;
-    margin-right: 60px;
+    /* margin-right: 60px; */
+    position: absolute;
+    top: 65%;
+    /* transform: translateY(-170%); */
+    align-items: center;
+    max-width: 1300px;
+    height: 0px;
+    left: 15%;
   }
   .mainIndex .mainBtn-container .quickMenu {
     background-color: transparent;
@@ -1321,11 +1329,7 @@ body.modal-open {
   .mainIndex .mainBtn-container .quick-btnBox .btnName {
     margin-top: 5px;
   }
-  .mainIndex .mainBtn-container {
-    transform: translateY(-110%);
-    align-items: center;
-    max-width: 1300px;
-  }
+
   /* #home .mainIndex .main_visual .text-box .text-box-inner {
     padding: 0 20px;
     margin: 0 auto;
@@ -1337,8 +1341,12 @@ body.modal-open {
 
   #home .mainIndex .main_visual .text-box {
     left: -2%;
-    top: 43%;
+    top: 50%;
   }
+  /* .home .mainIndex .section01 {
+    margin-top: 100px;
+  }  */
+
 
 }
 
@@ -1506,7 +1514,19 @@ body.modal-open {
   .mainIndex .mainBtn-container {
     gap: 40px;
   }
-  
+  .mainIndex .section02 .text-box .font-bold, .mainIndex .section03 .text-box .font-bold {
+    line-height: 200%;
+  }
+  .mainIndex .flex-area {
+
+  }
+  .mainIndex .mainBtn-container {
+
+    position: absolute;
+    top: 63%;
+    /* transform: translateY(-170%); */
+    left: 10%;
+  }
 }
 
 
@@ -1528,9 +1548,16 @@ body.modal-open {
     justify-content: center;
   }
   .mainIndex .mainBtn-container {
-    transform: translateY(-200%);
+    /* transform: translateY(-130%);
     margin-right: 0;
-    gap: 0;
+    gap: 0; */
+    position: absolute;
+    top: 73%;
+    margin-right: 0;
+    margin: 0 auto;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
 }
@@ -1566,14 +1593,14 @@ body.modal-open {
   #home .mainIndex .main_visual .text-box {
     padding: 0 10px;
     left: 0%;
-    top: 40%
+    top: 45%
   }
   #home .mainIndex .main_visual .text-box .text-left-box {
     text-align: center;
   }
 
   #home .mainIndex .swiper-pagination {
-    bottom: 50% !important;
+    bottom: 45% !important;
     left: 0% !important;
   }
   .mainIndex .section03-card .text-box {
@@ -1628,7 +1655,14 @@ body.modal-open {
   .main_visual .swiper-button-prev{
     display: none;
   }
-  
+
+  /* .home .mainIndex .section01 {
+    margin-top: 100px;
+  } */
+  .main_visual {
+    height: 100vw;
+    position: relative;
+  }
 }
 
 @media (max-width: 730px) {
@@ -1737,7 +1771,7 @@ body.modal-open {
   .q-btn{
     padding: 10px 0px;
   }
-  .mainIndex .mainBtn-container {
+  /* .mainIndex .mainBtn-container {
     transform: translateY(-300%);
-  }
+  } */
 }

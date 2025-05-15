@@ -195,6 +195,8 @@
     gap: 16px;
     justify-content: flex-end;
     align-items: center;
+    background-color: #F4F7FC;
+    padding: 10px 25px ;
 }
 .mobile_display .login-link-m .login-link-li {
     position: relative;
@@ -213,7 +215,7 @@
 .mobile_display .login-link-m .login-link-a {
     font-size: 16px;
     font-weight: 600;
-    color: #222;
+    color: #6F6F6F;
 }
 .pc_display {
     display: block;
@@ -365,12 +367,12 @@
     .header .offcanvas {
         width: 100%;
         height: 100%;
-        padding: 30px 16px;
+        padding: 30px 0px;
         background: rgba(100, 100, 100, 0.445);
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 80px;
+        top: 50px;
         right: 0;
         transform: translateX(100%);
         /* transform: translateX(0%); */
@@ -382,7 +384,7 @@
         height: 100%;
         flex-grow: 1;
     }
-    .gnb-mobile .gnb-item a {
+    .gnb-mobile .gnb-item .gnb-item-a {
         width: 100%;
         box-sizing: border-box;
         display: block;
@@ -394,16 +396,24 @@
         letter-spacing: -0.32px;
         border-bottom: 1px solid #ddd;
         background: #fff;
+        padding: 0 25px;
     }
     .gnb-mobile .gnb-sub {
         display: none;
     }
-    .gnb-mobile .gnb-menu .gnb-sub .gnb-sub-item a{
-        font-size: 16px;
+    .gnb-menu.active .gnb-sub {
+        display: block;
+    }
+    .gnb-mobile .gnb-menu .gnb-sub .gnb-sub-item .gnb-sub-a{
+        font-size: 18px;
         font-weight: 400;
         color: #555555;
-        border-bottom: 1px solid #eaeaea;
-        background: #FAFAFA;
+        background-color: #F9F9F9;
+        padding: 15px 40px;
+        display: block;;
+    }
+    .gnb-mobile .gnb-menu .gnb-sub .gnb-sub-item .gnb-sub-a:focus{
+        background-color: #E4E4E4;
     }
     .gnb-menu .drop-arrow {
         float: right;
@@ -413,8 +423,13 @@
         padding: 2px;
         box-sizing: border-box;
         position: relative;
+        transition: transform 0.3s ease;
     }
-    .gnb-menu .drop-arrow span {
+    .gnb-menu.active .drop-arrow {
+        transform: rotate(180deg);
+    }
+    .gnb-menu .drop-arrow .drop-left,
+    .gnb-menu .drop-arrow .drop-right{
         display: block;
         width: 10px;
         height: 3px;

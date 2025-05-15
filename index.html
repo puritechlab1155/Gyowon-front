@@ -254,7 +254,7 @@
                             <a href="https://puritechlab1155.github.io/onnuri-front/register.html" class="join">회원가입</a>
                         </div>
                     </div> -->
-                   
+                    
                     <!-- 로그인 상태 시 나타남 -->
                     <!-- <div class="pc_display login-complete">
                         <div class="login-link">
@@ -263,7 +263,7 @@
                             <a href="https://puritechlab1155.github.io/onnuri-front/index.html" class="join-out">로그아웃</a>
                         </div>
                     </div> -->
-                   
+                    
                     <!-- 관리자가 로그인 상태 시 나타남 -->
                     <!-- <div class="pc_display login-complete-manager">
                         <div class="login-link">
@@ -436,7 +436,8 @@
                             <!-- *** 관리자페이지에서  메인비주얼 이미지 및 텍스트 변경가능 , 슬라이드 추가 가능 *** -->
                             <!-- 첫번째 슬라이드 -->
                             <div class="swiper-slide visual-content">
-                                <img class="mob-slide-img mob-slide-img01" src="img/mv_slide_img01.png" alt="메인 비쥬얼 이미지01">
+                                <!-- <img class="mob-slide-img mob-slide-img01" src="img/mv_slide_img01.jpg" alt="메인 비쥬얼 이미지01"> -->
+                                <div class="mob-slide-img mob-slide-img01" data-bg="img/mv_slide_img01.jpg"></div>
                                 <div class="text-box">
                                     <div class="text-box-inner text-left-box">
                                         <div class="text">
@@ -451,7 +452,8 @@
                             </div>
                             <!-- 두번째 슬라이드 -->
                             <div class="swiper-slide visual-content">
-                                <img class="mob-slide-img mob-slide-img02" src="img/mv_slide_img01.png" alt="메인 비쥬얼 이미지02">
+                                <!-- <img class="mob-slide-img mob-slide-img02" src="img/mv_slide_img02.jpg" alt="메인 비쥬얼 이미지02"> -->
+                                <div class="mob-slide-img mob-slide-img02" data-bg="img/mv_slide_img02.jpg"></div>
                                 <div class="text-box">
                                     <div class="text-box-inner text-left-box">
                                         <div class="text">
@@ -466,7 +468,8 @@
                             </div>
                             <!-- 세번째 슬라이드 -->
                             <div class="swiper-slide visual-content">
-                                <img class="mob-slide-img mob-slide-img03" src="img/mv_slide_img01.png" alt="메인 비쥬얼 이미지03">
+                                <!-- <img class="mob-slide-img mob-slide-img03" src="img/mv_slide_img01.png" alt="메인 비쥬얼 이미지03"> -->
+                                <div class="mob-slide-img mob-slide-img03" data-bg="img/mv_slide_img03.jpg"></div>
                                 <div class="text-box">
                                     <div class="text-box-inner text-left-box">
                                         <div class="text">
@@ -479,14 +482,11 @@
                                     </div>
                                 </div>
                             </div>
-
-
-                            <div class="swiper-button-next mv-swiper-button-next"><img class="mv-slide-btn" src="img/mv_slide_next.svg" alt="다음 슬라이드로"></div>
-                            <div class="swiper-button-prev mv-swiper-button-prev"><img class="mv-slide-btn" src="img/mv_slide_prev.svg" alt="이전 슬라이드로"></div>
-                            <div class="swiper-pagination mv-swiper-pagination"></div>
-
                             
                         </div>
+                        <div class="swiper-button-next mv-swiper-button-next"><img class="mv-slide-btn" src="img/mv_slide_next.svg" alt="다음 슬라이드로"></div>
+                        <div class="swiper-button-prev mv-swiper-button-prev"><img class="mv-slide-btn" src="img/mv_slide_prev.svg" alt="이전 슬라이드로"></div>
+                        <div class="swiper-pagination mv-swiper-pagination"></div>
                     </div>
                 </div>
             </div><!-- //main_visual -->
@@ -572,7 +572,7 @@
                         <button class="btn01" type="button" onclick="">나의 강의실</button>
                         <div class="flex-area mt-0">
                             <button class="btn01 lms-btn" type="button" onclick="">관리페이지</button>
-                            <button class="btn01" type="button" onclick="">내 정보</button>
+                            <button class="btn01 myPage-btn" type="button" onclick="">내 정보</button>
                         </div>
                     </div>
                 </div>
@@ -708,7 +708,7 @@
                             </h3>
                         </div><!-- //title-area -->
 
-                        <div class="flex-area">
+                        <div class="flex-area mt-60">
                             <div class="left-box">
                                 <img src="img/KTDA.png" alt="KTDA소개 이미지">
                             </div>
@@ -1302,7 +1302,6 @@
             // 초기 헤더 스타일 설정
             changeHead();
 
-
             $(window).scroll(function() {
                 changeHead();
             });
@@ -1324,6 +1323,7 @@
 
             function changeHead() {
                 let $scrollTop = $(window).scrollTop();
+                let $hamIcon = $('.ham'); 
 
                 if ($scrollTop > 0) { // 스크롤 탑이 0 이상
                     $header.css({ background: '#fff' });
@@ -1338,6 +1338,7 @@
                     $menuItem.mouseenter (function(){
                         $(this).css({ color: '#005AAB' });
                     });
+                    $hamIcon.css({ background: '#333' });
                 }
                 else { // 스크롤 탑이 0
                     $header.css({ background: 'transparent' });
@@ -1352,6 +1353,7 @@
                     $menuItem.mouseenter (function(){
                         $(this).css({ color: '#005AAB' });
                     });
+                    $hamIcon.css({ background: '#fff' }); 
                 }
                 
                 // if ($scrollTop === 0 && $offcanvas.hasClass('active')) {  // 스크롤 탑이 0dlrh, 메뉴가 열렸을 때
@@ -1444,8 +1446,6 @@
         });
 
 
-       
-        
 
 
         // const swiperSection04 = new Swiper('.mainIndex .section04 .swiper-container', {

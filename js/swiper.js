@@ -1,19 +1,35 @@
 /* main_visual Swiper */
 var mvSwiper = new Swiper(".mv-swiper", {
-    loop: true, // 무한 루프
-    autoplay: {
-        delay: 3000, // 3초 간격 자동재생
-        disableOnInteraction: false, // 유저 조작 후에도 자동 재생 유지
-    },
-    navigation: {
-        nextEl: ".mv-swiper-button-next", // 고유 버튼 클래스
-        prevEl: ".mv-swiper-button-prev",
-    },
-    pagination: {
-        el: ".mv-swiper-pagination", // 고유 페이지네이션 클래스
-        clickable: true, // bullet 클릭 가능
-    },
-    effect: "fade", // 페이드 전환 효과
+  loop: true, // 무한 루프
+  autoplay: {
+      delay: 3000, // 3초 간격
+      disableOnInteraction: false, // 유저 조작 후에도 자동 재생 유지
+  },
+  speed: 800, // 슬라이드 속도 (기본은 300ms)
+  navigation: {
+      nextEl: ".mv-swiper-button-next",
+      prevEl: ".mv-swiper-button-prev",
+  },
+  pagination: {
+      el: ".mv-swiper-pagination",
+      clickable: true,
+  },
+  effect: "slide", // ← "fade" 대신 "slide"
+  on: {
+    slideChange: function () {
+      const currentSlide = this.slides[this.activeIndex];
+      const imgDiv = currentSlide.querySelector('.mob-slide-img');
+
+      if (imgDiv) {
+        const bg = imgDiv.getAttribute('data-bg');  
+        // console.log("현재 배경 이미지:", bg);
+
+        if (bg) {
+          imgDiv.style.backgroundImage = `url(${bg})`;
+        }
+      }
+    }
+  }
 });
 
 /* section03 Swiper */

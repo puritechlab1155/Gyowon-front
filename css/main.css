@@ -1137,7 +1137,7 @@ body.modal-open {
 
 
 
-.modal {
+#sitemap-modal.modal {
     display: none;
     position: fixed;
     z-index: 100;
@@ -1148,38 +1148,40 @@ body.modal-open {
     background-color: rgba(0, 0, 0, 0.4); /* 반투명 배경 */
     overflow: auto;
     padding-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
-.modal-content {
+#sitemap-modal .modal-content {
     background-color: #fff;
     margin: 2% auto;
     padding: 25px 30px;
     max-width: 1200px;
     border-radius: 20px;
 }
-.close {
+#sitemap-modal .close {
     float: right;
 }
-.close:hover, .close:focus {
+#sitemap-modal .close:hover, .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
-.modal .h2 {
+#sitemap-modal .h2 {
     font-size: 24px;
     margin-bottom: 15px;
 }
-.modal .ul {
+#sitemap-modal .ul {
     list-style-type: none;
     padding: 0;
 }
-.modal .f_gnb {
-    display: flex !important;
-    justify-content: space-around !important
+#sitemap-modal .f_gnb {
+    display: flex ;
+    justify-content: space-around ;
 }
-.modal .ul .li {
+#sitemap-modal .ul .li {
     margin: 10px 0;
 }
-.modal .ul .li .a:hover {
+#sitemap-modal .ul .li .a:hover {
     color: #007bff;
 }
 
@@ -1198,20 +1200,16 @@ body.modal-open {
   .mainIndex .section03-card .swiper-container {
     transform: translateX(60%) translateY(-110%);
   }
-  .mainIndex .section03-card .swiper-slide {
-    max-height: 320px;
-    padding: 20px 40px;
-  }
+
   .mainIndex .section03 .flex-area {
     margin-left: 2%;
   }
-  .mainIndex .section03-card .img-box,
-  .mainIndex .section03-card .text-box {
+  .mainIndex .section03-card .img-box {
     margin-top: 25px;
     padding: 20px;
   }
   .mainIndex .section03-card .text-box {
-    margin-top: 25px;
+    margin-top: 40px;
   }
   
   .mainIndex .section03-card .swiper-slide:nth-child(2) .img-box,
@@ -1220,6 +1218,11 @@ body.modal-open {
   }
   .mainIndex .section03-card .swiper-slide:nth-child(4) .img-box  {
     margin-top: 30px;
+  }
+  .mainIndex .section03-card .swiper-slide {
+    flex-shrink: 0; 
+    padding: 40px 90px;
+    box-sizing: border-box;
   }
   .mainIndex .section03 .left-box {
     max-width: 300px;
@@ -1441,7 +1444,7 @@ body.modal-open {
   }
   .mainIndex .section03-card .swiper-container {
     margin: 0 auto;
-    transform:none;
+    transform: none;
   }
   .mainIndex .section04 .arrow-left {
     left: 23%;
@@ -1504,6 +1507,9 @@ body.modal-open {
 
 @media (max-width: 868px) {
 
+  .modal {
+    display: none;
+  }
   .main_visual .swiper-button-prev {
     left: 3%;
   }

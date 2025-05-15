@@ -34,45 +34,15 @@ var mvSwiper = new Swiper(".mv-swiper", {
 
 /* section03 Swiper */
 const swiperSection03 = new Swiper('.swiper-container.section03', {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    loop: true,
-    pagination: {
-        el: '.sec03-swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.sec03-swiper-button-next',
-        prevEl: '.sec03-swiper-button-prev',
-    },
+  loop: true, // 무한 루프
+  autoplay: {
+    delay: 4000, // 4초마다 자동 슬라이드
+    disableOnInteraction: false, // 사용자 터치 후에도 자동 재시작
+  },
+  navigation: {
+    nextEl: '.sec03-swiper-button-next',
+    prevEl: '.sec03-swiper-button-prev',
+  },
 });
 
 /* section04 Swiper */
-const swiperSection04 = new Swiper('.swiper-container.section04', {
-    slidesPerView: 'auto',
-    centeredSlides: true,
-    spaceBetween: 10,
-    loop: true,
-    navigation: {
-      nextEl: '.sec04-swiper-button-next',
-      prevEl: '.sec04-swiper-button-prev',
-    },
-    slideToClickedSlide: true,
-    on: {
-      init: function () {
-        updateSection04Text(this);
-      },
-      slideChange: function () {
-        updateSection04Text(this);
-      }
-    }
-  });
-  
-  function updateSection04Text(swiper) {
-    const activeSlide = swiper.slides[swiper.activeIndex];
-    const title = activeSlide.getAttribute('data-title') || '';
-    const date = activeSlide.getAttribute('data-date') || '';
-  
-    document.querySelector('.swiper-text-container .swiper-title').textContent = title;
-    document.querySelector('.swiper-text-container .swiper-date').textContent = date;
-  }

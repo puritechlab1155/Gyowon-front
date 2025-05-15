@@ -528,12 +528,12 @@
                 </div>
 
                 <!-- 로그인 전 -->
-                <!-- <div class="logIn ver-01">
+                <div class="logIn ver-01">
                     <div class="logIn-title">
                         <span class="enName">Log-in</span>
                         <h4 class="koName">간편하게 시작하기</h4>
                     </div>
-                    <div class="logIn-btnBox">
+                    <div class="logIn-btnBox mt-20">
                         <button class="btn01" type="button" onclick="">로그인</button>
                         <div class="login-btBox">
                             <button class="btn register" type="button" onclick="">회원가입</button>
@@ -541,25 +541,25 @@
                             <button class="btn find-pw" type="button" onclick="">비밀번호 찾기</button>
                         </div>
                     </div>
-                </div> -->
+                </div>
 
                 <!-- 일반 회원 로그인 후 (회원 아이디 물러오기) -->
                 <!-- <div class="logIn ver-02">
                     <div class="logIn-title">
                         <span class="enName"><span id="loginId" class="enName">abcd1234</span>님</span> 
-                        <div class="flex-area mt-10">
+                        <div class="flex-area">
                             <h4 class="koName">환영합니다!</h4>
                             <button id="logOut" class="btn" type="button">로그아웃</button>
                         </div>
                     </div>
                     <div class="logIn-btnBox mt-10">
                         <button class="btn01" type="button" onclick="">나의 강의실</button>
-                        <button class="btn01" type="button" onclick="">내 정보</button>
+                        <button class="btn01 myPage-btn" type="button" onclick="">내 정보</button>
                     </div>
                 </div> -->
 
                 <!-- 관리자 로그인 후 -->
-                <div class="logIn ver-03">
+                <!-- <div class="logIn ver-03">
                     <div class="logIn-title">
                         <span class="enName">관리자님</span>
                         <div class="flex-area">
@@ -575,7 +575,7 @@
                             <button class="btn01 myPage-btn" type="button" onclick="">내 정보</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -916,7 +916,7 @@
 
                                 </div>
                                 <div class="right-box">
-                                  <img class="right-img" src="img/credit-card.png" alt="결제계좌 정보 이미지">
+                                    <img class="right-img" src="img/credit-card.png" alt="결제계좌 정보 이미지">
                                 </div>
                             </div>
                         </div>
@@ -1447,38 +1447,6 @@
 
 
 
-
-        // const swiperSection04 = new Swiper('.mainIndex .section04 .swiper-container', {
-        //     slidesPerView: 'auto',
-        //     centeredSlides: true,
-        //     spaceBetween: 30,
-        //     loop: true,
-        //     navigation: {
-        //         nextEl: '.sec04-swiper-button-next',
-        //         prevEl: '.sec04-swiper-button-prev',
-        //     },
-        //     slideToClickedSlide: true,
-        //     initialSlide: 1, // 초기 활성 슬라이드를 가운데로 설정 (인덱스 1)
-        //     on: {
-        //         slideChangeTransitionEnd: function () {
-        //             const activeSlide = this.slides[this.activeIndex];
-        //             const title = activeSlide.dataset.title;
-        //             const date = activeSlide.dataset.date;
-        //             const textContainer = document.querySelector('.mainIndex .section04 .swiper-text-container');
-        //             const titleElement = textContainer.querySelector('.swiper-title');
-        //             const dateElement = textContainer.querySelector('.swiper-date');
-
-        //             titleElement.textContent = title;
-        //             dateElement.textContent = date;
-        //         },
-        //     },
-        // });
-
-
-
-
-
-
         // 복사하기 기능
         document.querySelectorAll('.copy-btn').forEach(function (button) {
             button.addEventListener('click', function () {
@@ -1559,6 +1527,37 @@
             // Position all items based on active index
             updateItemPositions();
         }
+        let autoSlideInterval = null;
+        let startX = 0;
+        let endX = 0;
+        let isInteracting = false;
+
+        // 자동 슬라이드 시작
+        function startAutoSlide() {
+            if (autoSlideInterval) clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(() => {
+                if (!isInteracting) {
+                    moveRight();
+                }
+            }, 2000); // 3초마다 이동
+        }
+        // 자동 슬라이드 정지
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = null;
+        }
+
+        // 드래그/터치 시 자동 슬라이드 멈춤
+        function pauseInteraction() {
+            isInteracting = true;
+            stopAutoSlide();
+        }
+
+        function resumeInteraction() {
+            isInteracting = false;
+            startAutoSlide();
+        }
+
         
         // Update positions of all items based on active index
         function updateItemPositions() {
@@ -1597,25 +1596,30 @@
 
         // Initialize
         createItems();
+        startAutoSlide();
 
         // PC용 마우스 드래그
         carouselItems.addEventListener('mousedown', (e) => {
+            pauseInteraction();
             startX = e.clientX;
         });
 
         carouselItems.addEventListener('mouseup', (e) => {
             endX = e.clientX;
             handleSwipe();
+            resumeInteraction();
         });
 
         // 모바일용 터치 이벤트
         carouselItems.addEventListener('touchstart', (e) => {
+            pauseInteraction();
             startX = e.touches[0].clientX;
         });
 
         carouselItems.addEventListener('touchend', (e) => {
             endX = e.changedTouches[0].clientX;
             handleSwipe();
+            resumeInteraction();
         });
 
         function handleSwipe() {

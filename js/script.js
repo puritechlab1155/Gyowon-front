@@ -75,6 +75,7 @@ $(document).ready(function () {
     window.addEventListener('resize', adjustFeatureList);
 });
 
+// ✅ nav바 드롭다운 
 document.querySelectorAll('.nav-drop').forEach(navDrop => {
     navDrop.addEventListener('click', function() {
         // 클릭된 .nav-drop의 가장 가까운 부모 .nav-item 찾기
@@ -83,28 +84,112 @@ document.querySelectorAll('.nav-drop').forEach(navDrop => {
             // 찾은 .nav-item의 바로 다음 형제 요소인 .drop-menu 찾기
             const dropMenu = navItem.querySelector('.drop-menu');
             if (dropMenu) {
-                // .drop-menu의 'open' 클래스 토글
+                // 다른 열려있는 서브메뉴 닫기
+                document.querySelectorAll('.drop-menu.open').forEach(openSubMenu => {
+                    const relatedNavItem = openSubMenu.previousElementSibling?.closest('.nav-item');
+                    const currentNavItem = dropMenu.previousElementSibling?.closest('.nav-item');
+                    if (openSubMenu !== dropMenu && relatedNavItem !== currentNavItem) {
+                        openSubMenu.classList.remove('open');
+                        relatedNavItem?.querySelector('.nav-drop')?.classList.remove('open');
+                    }
+                });
+
+                // 현재 클릭한 .drop-menu의 'open' 클래스 토글
                 dropMenu.classList.toggle('open');
                 // 클릭된 .nav-drop에 'open' 클래스 토글 (화살표 회전용)
                 this.classList.toggle('open');
-
-                // 다른 열려있는 드롭다운 메뉴 닫기 (선택 사항)
-                document.querySelectorAll('.nav-drop.open').forEach(otherNavDrop => {
-                    if (otherNavDrop !== this) {
-                        otherNavDrop.classList.remove('open');
-                        const otherNavItem = otherNavDrop.closest('.nav-item');
-                        if (otherNavItem) {
-                            const otherDropMenu = otherNavItem.querySelector('.drop-menu');
-                            if (otherDropMenu) {
-                                otherDropMenu.classList.remove('open');
-                            }
-                        }
-                    }
-                });
             }
         }
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const mainMenuItems = document.querySelectorAll(".nav-main-menu a");
+    const firstTitle = document.querySelector(".nav-title.first");
+    const secondTitle = document.querySelector(".nav-title.second");
+    const subMenu = document.querySelector(".nav-sub-menu");
+    const navMainMenu = document.querySelector(".nav-main-menu"); 
+
+    // 서브 메뉴 데이터
+    const subMenuData = {
+        lecture: [
+            {text: "나의 연수과정", href: "myClass-course.html"},
+            {text: "연수 이력 조회", href: "qualify-apply.html"},
+            {text: "수강연기 / 취소(환불)", href: "myClass-before.html"},
+            {text: "나의 자격증 조회", href: "myClass-license.html"}, 
+            {text: "댄스화 주문 / 조회", href: "myClass-shoes.html"},],
+        apply: [
+            {text: "서울 직무 연수", href: "apply-seoul.html"},
+            {text: "경기 직무 연수", href: "apply-gyeonggi.html"},
+            {text: "자율 연수", href: "apply-common.html"},
+            {text: "자주 묻는 질문", href: "apply-faq.html"},
+            {text: "Q&A", href: "apply-qna.html"},
+        ],
+        info: [
+            {text: "공지사항", href: "training-notice.html"},
+            {text: "연수 일정", href: "training-sch.html"},
+            {text: "연수 장소", href: "training-location.html"},
+            {text: "강사 소개", href: "training-teacher.html"},
+            {text: "연수 자료실", href: "training-data.html"},
+            {text: "기관 지정서", href: "training-agency.html"},
+        ],
+        qualify: [
+            { text: "자격 신청", href: "qualify-apply.html" },
+            { text: "합격 공지", href: "qualify-pass.html" },
+            { text: "자격증 발송 신청", href: "qualify-license.html" }
+        ],
+        job: [
+            { text: "구인", href: "job-offer.html" },
+            { text: "구직", href: "job-search.html" }
+        ]
+    };
+
+
+    mainMenuItems.forEach(item => {
+        item.addEventListener("click", () => {
+            event.preventDefault();
+            
+            const menuKey = item.dataset.menu;
+            const menuName = item.textContent.trim();
+
+            // 1. 상단 제목 변경
+            firstTitle.textContent = menuName;
+
+            // 2. 서브 메뉴 변경
+            const submenuList = subMenuData[menuKey];
+            subMenu.innerHTML = ""; // 초기화
+
+            submenuList.forEach(menu => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+
+                if (typeof menu === "string") {
+                    a.textContent = menu;
+                    a.href = "#"; // 기본 링크
+                } else {
+                    a.textContent = menu.text;
+                    a.href = menu.href;
+                }
+
+                li.appendChild(a);
+                subMenu.appendChild(li);
+            });
+
+            // 3. 두 번째 타이틀도 첫 메뉴 이름으로 바꿔줌
+            secondTitle.textContent = submenuList[0]?.text || submenuList[0] || "";
+
+            // 4. 드롭다운 효과 (클래스 토글 또는 강제 설정)
+            subMenu.classList.toggle("open");
+            
+            // 6. 메인 메뉴 닫기
+            navMainMenu.classList.remove("open");
+        });
+    });
+});
+
+
+
+
+
 
 // ✅ 모바일 메뉴
 document.addEventListener('DOMContentLoaded', function () {

@@ -288,7 +288,8 @@ body.modal-open {
 #home .mainIndex .main_visual .text-box {
   position: absolute;
   left: 1.5%;
-  top: 65%;
+  /* top: 65%; */
+  top: 420px;
   transform: translateY(-50%);
   width: 100%;
   padding: 0 15%;
@@ -981,13 +982,15 @@ body.modal-open {
 .main_visual .swiper-button-disabled {
   opacity: 1;
 }
-.swiper-pagination {
+#home .mainIndex .swiper-pagination {
   position: absolute;
   transition: .3s opacity;
   transform: translate3d(0, 0, 0);
   z-index: 10;
-  bottom: 26% !important;
-  left: -30% !important;
+  /* top: 800px; */
+  /* bottom: 26% ; */
+  left: -30%;
+  top: 450px;
 }
 .main_visual .swiper-pagination-bullet {
   width: clamp(8px, 1vw, 10px);
@@ -1188,9 +1191,7 @@ body.modal-open {
     justify-content: end;
     gap: 20px;
   }
-  .mainIndex .mainBtn-container .quick-btnBox .q-btn .svg {
-    height: 60px;
-  }
+
 
   .mainIndex .mainBtn-container .ver-03 .logIn-btnBox .lms-btn{
     padding: 12px 5px;
@@ -1271,14 +1272,15 @@ body.modal-open {
     margin-top: 5px;
   }
 
-  .swiper-pagination {
-    bottom: 37% !important;
-    left: -32% !important;
+  #home .mainIndex .swiper-pagination {
+    top: 400px;
+    left: -32%;
   }
 
   #home .mainIndex .main_visual .text-box {
     left: -2%;
-    top: 50%;
+    /* top: 50%; */
+    top: 340px;
   }
   .home .mainIndex .section01 {
     margin-top: 100px;
@@ -1347,11 +1349,7 @@ body.modal-open {
   .q-btn{
     padding: 18px 13px;
   }
-  .mainIndex .mainBtn-container .quick-btnBox .btnName {
-    font-size: 14px;
-    margin-top: 10px;
-    width: 70px;
-  }
+
   .mainIndex .mainBtn-container .quick-btnBox {
     gap: 10px;
   }
@@ -1364,10 +1362,6 @@ body.modal-open {
   }
   .main_visual .swiper-button-prev {
     left: 2%;
-  }
-  .swiper-pagination {
-    bottom: 40% !important;
-    left: -31% !important;
   }
 
 
@@ -1435,24 +1429,34 @@ body.modal-open {
   .mainIndex .section05.left-box {
     /* width: 100%; */
   }
-  .q-btn{
+  /* .q-btn{
     padding: 15px 10px;
-  }
+  } */
   /* .mainIndex .mainBtn-container {
     padding: 0 50px;
   } */
-  .mainIndex .mainBtn-container {
+  /* .mainIndex .mainBtn-container {
     gap: 40px;
     position: absolute;
     top: 530px;
-    /* left: 10%; */
-  }
+  } */
 
   .mainIndex .text-box .font-bold {
     line-height: 200%;
   }
   .mainIndex .section03 .flex-area {
     justify-content: center;
+  }
+
+  #home .mainIndex .main_visual .text-box {
+    left: -2%;
+    /* top: 50%; */
+    top: 300px;
+  }
+  #home .mainIndex .swiper-pagination {
+    top: 360px ;
+    left: 50% ;
+    transform: translateX(-50%);
   }
 
 
@@ -1466,9 +1470,9 @@ body.modal-open {
   .main_visual .swiper-button-next {
     right: 3%;
   }
-  .q-btn{
+  /* .q-btn{
     padding: 20px 20px;
-  }
+  } */
   .mainIndex .mainBtn-container .quick-btnBox {
     justify-content: center;
   }
@@ -1481,6 +1485,7 @@ body.modal-open {
     left: 50%;
     transform: translateX(-50%);
   }
+
   
 }
 @media (max-width: 870px) {
@@ -1511,15 +1516,24 @@ body.modal-open {
   #home .mainIndex .main_visual .text-box {
     padding: 0 10px;
     left: 0%;
-    top: 45%
+    top: 260px;
   }
   #home .mainIndex .main_visual .text-box .text-left-box {
     text-align: center;
   }
-
   #home .mainIndex .swiper-pagination {
-    bottom: 45% !important;
-    left: 0% !important;
+    top: 320px ;
+  }
+
+  .mainIndex .mainBtn-container{
+    top: 500px;
+  }
+  .mainIndex .mainBtn-container .quick-btnBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; 
+    max-width: 300px;
+    margin: 0 auto;
   }
   .home .mainIndex .section01 {
     margin-top: 30px;
@@ -1591,9 +1605,9 @@ body.modal-open {
   .mainIndex .section05.account-list .account-item {
     font-size: 16px;
   }
-  .mainIndex .mainBtn-container .quick-btnBox .q-btn .svg {
+  /* .mainIndex .mainBtn-container .quick-btnBox .q-btn .svg {
     height: 40px;
-  }
+  } */
   .mainIndex .mainBtn-container .quick-btnBox .btnName {
     margin-top: 10px;
   }
@@ -1604,7 +1618,7 @@ body.modal-open {
   }
 
   .main_visual {
-    max-height: 100vh;
+    max-height: 100%;
   }
   .main_visual .swiper {
     height: 100vh;
@@ -1615,6 +1629,10 @@ body.modal-open {
 }
 
 @media (max-width: 730px) {
+  #home .mainIndex .main_visual .text-box .text-box-inner .text .txt-bottom,
+  #home .mainIndex .main_visual .text-box .text-box-inner .text .txt-bottom-b{
+    font-size: 18px;
+  }
   .home .mainIndex .section01 .notice-faq-container,
   .mainIndex .section02 .flex-area,
   .mainIndex .section05 .content-inner {
@@ -1655,13 +1673,13 @@ body.modal-open {
     /* text-align: center;
     margin-bottom: 50px; */
   }
-  .q-btn{
+  /* .q-btn{
     padding: 15px 10px;
-  }
-  .mainIndex .mainBtn-container .quick-btnBox .btnName {
+  } */
+  /* .mainIndex .mainBtn-container .quick-btnBox .btnName {
     font-size: 14px;
     margin-top: 5px;
-  }
+  } */
   .mainIndex .mainBtn-container .quick-btnBox {
     gap: 10px;
   }
@@ -1685,25 +1703,21 @@ body.modal-open {
   .mainIndex .sec04-swiper-button-next {
     display: none;
   }
-  .mainIndex .mainBtn-container .quick-btnBox .btnName {
-    font-size: 11px;
-    font-weight: 500;
-  }
   .mainIndex .mainBtn-container .quick-btnBox {
     gap: 10px;
   }
-  .mainIndex .mainBtn-container .quick-btnBox .q-btn .svg {
-    height: 30px;
-  }
   .q-btn{
-    padding: 10px 0px;
+    padding: 20px 0px;
   }
   #home .mainIndex .main_visual .text-box .text-box-inner .text .txt-bottom {
     display: none;
   }
+  .mainIndex .mainBtn-container .quick-btnBox .btnName {
+    width: 60px;
+  }
 
   .mainIndex .mainBtn-container { 
-    padding: 0 20px;
+    padding: 0 40px;
   }
   .mainIndex .section03-card .swiper-slide {
     padding: 10px 20px;
@@ -1719,5 +1733,8 @@ body.modal-open {
   }
   .home .mainIndex .section01 .section-header {
     margin-bottom: 5px;
+  }
+  #home .mainIndex .swiper-pagination {
+    top: 300px ;
   }
 }

@@ -1,3 +1,5 @@
+
+// ✅ 모바일 메뉴 열리기
 document.addEventListener('DOMContentLoaded', function() {
 
     var header = document.querySelector('#header');
@@ -23,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 hamIcon.forEach(function(span) {
                     span.style.backgroundColor = '#222';
                 });
+                document.body.style.overflow = 'hidden'
             } else {
                 mobileoffcanvas.style.height = 'auto';
                 offcanvas.style.transform = 'translateX(100%)'; // 메뉴 닫기
@@ -30,33 +33,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 dropIconR.style.transform = 'rotate(45deg)';
                 gnbSub.style.display = 'none'; // 드롭다운 숨김
             }
+            document.body.style.overflow = '';
         });
 
         // .gnb-menu 클릭 시 .gnb-sub 드롭다운
-        var gnbTraining = document.querySelector('.gnb-mobile .gnb-menu');
-        var gnbSub = document.querySelector('.gnb-mobile .gnb-sub');
-        var dropIconL= document.querySelector('.drop-arrow .drop-left');
-        var dropIconR= document.querySelector('.drop-arrow .drop-right');
+        const gnbMenus = document.querySelectorAll('.gnb-menu');
 
-        if (gnbTraining && gnbSub) {
-            gnbTraining.addEventListener('click', function() {
-                gnbSub.classList.toggle('active'); // active 클래스 토글
-                
-                // 드롭다운 효과를 위해 display 속성을 변경
-                if (gnbSub.classList.contains('active')) {
-                    gnbSub.style.display = 'block'; // 드롭다운 표시
-                    dropIconL.style.transform = 'rotate(-45deg)';
-                    dropIconR.style.transform = 'rotate(45deg)';
-                } else {
-                    dropIconL.style.transform = 'rotate(45deg)';
-                    dropIconR.style.transform = 'rotate(-45deg)';
-                    gnbSub.style.display = 'none'; // 드롭다운 숨김
+        gnbMenus.forEach(menu => {
+            menu.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const isActive = menu.classList.contains('active');
+
+                document.querySelectorAll('.gnb-menu').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                if (!isActive) {
+                    menu.classList.add('active');
                 }
             });
-        }
+        });
     }
-
 });
+
+
+
 
 function closeAllModals() {
     const modals = document.querySelectorAll('.modal');
@@ -84,13 +86,13 @@ document.querySelector('.termBtn').onclick = function () {
     }
 }
 
-// window.addEventListener('resize', function () {
-//     const sitemapModal = document.getElementById('sitemap-modal');
-//     if (window.innerWidth <= 868 && sitemapModal.style.display === "block") {
-//         sitemapModal.style.display = "none";
-//         document.body.classList.remove('modal-open');
-//     }
-// });
+window.addEventListener('resize', function () {
+    const sitemapModal = document.getElementById('sitemap-modal');
+    if (window.innerWidth <= 868 && sitemapModal.style.display === "block") {
+        sitemapModal.style.display = "none";
+        document.body.classList.remove('modal-open');
+    }
+});
 
 // 모달 닫기 버튼 클릭 시 닫기
 document.getElementById('close-sitemap').onclick = function() {

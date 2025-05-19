@@ -76,6 +76,9 @@ input:focus {
   outline: none;
   box-shadow: none;
 }
+fieldset {
+  border: none;
+}
 
 /* 사파리 input아이콘 초기화 */
 @supports (-webkit-appearance:none) {
@@ -1143,10 +1146,9 @@ display: none;
 }
 
 
-/*✅ login.html 
-  ✅ fine-id.html 
-  ✅ fine-pw.html */
-.sub-page .font-bold {
+
+/*✅ 모든 서브페이지 적용 */
+.sub-page .title {
   font-size: clamp(35px, 3vw, 40px);
   line-height: 140%;
   color: #005AAB;
@@ -1154,12 +1156,16 @@ display: none;
   font-family: 'NanumSquareNeoHeavy';
 }
 .sub-page .sub-title {
-  font-size: clamp(25px, 2.5vw, 45px);
+  font-size: clamp(25px, 2vw, 35px);
   line-height: 140%;
   color: #005AAB;
   text-align: center;
   font-family: 'pretendard';
 }
+
+/*✅ login.html 
+  ✅ fine-id.html 
+  ✅ fine-pw.html */
 .user {
   width: 100%;
   max-width: 500px;
@@ -1284,6 +1290,193 @@ display: none;
 .user .infomation.success {
   text-align: left;
   color: green;
+}
+/*✅ register.html */
+.register {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.register .step-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.register .step-line {
+  height: 2px;
+  background-color: #ddd;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.register .step {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.register .step-item {
+  text-align: center;
+  flex: 1;
+  position: relative;
+}
+
+.register .step-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #DDDDDD;
+  margin: 5px auto 8px;
+}
+
+.register .step-label {
+  font-size: 18px;
+  color: #888888;
+}
+
+.register .step-item.active .step-circle {
+  background-color: #005AAB;
+}
+
+.register .step-item.active .step-label {
+  color: #005AAB;
+  font-weight: bold;
+}
+.register .sub-head {
+  font-size: clamp(20px, 1.5vw, 25px);
+  line-height: 140%;
+  color: #333333;
+  font-family: 'NanumSquareNeoHeavy';
+  font-weight: 400;
+}
+.register .blue-text{
+  color: #005AAB;
+  font-size: clamp(20px, 1.5vw, 25px);
+  line-height: 140%;
+  font-family: 'NanumSquareNeoHeavy';
+  font-weight: 400;
+}
+/* 여기서부터 탭 컨텐츠 부분 */
+.register .term-wrap {
+  background-color: #F9F9F9;
+  padding: 100px;
+}
+.register .sub-head {
+  border-bottom: 2px solid #D9D9D9;
+  padding-bottom: 10px;
+}
+.register .terms-one {
+  font-size: 20px;
+  font-weight: 600;
+  color: #005AAB;
+  line-height: 2;
+}
+.register .terms-two {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333;
+  line-height: 2;
+}
+.register .terms-three {
+  font-size: 16px;
+  font-weight: 400;
+  color: #5F5F5F;
+  line-height: 1.8;
+}
+
+.register .terms-content {
+  margin-top: 20px;
+  height: 350px;
+  overflow-y: auto;
+  background: #F1F1F1;
+  padding: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.register .terms-content::-webkit-scrollbar {
+  width: 8px; 
+}
+.register .terms-content::-webkit-scrollbar-thumb {
+  background-color: #D9D9D9; 
+  border-radius: 4px; 
+}
+.register .terms-content::-webkit-scrollbar-track {
+  background-color: #F3F5F6; 
+  border-radius: 4px; 
+}
+
+.register .terms-content::-webkit-scrollbar-thumb:hover {
+  background-color: #C0C0C0;
+}
+
+.register .keep_agree {
+  margin-top: 20px;
+}
+.register .keep_agree:last-of-type {
+  margin-top: 100px;
+  border-top: 2px solid #D9D9D9;
+  padding-top: 20px;
+  text-align: center;
+}
+/* 체크박스 커스텀 */
+.register .keep_agree .checkbox-input {
+  display: none;
+}
+.register .keep_agree .checkbox-input:checked + .checkbox-label .checkBox .checkbox-rect {
+  fill: #005AAB;
+}
+.register .keep_agree .checkBox {
+  display: inline-block;
+  vertical-align: -3px;
+  margin-right: 8px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.register .checkbox-label {
+  font-size: 18px;
+  font-weight: 500;
+  color: #222;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  border-radius: 4px;
+}
+.register .blue {
+  color: #005AAB;
+}
+
+.register .btn-box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.register .btn-box .l-btn,
+.register .btn-box .r-btn{
+  max-width: 300px;
+  width: 100%;
+  padding: 17px 100px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 7px;
+}
+.register .btn-box .l-btn {
+  background-color: #FEFEFE;
+  color: #333333;
+  border: 1px solid #333333;
+}
+.register .btn-box .r-btn {
+  background-color: #005AAB;
+  color: #fff;
+  border: 1px solid #005AAB;
 }
 
 /*✅ qualify-#.html */

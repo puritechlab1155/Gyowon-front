@@ -104,8 +104,8 @@ document.querySelectorAll('.nav-drop').forEach(navDrop => {
 });
 document.addEventListener("DOMContentLoaded", () => {
     const mainMenuItems = document.querySelectorAll(".nav-main-menu a");
-    const firstTitle = document.querySelector(".nav-title.first");
-    const secondTitle = document.querySelector(".nav-title.second");
+    const firstTitle = document.querySelector(".nav-drop.first");
+    const secondTitle = document.querySelector(".nav-drop.second");
     const subMenu = document.querySelector(".nav-sub-menu");
     const navMainMenu = document.querySelector(".nav-main-menu"); 
 

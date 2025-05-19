@@ -289,6 +289,18 @@
 }
 
 /* ✅ 서브페이지 적용 */
+.sub-page .login-menu-wrap {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+}
+.sub-page .header-login {
+    padding-top: 2px;
+    color: #333333;
+    font-weight: 600;
+    font-size: 16px;
+}
 .sub-page .right-arrow-svg{
     display: none;
 }
@@ -317,6 +329,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
 .sub-page .nav-var .nav-drop {
     height: 20px;
     width: 180px;
@@ -325,8 +338,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #727272;
+    font-size: 16px;
+    cursor: pointer;
 }
 .sub-page .nav-var .nav-title {
+    height: 20px;
+    width: 180px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: #727272;
     font-size: 16px;
     cursor: pointer;
@@ -492,6 +514,9 @@
     .header {
         background: #fff;
         position: fixed;
+    }
+    .sub-page .header-login {
+        display: none;
     }
     
     /*mobile*/
@@ -666,14 +691,14 @@
     }
     .sub-page .nav-var .home-btn {
         height: 15px;
-        padding: 0 10px 0 0;
+        padding: 0 5px 2px 0;
         display: flex;
         justify-content: center;
         align-items: center;
         border-right: none;
     }
-    .sub-page .home-svg {
-        fill: #858585;
+    .sub-page .home-path {
+        fill: #858585 ;
     }
     .sub-page .nav-var .nav-wrap {
         display: flex;
@@ -689,18 +714,22 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-    .sub-page .nav-var .nav-title {
         color: #727272;
         font-size: 16px;
         cursor: pointer;
     }
+    .sub-page .nav-var .nav-title {
+        height: 15px;
+        width: auto;
+        border-right: none;
+        padding: 0px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
     .sub-page .nav-var .share-btn {
-        padding: 0px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: none;
     }
     .sub-page .nav-drop .drop-arrow-svg {
         display: none;
@@ -713,6 +742,7 @@
     .sub-page .drop-menu {
         display: none;
     }
+    
 }
 
 

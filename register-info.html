@@ -455,19 +455,16 @@
                                 회원가입
                             </div>
                         </div>
-                        <!--  
-                        <div class="nav-item bottom">
+                        <!-- <div class="nav-item bottom">
                             <div class="nav-title second">
-                                자격 신청
+                                정보입력
                             </div>
                         </div>
-                        <svg class="right-arrow-svg" width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0.334923 0.320834C0.535305 0.106945 0.791508 0 1.10353 0C1.41555 0 1.68178 0.0972225 1.90219 0.291667V0.320834L8.66508 6.7375C8.88836 6.95417 9 7.20833 9 7.5C9 7.79167 8.89838 8.03611 8.69513 8.23333L8.66508 8.2625L1.90219 14.6792C1.68178 14.8931 1.42128 15 1.12071 15C0.81727 15 0.555343 14.8931 0.334923 14.6792C0.111641 14.4819 0 14.2375 0 13.9458C0 13.6514 0.101622 13.3972 0.304866 13.1833H0.334923L6.28197 7.5L0.334923 1.81667C0.111641 1.62222 0 1.37778 0 1.08333C0 0.791667 0.101622 0.5375 0.304866 0.320834H0.334923Z" fill="#8E8E8E"/>
-                        </svg>
                         <div class="nav-title three">
-                            
-                        </div>
-                        -->
+                            <div class="nav-title second">
+
+                            </div>
+                        </div> -->
                     </div>
 
                     <div class="share-btn">
@@ -536,9 +533,7 @@
 
 
         <main id="main" class="register">
-
-            <!-- 2. KTDA 소개 -->
-            <div class="section01 mt-230 mb-120">
+            <div class="mt-230 mb-120">
                 <div class="inner">
                     <div class="content">
                         <div class="title-area">
@@ -559,6 +554,94 @@
                                 <div class="step-circle"></div>
                                 <div class="step-label">가입완료</div>
                             </div>
+                            </div>
+                        </div>
+                        <div class="selection-container mt-50">
+                            <h2 class="gray-text">본인에게 해당하는 유형을 선택해 주세요.</h2>
+                            <div class="selection-box mt-50">
+                                <div class="type-card" onclick="selectType(this)" data-type="일반 회원">
+                                    <div class="card-image"><h3 class="card-title sub-head">일반 회원</h3></div>
+                                    <div class="description-zone">
+                                        <div class="arrow-zone"> → 일반 회원</div> 
+                                        <div class="card-description">
+                                            학생, 일반인, 기관/단체/협회 등 <br/> <span class="blue">자율연수 대상자</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="type-card" onclick="selectType(this)" data-type="교원·교육 전문직">
+                                    <div class="card-image">
+                                        <h3 class="card-title sub-head">교원·교육 전문직 <br/> 퇴직교원·행정직</h3>
+                                    </div>
+                                    <div class="description-zone">
+                                        <div class="arrow-zone"> → 교원·교육 전문직 및 퇴직교원·행정직</div>
+                                        <div class="card-description">
+                                            유, 초, 중등교원 및 교육전문직의 <br/> <span class="blue"> 교원자율연수 대상자</span><br/>
+                                            교직원 및 학교 내 행정직 <span class="blue">자율연수 대상자</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="user-btn mt-50" disabled>다음</button>
+                        </div>
+                        <div class="info-wrap mt-100">
+                            <div>
+                                <div class="sub-head">회원정보 입력</div>
+                                <form class="info-form mt-50">
+                                    <div class="form-group">
+                                        <label class="label" for="name">성명 <span class="red">*</span></label>
+                                        <input class="input" type="text" id="name" required>
+                                    </div>
+                        
+                                    <div class="form-group">
+                                        <label class="label" for="id">아이디 <span class="red">*</span></label>
+                                        <div class="column">
+                                            <div class="input-group">
+                                                <input class="input" type="text" id="id" required>
+                                                <button class="check-btn" type="button" onclick="checkIdAvailability()">중복확인</button>
+                                            </div>
+                                            <p class="description">※ 영문, 숫자의 조합 5~13자로 작성해 주세요.</p>
+                                            <div class="information" id="id-info"></div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                        
+                                    <div class="form-group">
+                                        <label class="label" for="password">비밀번호 <span class="red">*</span></label>
+                                        <div class="column">
+                                            <input class="input" type="password" id="password" oninput="checkPasswordMatch()" required>
+                                            <p class="description">※ 영문, 숫자, 특수문자 조합 4~16자로 작성해 주세요.</p>
+                                        </div>
+                                    </div>
+                                    
+                        
+                                    <div class="form-group">
+                                        <label class="label" for="confirm-password">비밀번호 <br class="mob-br"/> 확인 <span class="red">*</span></label>
+                                        <div class="column">
+                                            <input class="input" type="password" id="confirm-password" oninput="checkPasswordMatch()" required>
+                                            <div class="information" id="password-info"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label">성별 <span class="red">*</span></label>
+                                        <div class="flex">
+                                            <div class="radio-group">
+                                                <input type="radio" id="gender-male" name="gender" value="male" required>
+                                                <label for="gender-male">남성</label>
+                                            </div>
+                                            <div class="radio-group">
+                                                <input type="radio" id="gender-female" name="gender" value="female" required>
+                                                <label for="gender-female">여성</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label"> 생년월일<span class="red">*</span></label>
+                                        <div class="column">
+                                            <input class="input" type="date" required>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         
@@ -857,43 +940,36 @@
     <script src="js/swiper.js"></script>
     <script src="js/script.js"></script>
     <script>
-        // ✅ 체크박스 설정
-        document.addEventListener('DOMContentLoaded', function() {
-            const allAgreeCheckbox = document.getElementById('all-agree');
-            const termsAgreeCheckbox = document.getElementById('terms-agree');
-            const privacyAgreeCheckbox = document.getElementById('privacy-agree');
-            const nextButton = document.getElementById('next-btn');
+        // ✅ 안내멘트 
+        function checkIdAvailability() {
+            const idInput = document.getElementById('id');
+            const idInfo = document.getElementById('id-info');
+            const idValue = idInput.value.trim();
 
-            if (allAgreeCheckbox && termsAgreeCheckbox && privacyAgreeCheckbox) {
-                allAgreeCheckbox.addEventListener('change', function() {
-                termsAgreeCheckbox.checked = this.checked;
-                privacyAgreeCheckbox.checked = this.checked;
-                });
-
-                // 개별 체크박스 상태 변경 시 "모두 동의" 체크박스 상태 업데이트 (선택 사항)
-                termsAgreeCheckbox.addEventListener('change', function() {
-                allAgreeCheckbox.checked = termsAgreeCheckbox.checked && privacyAgreeCheckbox.checked;
-                });
-
-                privacyAgreeCheckbox.addEventListener('change', function() {
-                allAgreeCheckbox.checked = termsAgreeCheckbox.checked && privacyAgreeCheckbox.checked;
-                });
-            }
-            function updateNextButtonState() {
-            if (termsAgreeCheckbox.checked && privacyAgreeCheckbox.checked) {
-                nextButton.disabled = false; // 버튼 활성화
+            // 실제 서버 통신 로직이 들어가야 하지만, 여기서는 임의로 처리합니다.
+            // 예시: 아이디 길이가 5 미만이면 불가능하다고 가정
+            if (idValue.length < 5) {
+                idInfo.textContent = "사용 불가능한 아이디입니다.";
+                idInfo.className = "information error";
             } else {
-                nextButton.disabled = true;  // 버튼 비활성화
+                idInfo.textContent = "사용 가능한 아이디입니다.";
+                idInfo.className = "information success";
             }
+        }
+
+        function checkPasswordMatch() {
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            const passwordInfo = document.getElementById('password-info');
+
+            if (passwordInput.value === confirmPasswordInput.value) {
+                passwordInfo.textContent = "비밀번호가 일치합니다.";
+                passwordInfo.className = "information success";
+            } else {
+                passwordInfo.textContent = "비밀번호가 일치하지 않습니다.";
+                passwordInfo.className = "information error";
             }
-
-            // 초기 상태 설정
-            updateNextButtonState();
-
-            // 각 체크박스의 상태가 변경될 때 버튼 상태 업데이트
-            termsAgreeCheckbox.addEventListener('change', updateNextButtonState);
-            privacyAgreeCheckbox.addEventListener('change', updateNextButtonState);
-        });
+        }
         
     </script>
 

@@ -549,7 +549,7 @@
                                     <input type="text" id="id" class="user-input" aria-label="아이디" placeholder="아이디">
                                     <input type="name" id="name" class="user-input" aria-label="이름" placeholder="이름">
                                     <input type="email" id="email" class="user-input" aria-label="이메일" placeholder="이메일">
-                                    <div class="infomation" id="infoMessage"></div>
+                                    <div class="information" id="infoMessage"></div>
                             </form>
                             
                             <div class="btn_wrap mt-20">
@@ -872,20 +872,20 @@
 
             if (!name) {
             info.textContent = "이름을 입력해주세요.";
-            info.className = "infomation error";
+            info.className = "information error";
             } else if (!email) {
             info.textContent = "이메일을 입력해주세요.";
-            info.className = "infomation error";
+            info.className = "information error";
             } else if (!emailRegex.test(email)) {
             info.textContent = "이메일 형식이 올바르지 않습니다. 다시 확인해주세요.";
-            info.className = "infomation error";
+            info.className = "information error";
             } else if (!id) {
             info.textContent = "아이디를 입력해주세요.";
-            info.className = "infomation error";
+            info.className = "information error";
             } else {  // (추가) 입력한 정보가 없을 경우 : 
             // "입력하신 정보와 일치하는 계정이 없습니다."
             info.textContent = "정상적으로 전송되었습니다.";
-            info.className = "infomation success";
+            info.className = "information success";
             }
         }
     </script>

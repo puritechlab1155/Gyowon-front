@@ -72,7 +72,7 @@ $(document).ready(function () {
         //     $logoImg.attr('src', 'img/offcanvas-logo.png');
         // }
     }
-    window.addEventListener('resize', adjustFeatureList);
+    // window.addEventListener('resize', adjustFeatureList);
 });
 
 // ✅ nav바 드롭다운 

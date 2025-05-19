@@ -1456,17 +1456,19 @@ display: none;
 .register .btn-box {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 25px;
+  flex-wrap: nowrap;
 }
 .register .btn-box .l-btn,
 .register .btn-box .r-btn{
   max-width: 300px;
+  min-width: 150px;
   width: 100%;
-  padding: 17px 100px;
+  padding: 17px 50px;
   font-size: 20px;
   font-weight: 600;
   border-radius: 7px;
+  width: 100%;
 }
 .register .btn-box .l-btn {
   background-color: #FEFEFE;
@@ -1942,6 +1944,7 @@ display: none;
   .mainIndex .section05.mt-150 {
     margin-top: 0;
   }
+  
   /*✅ login.html 
     ✅ fine-id.html 
     ✅ fine-pw.html */
@@ -1976,6 +1979,41 @@ display: none;
   .user-btn { 
     padding: 15px 0;
   }
+
+
+  /*✅ register-#.html */
+  .register {
+    padding: 0 40px;
+  }
+  .register .term-wrap {
+    background-color: #F9F9F9;
+    padding: 50px;
+  }
+  .register .term-wrap.mt-100 {
+    margin-top: 50px;
+  }
+  .register .sub-head {
+    border-bottom: 2px solid #D9D9D9;
+    padding-bottom: 10px;
+  }
+  /* .register .mob-br {
+    display: block;
+  } */
+  .register .btn-box {
+    justify-content: space-around;
+    gap: 15px;
+  }
+  .register .btn-box .l-btn,
+  .register .btn-box .r-btn{
+    min-width: 100px;
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+  .register .mob-br {
+    display: block;
+  }
+  
   .qualify .mt-50 {
     margin-top: 25px;
   }
@@ -2080,4 +2118,32 @@ display: none;
   .user .comment.mt-20 {
     margin-top: 10px !important;
   }
+  .register {
+    padding: 0 10px;
+  }
+  .register .term-wrap.mt-100{
+    margin-top: 50px;
+  }
+  .register .term-wrap {
+    padding: 30px;
+  }
+  .register .step-wrapper {
+    max-width: 330px;
+    margin: 30px auto;
+  }
+
+  .register .step-circle {
+    width: 15px;
+    height: 15px;
+    margin: 6px auto 8px;
+  }
+
+  .register .step-label {
+    font-size: 16px;
+    color: #888888;
+  }
+  .register .keep_agree:last-of-type {
+    margin-top: 50px;
+  }
+
 }

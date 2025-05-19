@@ -749,7 +749,7 @@
                                             이용약관 동의 <span class="blue">(필수)</span>
                                         </label>
                                     </fieldset>
-                                    <div class="sub-head mt-100">개인정보 수집 및 이용에 관한 <span class="blue-text">동의사항</span></div>
+                                    <div class="sub-head mt-100">개인정보 수집 및 <br class="mob-br"/> 이용에 관한 <span class="blue-text">동의사항</span></div>
                                     <div class="terms-content">
                                         <p class="terms-one">■ 수집하는 개인정보 항목</p>
                                         <p class="terms-three">
@@ -807,7 +807,7 @@
                         </div>
                         <div class="btn-box mt-50">
                             <button class="l-btn" type="button" onclick="location.href='index.html'">취소</button>
-                            <button id="next-btn" class="r-btn" type="button" onclick="location.href='index.html'" disabled>가입하기</button>
+                            <button id="next-btn" class="r-btn" type="button" onclick="location.href='register-info.html'">가입하기</button>
                         </div>
                     </div>
                 </div>
@@ -1104,37 +1104,47 @@
             const allAgreeCheckbox = document.getElementById('all-agree');
             const termsAgreeCheckbox = document.getElementById('terms-agree');
             const privacyAgreeCheckbox = document.getElementById('privacy-agree');
-            const nextButton = document.getElementById('next-btn');
+            const nextButton = document.getElementById('next-btn'); // 주석 해제
 
-            if (allAgreeCheckbox && termsAgreeCheckbox && privacyAgreeCheckbox) {
-                allAgreeCheckbox.addEventListener('change', function() {
-                termsAgreeCheckbox.checked = this.checked;
-                privacyAgreeCheckbox.checked = this.checked;
-                });
-
-                // 개별 체크박스 상태 변경 시 "모두 동의" 체크박스 상태 업데이트 (선택 사항)
-                termsAgreeCheckbox.addEventListener('change', function() {
-                allAgreeCheckbox.checked = termsAgreeCheckbox.checked && privacyAgreeCheckbox.checked;
-                });
-
-                privacyAgreeCheckbox.addEventListener('change', function() {
-                allAgreeCheckbox.checked = termsAgreeCheckbox.checked && privacyAgreeCheckbox.checked;
-                });
-            }
-            function updateNextButtonState() {
-            if (termsAgreeCheckbox.checked && privacyAgreeCheckbox.checked) {
-                nextButton.disabled = false; // 버튼 활성화
-            } else {
-                nextButton.disabled = true;  // 버튼 비활성화
-            }
+            function checkAllAgreed() {
+                return termsAgreeCheckbox.checked && privacyAgreeCheckbox.checked;
             }
 
-            // 초기 상태 설정
-            updateNextButtonState();
+            if (nextButton) { // nextButton이 존재하는지 확인
+                nextButton.addEventListener('click', function(event) {
+                    if (!checkAllAgreed()) {
+                        event.preventDefault(); // 기본 동작(페이지 이동) 막기
+                        alert('약관에 모두 동의해주세요.');
+                    } 
+                });
 
-            // 각 체크박스의 상태가 변경될 때 버튼 상태 업데이트
-            termsAgreeCheckbox.addEventListener('change', updateNextButtonState);
-            privacyAgreeCheckbox.addEventListener('change', updateNextButtonState);
+                nextButton.disabled = true;
+
+                function updateNextButtonState() {
+                    nextButton.disabled = !checkAllAgreed();
+                }
+
+                if (allAgreeCheckbox && termsAgreeCheckbox && privacyAgreeCheckbox) {
+                    allAgreeCheckbox.addEventListener('change', function() {
+                        termsAgreeCheckbox.checked = this.checked;
+                        privacyAgreeCheckbox.checked = this.checked;
+                        updateNextButtonState();
+                    });
+
+                    termsAgreeCheckbox.addEventListener('change', function() {
+                        allAgreeCheckbox.checked = termsAgreeCheckbox.checked && privacyAgreeCheckbox.checked;
+                        updateNextButtonState();
+                    });
+
+                    privacyAgreeCheckbox.addEventListener('change', function() {
+                        allAgreeCheckbox.checked = termsAgreeCheckbox.checked && privacyAgreeCheckbox.checked;
+                        updateNextButtonState();
+                    });
+
+                    // 초기 상태 업데이트
+                    updateNextButtonState();
+                }
+            }
         });
         
     </script>

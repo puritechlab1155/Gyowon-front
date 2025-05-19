@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     mainMenuItems.forEach(item => {
-        item.addEventListener("click", () => {
+        item.addEventListener("click", (event) => {
             event.preventDefault();
             
             const menuKey = item.dataset.menu;
@@ -160,7 +160,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             submenuList.forEach(menu => {
                 const li = document.createElement("li");
+                li.classList.add("nav-menu-li");
                 const a = document.createElement("a");
+                a.classList.add("nav-menu-a");
 
                 if (typeof menu === "string") {
                     a.textContent = menu;

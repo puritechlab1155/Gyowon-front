@@ -106,8 +106,18 @@ body.modal-open {
 .mt-60 {
   margin-top: 60px;
 }
+
+.mt-100 {
+  margin-top: clamp(70px , 6vw , 100px) ;
+}
 .mt-150 {
   margin-top: clamp(70px , 8vw , 150px) ;
+}
+.mt-230 {
+  margin-top: clamp(160px, 19vw, 230px);
+}
+.mb-120 {
+  margin-bottom: clamp(50px , 12vw , 120px) ;
 }
 .btn01 {
   width: 100%;
@@ -128,9 +138,23 @@ body.modal-open {
   width: 8px;
   margin-left: 10px;
 }
+.btn03 {
+  font-size: 18px;
+  color: #005AAB;
+  background: #FEFEFE;
+  padding: 15px 45px;
+  border-radius: 10px;
+  border: 1.5px solid #005AAB;
+  font-weight: 600;
+}
+.btn03:hover {
+  color: #EFEFEF;
+  background: #005AAB;
+}
 .f-white {
   color: #FEFEFE;
 }
+
 
 
 /* ✅ 팝업창 */
@@ -571,6 +595,13 @@ body.modal-open {
   text-align: center;
   font-family: 'NanumSquareNeoHeavy';
 }
+.title-area .sub-title {
+  font-size: clamp(25px, 2.5vw, 45px);
+  line-height: 140%;
+  color: #005AAB;
+  text-align: center;
+  font-family: 'pretendard';
+}
 .title-area .font-bold {
   font-size: clamp(35px, 3vw, 50px);
   line-height: 140%;
@@ -940,7 +971,7 @@ body.modal-open {
 .main_visual .swiper-button-disabled {
   opacity: 1;
 }
-#home .mainIndex .swiper-pagination {
+.mainIndex .swiper-pagination {
   position: absolute;
   transition: .3s opacity;
   transform: translate3d(0, 0, 0);
@@ -1022,13 +1053,11 @@ body.modal-open {
     margin-left: 5%;
 }
 
-/* 텍스트 박스 */
 .mainIndex .section05 .left-box {
   /* flex: 1 1 60%; */
   max-width: 320px;
 }
 
-/* 제목 */
 .mainIndex .section05 .sub-title {
   font-size: clamp(20px, 2vw, 30px);
   font-weight: 700;
@@ -1080,13 +1109,11 @@ body.modal-open {
   border-bottom: 1px solid #FEFEFE;
 }
 
-/* 복사 아이콘 */
 .mainIndex .section05 .copy-btn .copy-icon {
   width: 20px;
   height: 20px;
 }
 
-/* 오른쪽 이미지 */
 .mainIndex .section05 .right-img {
   max-width: 160px;
 }
@@ -1096,7 +1123,99 @@ body.modal-open {
 }
 
 
+/*✅ login.html */
+.login{
+  background-color: pink;
+}
+.login .content .input_container{
+  border: none;
+  padding: 0;    
+  margin: 0;     
+}
+.login .content .input_wrap .password_container {
+  position: relative;
+}
+.login .password_container .eyeBtn {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.login .keep_login {
+  width: fit-content;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.36px;
+  color: #999;
+}
+.login .keep_login input[type="checkbox"] {
+  display: none;
+}
+.login .keep_login input[type="checkbox"]:checked + label span.checkBox rect {
+  fill: #0A387C; 
+}
+.login label[for="keepLogin"] {
+  cursor: pointer;
+}
+.login .keep_login span.checkBox {
+  display: inline-block;
+  vertical-align: -5px;
+  margin-right: 9px;
+  cursor: pointer;
+}
+.login button.loginBtn {
+  padding: 18px 0;
+}
+.login ul.user_account {
+  margin-top: 30px;
+}
+.login ul.user_account li {
+  display: inline-block;
+}
+.login ul.user_account li::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  background: #EEEEEE;
+  margin: 0 10px;
+}
+.login ul.user_account li:last-child::after {
+  content: "";
+  display: none;
+}
+.login ul.user_account a{
+  font-size: 16px;
+  color: #777;
+  font-weight: 500;
+  letter-spacing: -0.36px;
+}
 
+/*✅ qualify-#.html */
+.qualify .section01 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.qualify .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.qualify .img-box {
+  max-width: 600px;
+}
+
+.qualify .mob-br{
+  display: none;
+}
 
 /* 리사이징 */
 
@@ -1411,8 +1530,21 @@ body.modal-open {
   .mainBtn-container .logIn {
     display: none;
   }
+  .qualify .mob-br{
+    display: block;
+  }
 }
+
 @media (max-width: 767px) {
+  .btn03 {
+      font-size: 16px;
+      color: #005AAB;
+      background: #FEFEFE;
+      padding: 10px 30px;
+      border-radius: 10px;
+      border: 1px solid #005AAB;
+      font-weight: 600;
+    }
   .notice-section,
   .faq-section {
       flex: 1 0 100%; 
@@ -1526,6 +1658,10 @@ body.modal-open {
   .mainIndex .section05.mt-150 {
     margin-top: 0;
   }
+  .qualify .mt-50 {
+    margin-top: 25px;
+  }
+
 }
 
 @media (max-width: 730px) {

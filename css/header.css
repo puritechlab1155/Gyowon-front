@@ -289,6 +289,9 @@
 }
 
 /* ✅ 서브페이지 적용 */
+.sub-page .right-arrow-svg{
+    display: none;
+}
 .sub-page .nav-var {
     background-color: #F4F5F9;
     width: 100%;
@@ -360,7 +363,7 @@
     max-height: 500px;
 }
 
-.sub-page .nav-item .drop-menu li a {
+.sub-page .nav-item .nav-menu-a {
     display: block;
     padding: 10px 20px;
     text-decoration: none;
@@ -368,22 +371,22 @@
     font-size: 16px;
     border-bottom: solid 1px #EFEFEF;
 }
-.sub-page .nav-item .drop-menu li:last-child a {
+.sub-page .nav-item .drop-menu .nav-menu-li:last-child .nav-menu-a {
     border-bottom: none;
 }
 
-.sub-page .nav-item .drop-menu li a:hover,
-.sub-page .nav-item .drop-menu li a:focus{
+.sub-page .nav-item .drop-menu .nav-menu-a:hover,
+.sub-page .nav-item .drop-menu .nav-menu-a:focus{
     background-color: #005AAB;
     color: #FEFEFE;
 }
 
-.sub-page .nav-drop svg {
+.sub-page .nav-drop .drop-arrow-svg {
     margin-left: 5px;
     transition: transform 0.3s ease-in-out;
 }
 
-.sub-page .nav-drop.open svg {
+.sub-page .nav-drop.open .drop-arrow-svg {
     transform: rotate(180deg);
 }
 
@@ -646,6 +649,70 @@
         transform: rotate(-45deg);
     }
 
+    
+    /* ✅ 서브페이지 적용 */
+    .sub-page .nav-var {
+        background-color: #FFFFFF;
+        width: 100%;
+        border-bottom: none;
+    }
+    .sub-page .nav-var .nav-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+    .sub-page .right-arrow-svg{
+        display: block;
+    }
+    .sub-page .nav-var .home-btn {
+        height: 15px;
+        padding: 0 10px 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-right: none;
+    }
+    .sub-page .home-svg {
+        fill: #858585;
+    }
+    .sub-page .nav-var .nav-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px
+    }
+    .sub-page .nav-var .nav-drop {
+        height: 15px;
+        width: auto;
+        border-right: none;
+        padding: 0 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .sub-page .nav-var .nav-title {
+        color: #727272;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .sub-page .nav-var .share-btn {
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .sub-page .nav-drop .drop-arrow-svg {
+        display: none;
+    }
+    
+    .sub-page .nav-item {
+        position: relative; 
+    }
+
+    .sub-page .drop-menu {
+        display: none;
+    }
 }
 
 

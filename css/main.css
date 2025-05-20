@@ -1948,7 +1948,7 @@ fieldset {
     margin-top: 5px;
   }
 
-  #home .mainIndex .swiper-pagination {
+  .mainIndex .swiper-pagination {
     top: 400px;
     left: -32%;
   }
@@ -2124,7 +2124,7 @@ fieldset {
     left: 50%;
     transform: translateX(-50%);
   }
-  #home .mainIndex .swiper-pagination {
+  .mainIndex .swiper-pagination {
     top: 360px ;
     left: 50% ;
     transform: translateX(-50%);
@@ -2438,6 +2438,12 @@ fieldset {
   }
   .mainIndex .section01 .section-header {
     margin-bottom: 5px;
+  }
+  .mainIndex .main_visual .text-box {
+    top: 230px;
+  }
+  .mainIndex .mainBtn-container {
+    top: 500px;
   }
   .mainIndex .swiper-pagination {
     top: 290px ;

@@ -146,8 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mainMenuItems.forEach(item => {
         item.addEventListener("click", (event) => {
-            event.preventDefault();
-            
             const menuKey = item.dataset.menu;
             const menuName = item.textContent.trim();
 

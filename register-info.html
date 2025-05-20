@@ -1129,7 +1129,7 @@
     <script src="js/swiper.js"></script>
     <script src="js/script.js"></script>
     <script>
-    
+    // ✅ [교원, 일반] 선택 후 정보입력창 등장
     function selectType(element) {
         const type = element.getAttribute('data-type');
 
@@ -1143,7 +1143,6 @@
         document.querySelector('.info-wrap.common').style.display = 'none';
         document.querySelector('.info-wrap.teacher').style.display = 'none';
 
-        // type에 따라 표시
         if (type === '일반') {
             document.querySelector('.info-wrap.common').style.display = 'block';
         } else if (type === '교원') {

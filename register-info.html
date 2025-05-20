@@ -533,7 +533,7 @@
 
 
 
-        <main id="main" class="register">
+        <main id="main" class="register info">
             <div class="mt-230 mb-120">
                 <div class="inner">
                     <div class="content">
@@ -560,7 +560,7 @@
                         <div class="selection-container mt-50">
                             <h2 class="gray-text">본인에게 해당하는 유형을 선택해 주세요.</h2>
                             <div class="selection-box mt-50">
-                                <div class="type-card" onclick="selectType(this)" data-type="일반 회원">
+                                <div class="type-card" onclick="selectType(this)" data-type="일반">
                                     <div class="card-image"><h3 class="card-title sub-head">일반 회원</h3></div>
                                     <div class="description-zone">
                                         <div class="arrow-zone"> → 일반 회원</div> 
@@ -569,7 +569,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="type-card" onclick="selectType(this)" data-type="교원·교육 전문직">
+                                <div class="type-card" onclick="selectType(this)" data-type="교원">
                                     <div class="card-image">
                                         <h3 class="card-title sub-head">교원·교육 전문직 <br/> 퇴직교원·행정직</h3>
                                     </div>
@@ -584,9 +584,9 @@
                             </div>
                             <button class="user-btn mt-50" disabled>다음</button>
                         </div>
-                        <div class="info-wrap mt-100">
+                        <div class="info-wrap common mt-100">
                             <div>
-                                <div class="sub-head">회원정보 입력</div>
+                                <div class="sub-head2"><span class="big">회원정보 입력</span> <small class="small">공통</small></div>
                                 <form class="info-form mt-50">
                                     <div class="form-group">
                                         <label class="label" for="name">성명 <span class="red">*</span></label>
@@ -601,7 +601,7 @@
                                                 <button class="check-btn" type="button" data-check-type="id">중복확인</button>
                                             </div>
                                             <div class="description">※ 영문, 숫자의 조합 5~13자로 작성해 주세요.</div>
-                                            <small class="information" id="id-info"></small>
+                                            <p class="information" id="id-info"></p>
                                         </div>
                                     </div>
                                     
@@ -637,13 +637,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label"> 생년월일<span class="red">*</span></label>
+                                        <label class="label"> 생년월일 <span class="red">*</span></label>
                                         <div class="column">
                                             <input class="input" type="date" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label" for="email">이메일<span class="red">*</span></label>
+                                        <label class="label" for="email">이메일 <span class="red">*</span></label>
                                         <div class="column">
                                             <div class="input-group">
                                                 <input class="input" type="text" id="email" required>
@@ -653,7 +653,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label" for="phone">휴대번호<span class="red">*</span></label>
+                                        <label class="label" for="phone">휴대번호 <span class="red">*</span></label>
                                         <div class="column">
                                             <div class="input-group">
                                                 <input class="call-input input" type="tel" id="phone" name="phone" required pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}">
@@ -673,7 +673,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label" for="address">주소<span class="red">*</span></label>
+                                        <label class="label" for="address">주소 <span class="red">*</span></label>
                                         <div class="column address-wrap">
                                             <div class="input-group">
                                                 <input class="input zonecode" type="text" id="zonecode" name="zonecode" required placeholder="우편번호" readonly>
@@ -702,7 +702,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label" for="region">근무지역</label>
+                                        <label class="label" for="region">근무지역 <span class="red">*</span></label>
                                         <div class="column region">
                                             <div class="input-group">
                                                 <select class="input select" id="region">
@@ -752,7 +752,89 @@
                                 </form>
                             </div>
                         </div>
-                        
+                        <div class="info-wrap teacher mt-100">
+                            <div>
+                                <div class="sub-head2"><span class="big">학교기관 입력</span> <small class="small">교원</small></div>
+                                <form class="info-form mt-50">
+                                    <div class="form-group">
+                                        <label class="label" for="organ">소속기관<span class="red">*</span></label>
+                                        <div class="column organ">
+                                            <div class="input-group">
+                                                <select class="input select" id="organ">
+                                                    <option class="option" value="" disabled selected hidden>선택하세요</option>
+                                                    <option value="유치원">유치원</option>
+                                                    <option value="경기">경기</option>
+                                                    <option value="초등학교">초등학교</option>
+                                                    <option value="중학교">중학교</option>
+                                                    <option value="고등학교">고등학교</option>
+                                                    <option value="특수학교">특수학교</option>
+                                                    <option value="교육청">교육청</option>
+                                                    <option value="대학교">대학교</option>
+                                                    <option value="대학원">대학원</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label" for="establish">설립구분<span class="red">*</span></label>
+                                        <div class="column establish">
+                                            <div class="input-group">
+                                                <select class="input select" id="establish">
+                                                    <option class="option" value="" disabled selected hidden>선택하세요</option>
+                                                    <option value="공립">공립</option>
+                                                    <option value="사립">사립</option>
+                                                    <option value="국립">국립</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label" for="office">소속교육<br class="mob-br"/>지원청 <span class="red">*</span></label>
+                                        <div class="column office">
+                                            <div class="input-group">
+                                                <select class="input select" id="office">
+                                                    <option class="option" value="" disabled selected hidden>선택하세요</option>
+                                                    <option value="-">-</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label" for="rank">직급 <span class="red">*</span></label>
+                                        <div class="column rank">
+                                            <div class="input-group">
+                                                <select class="input select" id="rank">
+                                                    <option class="option" value="" disabled selected hidden>선택하세요</option>
+                                                    <option value="공립">교사</option>
+                                                    <option value="사립">기간제</option>
+                                                    <option value="국립">부장</option>
+                                                    <option value="기타">기타 (직접입력)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label" for="major">전공 <span class="red">*</span></label>
+                                        <div class="column">
+                                            <div class="input-group">
+                                                <input class="input" type="text" id="major" required placeholder="(예) 초등 / 유아 / 특수 / 상담">
+                                            </div>
+                                            <div class="description">※ "교육" 또는 "전문" 생략해주세요. <br>
+                                                [ 초등교육 → 초등 ] <br class="mob-br"/> [ 유아교육 → 유아 ]<br>[ 특수교육 → 특수 ] <br class="mob-br"/> [ 전문상담 → 상담 ] </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label" for="nies">NEIS <br class="mob-br"/>번호</label>
+                                        <div class="column">
+                                            <div class="input-group">
+                                                <input class="input" type="text" id="nies" required>
+                                            </div>
+                                            <div class="description">※ 직무연수를 희망하는 분들은 필수 입력해주세요.</div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                         
                         <div class="btn-box mt-50">
                             <button class="l-btn" type="button" onclick="location.href='index.html'">취소</button>
@@ -1047,6 +1129,33 @@
     <script src="js/swiper.js"></script>
     <script src="js/script.js"></script>
     <script>
+    
+    function selectType(element) {
+        const type = element.getAttribute('data-type');
+
+        // 카드 활성화 표시 (선택된 것만 active)
+        document.querySelectorAll('.type-card').forEach(card => {
+            card.classList.remove('active');
+        });
+        element.classList.add('active');
+
+        // 모든 info-wrap 숨기기
+        document.querySelector('.info-wrap.common').style.display = 'none';
+        document.querySelector('.info-wrap.teacher').style.display = 'none';
+
+        // type에 따라 표시
+        if (type === '일반') {
+            document.querySelector('.info-wrap.common').style.display = 'block';
+        } else if (type === '교원') {
+            document.querySelector('.info-wrap.common').style.display = 'block';
+            document.querySelector('.info-wrap.teacher').style.display = 'block';
+        }
+
+        // 버튼 박스 표시
+        document.querySelector('.btn-box').style.display = 'flex';
+    }
+
+    // ✅ 안내문구 , 가입처리 유무 확인
     document.addEventListener('DOMContentLoaded', function() {
         const nameInput = document.getElementById('name');
         const idInput = document.getElementById('id');

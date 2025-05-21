@@ -443,9 +443,11 @@
                 <div class="nav-container inner">
                     <div class="nav-wrap">
                         <div class="home-btn">
-                            <svg width="25" height="22" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path class="home-path" d="M8 15.75V11.25H11V15.75H14.75V9.75H17L9.5 3L2 9.75H4.25V15.75H8Z" fill="#292929"/>
-                            </svg>
+                            <a href="index.html">
+                                <svg width="25" height="22" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="home-path" d="M8 15.75V11.25H11V15.75H14.75V9.75H17L9.5 3L2 9.75H4.25V15.75H8Z" fill="#292929"/>
+                                </svg>
+                            </a>
                         </div>
                         <svg class="right-arrow-svg" width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.334923 0.320834C0.535305 0.106945 0.791508 0 1.10353 0C1.41555 0 1.68178 0.0972225 1.90219 0.291667V0.320834L8.66508 6.7375C8.88836 6.95417 9 7.20833 9 7.5C9 7.79167 8.89838 8.03611 8.69513 8.23333L8.66508 8.2625L1.90219 14.6792C1.68178 14.8931 1.42128 15 1.12071 15C0.81727 15 0.555343 14.8931 0.334923 14.6792C0.111641 14.4819 0 14.2375 0 13.9458C0 13.6514 0.101622 13.3972 0.304866 13.1833H0.334923L6.28197 7.5L0.334923 1.81667C0.111641 1.62222 0 1.37778 0 1.08333C0 0.791667 0.101622 0.5375 0.304866 0.320834H0.334923Z" fill="#8E8E8E"/>
@@ -564,21 +566,23 @@
                         <!-- 이용약관 -->
                         <div class="term-wrap mt-100">
                             <div class="terms">
+                                <!-- 전체 동의 체크박스 -->
+                                <fieldset class="keep_agree">
+                                    <input class="checkbox-input" type="checkbox" id="all-agree"/>
+                                    <label class="checkbox-label" class="fs-18 fw-6" for="all-agree">
+                                        <span class="checkBox">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect class="checkbox-rect" width="20" height="20" rx="4" fill="#d3d3d3"/>
+                                                <path d="M6 9.4L9 13L14 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        모두 동의합니다.
+                                    </label>
+                                </fieldset>
+                                
                                 <div class="sub-head">한국댄스스포츠협회 <br class="mob-br"/><span class="blue-text">이용약관</span></div>
                                 <form class="terms-form mt-10">
-                                    <!-- 전체 동의 체크박스 -->
-                                    <fieldset class="keep_agree">
-                                        <input class="checkbox-input" type="checkbox" id="all-agree"/>
-                                        <label class="checkbox-label" class="fs-18 fw-6" for="all-agree">
-                                            <span class="checkBox">
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <rect class="checkbox-rect" width="20" height="20" rx="4" fill="#d3d3d3"/>
-                                                    <path d="M6 9.4L9 13L14 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                </svg>
-                                            </span>
-                                            모두 동의합니다.
-                                        </label>
-                                    </fieldset>
+                                    
                                     <div class="terms-content">
                                         <p class="terms-one">제 1 장 총칙</p>
                                         <p class="terms-two">제 1 조 (목적)</p>

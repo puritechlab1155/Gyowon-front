@@ -141,7 +141,7 @@ fieldset {
   margin-top: clamp(160px, 19vw, 230px);
 }
 .mb-120 {
-  margin-bottom: clamp(50px , 12vw , 120px) ;
+  margin-bottom: 120px;
 }
 
 .btn01 {
@@ -1445,12 +1445,12 @@ fieldset {
 .register .keep_agree {
   margin-top: 20px;
 }
-.register .keep_agree:last-of-type {
+/* .register .keep_agree:last-of-type {
   margin-top: 100px;
   border-top: 2px solid #D9D9D9;
   padding-top: 20px;
   text-align: center;
-}
+} */
 .register .keep_agree .checkbox-input {
   display: none;
 }
@@ -1513,6 +1513,9 @@ fieldset {
   display: none;
 }
 .register.info .btn-box{
+  display: flex;
+}
+.register.agree .btn-box{
   display: flex;
 }
 .register .selection-container {
@@ -2477,6 +2480,9 @@ fieldset {
   .user .comment.mt-20 {
     margin-top: 10px !important;
   }
+  .register.agree {
+    padding: 0px;
+  }
   .register {
     padding: 0 10px;
   }
@@ -2500,9 +2506,9 @@ fieldset {
     font-size: 16px;
     color: #888888;
   }
-  .register .keep_agree:last-of-type {
+  /* .register .keep_agree:last-of-type {
     margin-top: 50px;
-  }
+  } */
   .register .selection-box .sub-head {
     font-size: 20px;
   }

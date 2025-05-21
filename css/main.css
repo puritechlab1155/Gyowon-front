@@ -1883,7 +1883,7 @@ fieldset {
 .train .card-info {
   display: flex;
   align-items: start;
-  gap: 10px;
+  gap: 20px;
 }
 
 /* 카드 상단 */
@@ -1896,7 +1896,7 @@ fieldset {
 }
 .train .card-header .category-path {
   font-size: 18px;
-  margin-bottom: 4px;
+  font-weight: 500;
 }
 .train .card-header .category-path.danceSports {
   color: #2780ec;
@@ -1904,11 +1904,18 @@ fieldset {
 .train .card-header .category-path.pilates {
   color: #4EC3E8;
 }
+.train .card-header .category-path.welbing {
+  color: #75C8BE;
+}
+.train .card-header .category-path.lineDance {
+  color: #8B98F5;
+}
 
 .train .card-header .course-title {
-  font-size: clamp(25px, 2.5vw, 32px);
+  font-size: clamp(22px, 2.5vw, 28px);
   font-weight: 600;
   margin: 0;
+  letter-spacing: -1px;
 }
 
 /* 카드 디테일 4개 */
@@ -1993,6 +2000,7 @@ fieldset {
   font-size: 18px;
   font-weight: 600;
   border-radius: 6px;
+  flex-shrink: 0;
 }
 .train .status-badge.complete {
   background: #22BEB5;
@@ -2003,6 +2011,7 @@ fieldset {
 .train .price {
   font-size: 18px;
   color: #727272;
+  letter-spacing: -0.5px;
 }
 
 .train .more {
@@ -2059,6 +2068,71 @@ fieldset {
 .train .card-footer .deposit-wrap.two{
   display: none;
 }
+/* 안내서 토글 스타일 */
+.guide-toggle-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+/* 좌우 선 */
+.guide-toggle-line .guide-line {
+  flex-grow: 1;
+  height: 2px;
+  background-color: #e0e0e0;
+}
+
+/* 안내서 버튼 스타일 */
+.guide-toggle {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+  gap: 10px;
+  user-select: none;
+}
+.toggle-text {
+  color: #727272;
+  font-weight: 500;
+}
+
+/* 아이콘 회전 기본 상태 */
+.guide-toggle .dropdown-icon {
+  transition: transform 0.3s ease;
+}
+
+/* 토글 active일 때 회전 */
+.guide-toggle.active .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+/* 안내서 박스 스타일 (필요 시 커스터마이징) */
+.guide-content-box {
+  display: none;
+  margin-top: 16px;
+  padding: 16px;
+  font-size: 14px;
+  justify-content: space-between;
+  gap: 40px;
+}
+.notice-ul{
+  list-style-type: disc;
+  padding-left: 20px; 
+  color: #727272;
+}
+.notice-ul .notice-title{
+  color: #727272;
+  font-weight: 700;
+}
+
+.notice-ul.disc .notice-li {
+  display: list-item;
+  color: #727272;
+}
+
 
 @media (max-width: 1280px) {
   .train .card-info {
@@ -2070,7 +2144,7 @@ fieldset {
   }
   .train .card-details {
     width: 100%;
-    flex: 0 0 auto;
+    /* flex: 0 0 auto; */
   }
   .train .card-header {
     min-height: 0;
@@ -2102,8 +2176,8 @@ fieldset {
   }
   .train .card-details {
     gap: 10px;
+    justify-content: space-between
   }
-
   /* .card-details .left .detail:nth-child(1),
   .card-details .right .detail:nth-child(1){
     flex: 1;
@@ -2140,9 +2214,18 @@ fieldset {
   .train .hidden-content-box {
     padding: 20px;
   }
+  .train .guide-content-box {
+    flex-direction: column;
+  }
+  .train .status-badge {
+    font-size: 16px;
+  }
+  .train .button-text {
+    font-size: 16px;
+  }
 }
 @media (max-width: 520px) {
-  .train .card-details{
+  /* .train .card-details{
     flex-direction: column;
   }
   .train .card-footer .deposit-wrap.two {
@@ -2154,8 +2237,23 @@ fieldset {
   .train .card-footer {
     align-items: start;
   }
-  /* .card-details .details{
+  .train .detail-wrap {
+    gap: 5px;
+  } */
+  .train .card-details .left {
+    flex-grow: 1; 
+  }
+  .train .card-details .right {
+    flex-grow: 1; 
+  }
+  .train .card-details .detail{
+    flex-grow: 1; 
+  }
+  .train .card-details .details{
     width: 100%;
+  }
+  .train .detail {
+    flex-direction: column;
   }
   .detail .icon {
     display: none;
@@ -2188,16 +2286,28 @@ fieldset {
   }
   .card-details .left .detail:nth-child(1),
   .card-details .right .detail:nth-child(1){
-    min-height: 100px;
+    /* min-height: 100px; */
+    flex: 1;
   }
-
   .card-details .left .detail:nth-child(2) ,
   .card-details .right .detail:nth-child(2) {
-      min-height: 200px;
-  } */
+      /* min-height: 130px; */
+      flex: 1;
+  }
+  .train .price {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .train .deposit-wrap {
+    align-items: start;
+  }
 }
 
-
+@media (max-width: 480px) {
+  .train .deposit-wrap{
+    flex-direction: column;
+  }
+}
 
 /*✅ qualify-#.html */
 .qualify .section01 {

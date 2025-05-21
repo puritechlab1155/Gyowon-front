@@ -359,4 +359,58 @@ document.addEventListener('DOMContentLoaded', function () {
 // }
 
 
+/*✅ apply-# */
+/*✅ myClass-# */
+/*✅ 더보기 토글 */
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleButtons = document.querySelectorAll('.more.moreBtn');
 
+    toggleButtons.forEach(toggleButton => {
+        const buttonTextSpan = toggleButton.querySelector('.button-text');
+        const dropdownIcon = toggleButton.querySelector('.dropdown-icon');
+
+        // 버튼 바로 다음 형제 요소가 hidden-content-box일 것으로 가정
+        const hiddenBox = toggleButton.closest('.card-footer')?.nextElementSibling;
+
+        if (buttonTextSpan && dropdownIcon && hiddenBox?.classList.contains('hidden-content-box')) {
+            toggleButton.addEventListener('click', function () {
+                const isHidden = hiddenBox.style.display === 'none' || hiddenBox.style.display === '';
+
+                if (isHidden) {
+                    hiddenBox.style.display = 'flex';
+                    buttonTextSpan.textContent = '접기';
+                    toggleButton.classList.add('active');
+                } else {
+                    hiddenBox.style.display = 'none';
+                    buttonTextSpan.textContent = '더보기';
+                    toggleButton.classList.remove('active');
+                }
+            });
+        }
+    });
+});
+/*✅ 검색 드롭다운 */
+const serchDropdownButton = document.getElementById('serchDropdownButton');
+const serchDropdownMenu = document.getElementById('serchDropdownMenu');
+
+// 드롭다운 열고 닫기
+serchDropdownButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    serchDropdownMenu.classList.toggle('hidden');
+});
+
+// 드롭다운 항목 클릭 시 텍스트 변경
+const dropdownItems = serchDropdownMenu.querySelectorAll('li');
+dropdownItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+        serchDropdownButton.childNodes[0].nodeValue = e.target.textContent; // 텍스트 변경
+        serchDropdownMenu.classList.add('hidden'); // 메뉴 닫기
+    });
+});
+
+// 외부 클릭 시 닫기
+document.addEventListener('click', () => {
+    if (!serchDropdownMenu.classList.contains('hidden')) {
+        serchDropdownMenu.classList.add('hidden');
+    }
+});

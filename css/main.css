@@ -2069,7 +2069,7 @@ fieldset {
   display: none;
 }
 /* 안내서 토글 스타일 */
-.guide-toggle-line {
+.train .guide-toggle-line {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2078,14 +2078,14 @@ fieldset {
 }
 
 /* 좌우 선 */
-.guide-toggle-line .guide-line {
+.train .guide-toggle-line .guide-line {
   flex-grow: 1;
   height: 2px;
   background-color: #e0e0e0;
 }
 
 /* 안내서 버튼 스타일 */
-.guide-toggle {
+.train .guide-toggle {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
@@ -2094,23 +2094,23 @@ fieldset {
   gap: 10px;
   user-select: none;
 }
-.toggle-text {
+.train .toggle-text {
   color: #727272;
   font-weight: 500;
 }
 
 /* 아이콘 회전 기본 상태 */
-.guide-toggle .dropdown-icon {
+.train .guide-toggle .dropdown-icon {
   transition: transform 0.3s ease;
 }
 
 /* 토글 active일 때 회전 */
-.guide-toggle.active .dropdown-icon {
+.train .guide-toggle.active .dropdown-icon {
   transform: rotate(180deg);
 }
 
 /* 안내서 박스 스타일 (필요 시 커스터마이징) */
-.guide-content-box {
+.train .guide-content-box {
   display: none;
   margin-top: 16px;
   padding: 16px;
@@ -2118,21 +2118,104 @@ fieldset {
   justify-content: space-between;
   gap: 40px;
 }
-.notice-ul{
+.train .notice-ul{
   list-style-type: disc;
   padding-left: 20px; 
   color: #727272;
 }
-.notice-ul .notice-title{
+.train .notice-ul .notice-title{
   color: #727272;
   font-weight: 700;
 }
 
-.notice-ul.disc .notice-li {
+.train .notice-ul.disc .notice-li {
   display: list-item;
   color: #727272;
 }
 
+
+.search-container {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+}
+
+.serchDropdown {
+  position: relative;
+}
+
+.serchDropdown-button {
+  min-width: 150px;
+  padding: 8px 12px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #727272;
+}
+
+.serchDropdown-menu {
+  position: absolute;
+  top: 90%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.serchDropdown-menu .serchDropdown-li {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #727272;
+}
+
+.serchDropdown-menu .serchDropdown-li:hover {
+  background-color: #C5CBD0;
+  color: #005AAB;
+}
+
+.serchDropdown-menu .active {
+  background-color: #C5CBD0;
+  color: #005AAB;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box .search-box-input {
+  width: 100%;
+  min-width: 250px;
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.search-box .search-box-input::placeholder{
+  color: #A8A8A8;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
 
 @media (max-width: 1280px) {
   .train .card-info {
@@ -2223,6 +2306,22 @@ fieldset {
   .train .button-text {
     font-size: 16px;
   }
+  .serchDropdown-button {
+    min-width: 110px;
+    padding: 8px 12px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #727272;
+  }
+  .search-box .search-box-input {
+    min-width: 0;
+  }
+  
 }
 @media (max-width: 520px) {
   /* .train .card-details{
@@ -2258,43 +2357,40 @@ fieldset {
   .detail .icon {
     display: none;
   }
-  .card-details .left {
+  .train .card-details .left {
     flex: 1;
   }
-  .card-details .right {
+  .train .card-details .right {
     flex: 1;
   }
-  .label {
+  .train .label {
     text-align: center;
     font-size: 17px;
   }
-  .value{
+  .train .value{
     text-align: center;
     font-size: 17px;
   }
-  .price{
+  .train .detail-text{
     font-size: 17px;
   }
-  .detail-text{
+  .train .status-badge {
     font-size: 17px;
   }
-  .status-badge {
+  .train .button-text {
     font-size: 17px;
   }
-  .button-text {
-    font-size: 17px;
-  }
-  .card-details .left .detail:nth-child(1),
-  .card-details .right .detail:nth-child(1){
+  .train .card-details .left .detail:nth-child(1),
+  .train .card-details .right .detail:nth-child(1){
     /* min-height: 100px; */
     flex: 1;
   }
-  .card-details .left .detail:nth-child(2) ,
-  .card-details .right .detail:nth-child(2) {
+  .train .card-details .left .detail:nth-child(2) ,
+  .train .card-details .right .detail:nth-child(2) {
       /* min-height: 130px; */
       flex: 1;
   }
-  .train .price {
+  .train .train .price {
     font-size: 16px;
     line-height: 1.5;
   }

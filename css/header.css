@@ -317,12 +317,16 @@
     padding: 15px 20px;
 }
 .sub-page .nav-var .home-btn {
-    height: 20px;
-    padding: 0 20px 3px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-right: 1px solid #DDDDDD;
+    padding: 0 15px;
+}
+.sub-page .nav-var .home-btn-a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .sub-page .nav-var .nav-wrap {
     display: flex;
@@ -690,12 +694,11 @@
         display: block;
     }
     .sub-page .nav-var .home-btn {
-        height: 15px;
-        padding: 0 5px 2px 0;
         display: flex;
         justify-content: center;
         align-items: center;
         border-right: none;
+        padding: 0 5px 2px 5px;
     }
     .sub-page .home-path {
         fill: #858585 ;

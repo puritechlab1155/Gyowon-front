@@ -233,7 +233,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         gnbMenus.forEach(menu => {
             menu.addEventListener('click', function (e) {
-                e.preventDefault();
 
                 const isActive = menu.classList.contains('active');
 

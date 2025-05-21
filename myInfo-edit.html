@@ -548,14 +548,14 @@
                                 <form class="info-form mt-50">
                                     <div class="form-group">
                                         <label class="label" for="name">성명 <span class="red">*</span></label>
-                                        <input class="input" type="text" id="name" required>
+                                        <input class="input" type="text" id="name" required/>
                                     </div>
                         
                                     <div class="form-group">
                                         <label class="label" for="id">아이디 <span class="red">*</span></label>
                                         <div class="column">
                                             <div class="input-group">
-                                                <input class="input" type="text" id="id" required>
+                                                <input class="input" type="text" id="id" required/>
                                                 <button class="check-btn" type="button" data-check-type="id">중복확인</button>
                                             </div>
                                             <div class="description">※ 영문, 숫자의 조합 5~13자로 작성해 주세요.</div>
@@ -567,7 +567,7 @@
                                     <div class="form-group">
                                         <label class="label" for="password">비밀번호 <span class="red">*</span></label>
                                         <div class="column">
-                                            <input class="input" type="password" id="password" oninput="checkPasswordMatch();" required>
+                                            <input class="input" type="password" id="password" oninput="checkPasswordMatch();" required/>
                                             <div class="description">※ 영문, 숫자, 특수문자 조합 4~16자로 작성해 주세요.</div>
                                             <p class="information" id="password-info1"></p>
                                         </div>
@@ -577,7 +577,7 @@
                                     <div class="form-group">
                                         <label class="label" for="confirm-password">비밀번호 <br class="mob-br"/> 확인 <span class="red">*</span></label>
                                         <div class="column">
-                                            <input class="input" type="password" id="confirm-password" oninput="checkPasswordMatch()" required>
+                                            <input class="input" type="password" id="confirm-password" oninput="checkPasswordMatch()" required/>
                                             <p class="information" id="password-info2"></p>
                                         </div>
                                     </div>
@@ -585,11 +585,11 @@
                                         <label class="label">성별 <span class="red">*</span></label>
                                         <div class="flex">
                                             <div class="radio-group">
-                                                <input type="radio" id="gender-male" name="gender" value="male" required>
+                                                <input type="radio" id="gender-male" name="gender" value="male" required/>
                                                 <label for="gender-male">남성</label>
                                             </div>
                                             <div class="radio-group">
-                                                <input type="radio" id="gender-female" name="gender" value="female" required>
+                                                <input type="radio" id="gender-female" name="gender" value="female" required/>
                                                 <label for="gender-female">여성</label>
                                             </div>
                                         </div>
@@ -597,14 +597,14 @@
                                     <div class="form-group">
                                         <label class="label"> 생년월일 <span class="red">*</span></label>
                                         <div class="column">
-                                            <input class="input" type="date" required>
+                                            <input class="input" type="date" required/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="label" for="email">이메일 <span class="red">*</span></label>
                                         <div class="column">
                                             <div class="input-group">
-                                                <input class="input" type="text" id="email" required>
+                                                <input class="input" type="text" id="email" required/>
                                                 <button class="check-btn" type="button" data-check-type="email">중복확인</button>
                                             </div>
                                             <p class="information" id="email-info"></p>
@@ -614,7 +614,7 @@
                                         <label class="label" for="phone">휴대번호 <span class="red">*</span></label>
                                         <div class="column">
                                             <div class="input-group">
-                                                <input class="call-input input" type="tel" id="phone" name="phone" required pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}">
+                                                <input class="call-input input" type="tel" id="phone" name="phone" required pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}"/>
                                                 <button class="check-btn" type="button" data-check-type="phone">중복확인</button>
                                             </div>
                                             <small class="information" id="phone-info"></small>
@@ -624,7 +624,7 @@
                                         <label class="label" for="home">자택번호</label>
                                         <div class="column">
                                             <div class="input-group">
-                                                <input class="call-input input" type="tel" id="home">
+                                                <input class="call-input input" type="tel" id="home"/>
                                                 <!-- <button class="check-btn" type="button" data-check-type="home">중복확인</button> -->
                                             </div>
                                             <!-- <div class="information" id="home-info"></div> -->
@@ -634,17 +634,17 @@
                                         <label class="label" for="address">주소 <span class="red">*</span></label>
                                         <div class="column address-wrap">
                                             <div class="input-group">
-                                                <input class="input zonecode" type="text" id="zonecode" name="zonecode" required placeholder="우편번호" readonly>
+                                                <input class="input zonecode" type="text" id="zonecode" name="zonecode" required placeholder="우편번호" readonly/>
                                                 <button class="check-btn" id="search-btn" type="button">우편번호 찾기</button>
                                             </div>
                                             <div class="column">
                                                 <div class="input-group">
-                                                    <input class="input roadAddress" type="text" id="roadAddress" name="roadAddress" required placeholder="도로명 주소" readonly>
+                                                    <input class="input roadAddress" type="text" id="roadAddress" name="roadAddress" required placeholder="도로명 주소" readonly/>
                                                 </div>
                                             </div>
                                             <div class="column">
                                                 <div class="input-group">
-                                                    <input class="input" type="text" id="roadAddressDetail" name="roadAddressDetai" required placeholder="상세주소 입력">
+                                                    <input class="input" type="text" id="roadAddressDetail" name="roadAddressDetai" required placeholder="상세주소 입력"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -653,7 +653,7 @@
                                         <label class="label" for="work-place">직장명</label>
                                         <div class="column work-place">
                                             <div class="input-group">
-                                                <input class="input" type="text" id="work-place">
+                                                <input class="input" type="text" id="work-place"/>
                                             </div>
                                             <p class="description">※ 예 : 양재고등학교 → 양재</p>
                                             <p class="description">※ 예 : 무직 → 일반 </p>
@@ -702,7 +702,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="column path-group hidden">
-                                                    <input class="input" type="text" id="path-etc" name="path_etc" placeholder="가입 경로를 입력하세요">
+                                                    <input class="input" type="text" id="path-etc" name="path_etc" placeholder="가입 경로를 입력하세요"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -716,7 +716,7 @@
                                 <div class="sub-head2"><span class="big">학교기관 입력</span> <small class="small">교원</small></div>
                                 <form class="info-form mt-50">
                                     <div class="form-group">
-                                        <label class="label" for="organ">소속기관<span class="red">*</span></label>
+                                        <label class="label" for="organ">소속기관</label>
                                         <div class="column organ">
                                             <div class="input-group">
                                                 <select class="input select" id="organ">
@@ -735,7 +735,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label" for="establish">설립구분<span class="red">*</span></label>
+                                        <label class="label" for="establish">설립구분</label>
                                         <div class="column establish">
                                             <div class="input-group">
                                                 <select class="input select" id="establish">
@@ -748,7 +748,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label" for="office">소속교육<br class="mob-br"/>지원청 <span class="red">*</span></label>
+                                        <label class="label" for="office">소속교육<br class="mob-br"/>지원청</label>
                                         <div class="column office">
                                             <div class="input-group">
                                                 <select class="input select" id="office">
@@ -759,7 +759,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label" for="rank">직급 <span class="red">*</span></label>
+                                        <label class="label" for="rank">직급</label>
                                         <div class="column rank">
                                             <div class="input-group">
                                                 <select class="input select" id="rank">
@@ -773,7 +773,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label" for="major">전공 <span class="red">*</span></label>
+                                        <label class="label" for="major">전공</label>
                                         <div class="column">
                                             <div class="input-group">
                                                 <input class="input" type="text" id="major" required placeholder="(예) 초등 / 유아 / 특수 / 상담">

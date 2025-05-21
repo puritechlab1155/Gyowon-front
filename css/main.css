@@ -1509,8 +1509,11 @@ fieldset {
 
 /*✅ register-info.html */
 
-.register.info .btn-box{
+.register .btn-box{
   display: none;
+}
+.register.info .btn-box{
+  display: flex;
 }
 .register .selection-container {
   text-align: center;
@@ -1545,6 +1548,7 @@ fieldset {
   box-shadow: 0 4px 20px rgba(0, 90, 171, 0.2);
   flex: 1;
 }
+
 .register .card-description {
   padding: 10px 20px;
 }
@@ -1556,8 +1560,13 @@ fieldset {
   border-color: #005AAB;
 }
 
-.register .type-card:hover {
-  border-color: #005AAB;
+.register .type-card:hover,
+.register .type-card:focus,
+.register .type-card.active {
+  border: 2.5px solid #005AAB; 
+}
+.register .type-card.active {
+  box-shadow: 0 0 5px 2px rgba(0, 90, 171, 0.3);
 }
 
 .register .card-image {
@@ -1604,8 +1613,16 @@ fieldset {
   background-color: #F9F9F9;
   padding: 100px;
   border-radius: 20px;
+}
+.register.info .info-wrap.common,
+.register.info .info-wrap.teacher {
+  display: block;
+}
+.register .info-wrap.common,
+.register .info-wrap.teacher {
   display: none;
 }
+
 .register .info-wrap.teacher {
   background: linear-gradient(to bottom, #004481 0%, #1A6BB4 88%);
 }

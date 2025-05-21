@@ -533,7 +533,7 @@
 
 
 
-        <main id="main" class="register info">
+        <main id="main" class="register">
             <div class="mt-230 mb-120">
                 <div class="inner">
                     <div class="content">
@@ -582,7 +582,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="user-btn mt-50" disabled>다음</button>
+                            <button class="user-btn mt-50" onclick="onClickNext()"" disabled>다음</button>
                         </div>
                         <div class="info-wrap common mt-100">
                             <div>
@@ -836,7 +836,7 @@
                             </div>
                         </div>
                         
-                        <div class="btn-box mt-50">
+                        <div class="btn-box mt-100">
                             <button class="l-btn" type="button" onclick="location.href='index.html'">취소</button>
                             <button id="next-btn" class="r-btn" type="button">가입하기</button>
                         </div>
@@ -1129,30 +1129,69 @@
     <script src="js/swiper.js"></script>
     <script src="js/script.js"></script>
     <script>
+        
     // ✅ [교원, 일반] 선택 후 정보입력창 등장
-    function selectType(element) {
-        const type = element.getAttribute('data-type');
+    let selectedType = null; // 선택된 타입 저장용 전역 변수
+    let selectedCard = null; // 선택된 카드 요소 저장용 전역 변수
 
-        // 카드 활성화 표시 (선택된 것만 active)
+    // 카드 클릭 시 호출
+    function selectType(element) {
+        selectedType = element.getAttribute('data-type');
+        selectedCard = element; // 선택된 카드 요소 저장
+
+        // 카드 활성화 표시
         document.querySelectorAll('.type-card').forEach(card => {
             card.classList.remove('active');
         });
         element.classList.add('active');
 
-        // 모든 info-wrap 숨기기
+        // info-wrap 숨기기 (선택 시에는 항상 숨김)
+        document.querySelector('.info-wrap.common').style.display = 'none';
+        document.querySelector('.info-wrap.teacher').style.display = 'none';
+        document.querySelector('.btn-box').style.display = 'none';
+
+        // 다음 버튼 활성화 (disabled 해제)
+        const nextBtn = document.querySelector('.user-btn');
+        if (nextBtn) nextBtn.disabled = false;
+    }
+
+    // 다음 버튼 클릭 시 호출
+    function onClickNext() {
+        if (!selectedType) {
+            alert('타입을 선택해주세요');
+            return; // 선택 안 된 상태면 그냥 리턴
+        }
+
+        // 모든 info-wrap 숨기기 (안전하게 한번 더)
         document.querySelector('.info-wrap.common').style.display = 'none';
         document.querySelector('.info-wrap.teacher').style.display = 'none';
 
-        if (type === '일반') {
+        // 선택된 타입에 따라 info-wrap 보여주기
+        if (selectedType === '일반') {
             document.querySelector('.info-wrap.common').style.display = 'block';
-        } else if (type === '교원') {
+        } else if (selectedType === '교원') {
             document.querySelector('.info-wrap.common').style.display = 'block';
             document.querySelector('.info-wrap.teacher').style.display = 'block';
         }
 
         // 버튼 박스 표시
         document.querySelector('.btn-box').style.display = 'flex';
-    }
+
+            // 선택된 카드의 active 상태 유지 (중요)
+        if (selectedCard) {
+            // 다시 한번 모든 카드에서 active 클래스 제거
+            document.querySelectorAll('.type-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            // 선택된 카드에 active 클래스 추가
+            selectedCard.classList.add('active');
+        }
+        
+        // 다음 버튼 클릭 후에도 선택된 카드에 포커스 유지 (시각적 효과)
+        document.querySelector('.user-btn.mt-50').blur(); // 버튼 포커스 제거
+        }
+
+    
 
     // ✅ 안내문구 , 가입처리 유무 확인
     document.addEventListener('DOMContentLoaded', function() {
@@ -1447,84 +1486,86 @@
     });
 
 
-    // ✅ 휴대번호, 자택번호 인풋 숫자 설정
-    document.querySelectorAll('.call-input').forEach(function(input) {
-                input.addEventListener('input', function (e) {
-                    let value = e.target.value.replace(/\D/g, '');
-                    const isPhone = e.target.id === 'phone'; // 휴대폰 번호인지 자택번호인지 구분
+        // ✅ 휴대번호, 자택번호 인풋 숫자 설정
+        document.querySelectorAll('.call-input').forEach(function(input) {
+            input.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '');
+                const isPhone = e.target.id === 'phone'; // 휴대폰 번호인지 자택번호인지 구분
 
-                    // 휴대폰 번호 (010-xxxx-xxxx)
-                    if (isPhone) {
+                // 휴대폰 번호 (010-xxxx-xxxx)
+                if (isPhone) {
+                    if (value.length <= 3) {
+                        e.target.value = value;
+                    } else if (value.length <= 7) {
+                        e.target.value = value.replace(/(\d{3})(\d{1,4})/, '$1-$2');
+                    } else {
+                        e.target.value = value.replace(/(\d{3})(\d{4})(\d{1,4})/, '$1-$2-$3');
+                    }
+                } 
+                
+                // 자택번호 (02-xxx-xxxx, 031-xxxx-xxxx 등)
+                else {
+                    if (value.startsWith('02')) {
+                        if (value.length <= 2) {
+                            e.target.value = value;
+                        } else if (value.length <= 6) {
+                            e.target.value = value.replace(/(\d{2})(\d{1,4})/, '$1-$2');
+                        } else {
+                            e.target.value = value.replace(/(\d{2})(\d{3,4})(\d{1,4})/, '$1-$2-$3');
+                        }
+                    } else {
                         if (value.length <= 3) {
                             e.target.value = value;
                         } else if (value.length <= 7) {
                             e.target.value = value.replace(/(\d{3})(\d{1,4})/, '$1-$2');
                         } else {
-                            e.target.value = value.replace(/(\d{3})(\d{4})(\d{1,4})/, '$1-$2-$3');
-                        }
-                    } 
-                    
-                    // 자택번호 (02-xxx-xxxx, 031-xxxx-xxxx 등)
-                    else {
-                        if (value.startsWith('02')) {
-                            if (value.length <= 2) {
-                                e.target.value = value;
-                            } else if (value.length <= 6) {
-                                e.target.value = value.replace(/(\d{2})(\d{1,4})/, '$1-$2');
-                            } else {
-                                e.target.value = value.replace(/(\d{2})(\d{3,4})(\d{1,4})/, '$1-$2-$3');
-                            }
-                        } else {
-                            if (value.length <= 3) {
-                                e.target.value = value;
-                            } else if (value.length <= 7) {
-                                e.target.value = value.replace(/(\d{3})(\d{1,4})/, '$1-$2');
-                            } else {
-                                e.target.value = value.replace(/(\d{3})(\d{3,4})(\d{1,4})/, '$1-$2-$3');
-                            }
+                            e.target.value = value.replace(/(\d{3})(\d{3,4})(\d{1,4})/, '$1-$2-$3');
                         }
                     }
-                });
-            });
-            // ✅ 우편번호 
-            const elZonecode = document.getElementById("zonecode");
-            const elRoadAddress = document.getElementById("roadAddress");
-
-            // 우편번호 검색 클릭 시 실행될 함수
-            function onClickSearch() {
-                new daum.Postcode({
-                    oncomplete: function (data) {
-                    elZonecode.value = data.zonecode;
-                    elRoadAddress.value = data.roadAddress || data.address;
-                    }
-                }).open();
-            }
-            document.getElementById("search-btn").addEventListener("click", onClickSearch);
-
-            // ✅ 가입경로 기타 눌렀을 시 인풋창 등장
-            document.getElementById('path').addEventListener('change', function () {
-                const etcInputGroup = document.querySelector('.path-group');
-                if (this.value === '기타') {
-                    etcInputGroup.classList.remove('hidden');
-                } else {
-                    etcInputGroup.classList.add('hidden');
-                    document.getElementById('path-etc').value = '';
                 }
             });
+        });
 
-            document.querySelectorAll('select.select').forEach(select => {
-                const updateColor = () => {
-                    const selectedOption = select.options[select.selectedIndex];
-                    if (selectedOption.disabled) {
-                    select.style.color = '#BBBBBB'; 
-                    } else {
-                    select.style.color = '#000000'; 
-                    }
-                };
 
-                select.addEventListener('change', updateColor);
-                updateColor(); 
-            });
+        // ✅ 우편번호 
+        const elZonecode = document.getElementById("zonecode");
+        const elRoadAddress = document.getElementById("roadAddress");
+
+        // 우편번호 검색 클릭 시 실행될 함수
+        function onClickSearch() {
+            new daum.Postcode({
+                oncomplete: function (data) {
+                elZonecode.value = data.zonecode;
+                elRoadAddress.value = data.roadAddress || data.address;
+                }
+            }).open();
+        }
+        document.getElementById("search-btn").addEventListener("click", onClickSearch);
+
+        // ✅ 가입경로 기타 눌렀을 시 인풋창 등장
+        document.getElementById('path').addEventListener('change', function () {
+            const etcInputGroup = document.querySelector('.path-group');
+            if (this.value === '기타') {
+                etcInputGroup.classList.remove('hidden');
+            } else {
+                etcInputGroup.classList.add('hidden');
+                document.getElementById('path-etc').value = '';
+            }
+        });
+
+        document.querySelectorAll('select.select').forEach(select => {
+            const updateColor = () => {
+                const selectedOption = select.options[select.selectedIndex];
+                if (selectedOption.disabled) {
+                select.style.color = '#BBBBBB'; 
+                } else {
+                select.style.color = '#000000'; 
+                }
+            };
+
+            select.addEventListener('change', updateColor);
+            updateColor(); 
+        });
 
     </script>
 

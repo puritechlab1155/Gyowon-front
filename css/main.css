@@ -1817,10 +1817,386 @@ fieldset {
   justify-content: center;
   text-align: center;
 }
-
 .register .img-box {
   max-width: 700px;
 }
+
+/*✅ myCourse.html */
+.myClass .inner {
+  padding: 0 40px;
+}
+
+.train .tabs {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.train .tab {
+  background-color: #eee;
+  color: #666;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.train .tab .count {
+  background: #ddd;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 6px;
+}
+
+.train .tab.active {
+  background-color: #0049b7;
+  color: white;
+}
+
+.train .tab.active .count {
+  background: white;
+  color: #0049b7;
+}
+
+/* 구분선 */
+.train .divider {
+  margin-top: 10px;
+  border: none;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+/* 카드 레이아웃 */
+.train .card-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.train .card {
+  background: #f5f9ff;
+  border-radius: 12px;
+  padding: 30px 60px;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.05);
+}
+.train .card-info {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+}
+
+/* 카드 상단 */
+.train .card-header {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 230px;
+}
+.train .card-header .category-path {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+.train .card-header .category-path.danceSports {
+  color: #2780ec;
+}
+.train .card-header .category-path.pilates {
+  color: #4EC3E8;
+}
+
+.train .card-header .course-title {
+  font-size: clamp(25px, 2.5vw, 32px);
+  font-weight: 600;
+  margin: 0;
+}
+
+/* 카드 디테일 4개 */
+.train .card-details {
+  flex: 7;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+  gap: 20px;
+}
+
+.train .detail {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  color: #333;
+  background: white; 
+  padding: 20px 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(121, 121, 121, 0.05);
+}
+.train .detail-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.train .card-details .left {
+  flex: 7;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+.train .card-details .right {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.train .card-details .right .detail{
+  flex: 1;
+}
+
+.train .detail-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.train .icon {
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.train .label {
+  font-weight: 400;
+  color: #666;
+  width: 100%;
+  letter-spacing: -0.5px;
+}
+
+.train .value {
+  margin-top: 2px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+/* 하단 */
+.train .card-footer {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #666;
+}
+
+.train .status-badge {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+.train .status-badge.complete {
+  background: #22BEB5;
+}
+.train .status-badge.incomplete {
+  background: #FF6163;
+}
+.train .price {
+  font-size: 18px;
+  color: #727272;
+}
+
+.train .more {
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+  background-color: #DFE5F0;
+  border-radius: 6px;
+  padding: 5px 10px;
+  flex-shrink: 0;
+}
+.train .deposit-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: start;
+  align-items: start;
+}
+.train .label-wrap{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px
+}
+.train .hidden-content-box {
+  display: flex; 
+  margin-top: 20px; 
+  padding: 30px 60px;
+  border: 1px solid #EFEFEF;
+  border-radius: 8px;
+  background-color: #FAFAFA;
+  justify-content: space-between;
+  gap: 20px
+}
+.train .hidden-content-box .left{
+  flex: 7;
+}
+.train .hidden-content-box .right{
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.train .dropdown-icon {
+  transition: transform 0.3s ease; 
+}
+
+.train .more.active .dropdown-icon {
+  transform: rotate(180deg);
+}
+.train .hidden-content-box .detail-text{
+  color: #727272;
+}
+.train .card-footer .deposit-wrap.two{
+  display: none;
+}
+
+@media (max-width: 1280px) {
+  .train .card-info {
+    flex-direction: column;
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    flex: 1;
+  }
+  .train .card-details {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+  .train .card-header {
+    min-height: 0;
+  }
+  .train .deposit-wrap {
+    flex-direction: row;
+    align-items: center;
+  }
+  .train .card-header .deposit-wrap.one{
+    display: none;
+  }
+  .train .card-footer .deposit-wrap.two{
+    display: flex;
+    justify-content: space-between;
+  }
+  .train .card-footer {
+    justify-content: space-between;
+  }
+  .train .hidden-content-box {
+    flex-direction: column;
+  }
+}
+@media (max-width: 767px) {
+  .train .mob-br {
+    display: block;
+  }
+  .train .card{
+    padding: 20px;
+  }
+  .train .card-details {
+    gap: 10px;
+  }
+
+  /* .card-details .left .detail:nth-child(1),
+  .card-details .right .detail:nth-child(1){
+    flex: 1;
+    min-height: 80px;
+  }
+
+  .card-details .left .detail:nth-child(2) ,
+  .card-details .right .detail:nth-child(2) {
+    flex: 1;
+    min-height: 130px;
+  } */
+  
+  .train .card-details .left {
+    gap: 10px;
+  }
+  .train .card-details .right {
+    gap: 10px;
+  }
+  .train .card-footer {
+    align-items: flex-start;
+  }
+  .train .detail {
+    padding: 10px;
+  }
+  .train .card-title {
+    text-align: center;
+  }
+  .train .card-info {
+    margin: 0 auto;
+  }
+  .train .card-header{
+    width: 100%;
+  }
+  .train .hidden-content-box {
+    padding: 20px;
+  }
+}
+@media (max-width: 520px) {
+  .train .card-details{
+    flex-direction: column;
+  }
+  .train .card-footer .deposit-wrap.two {
+    flex-direction: column;
+    justify-content: start;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .train .card-footer {
+    align-items: start;
+  }
+  /* .card-details .details{
+    width: 100%;
+  }
+  .detail .icon {
+    display: none;
+  }
+  .card-details .left {
+    flex: 1;
+  }
+  .card-details .right {
+    flex: 1;
+  }
+  .label {
+    text-align: center;
+    font-size: 17px;
+  }
+  .value{
+    text-align: center;
+    font-size: 17px;
+  }
+  .price{
+    font-size: 17px;
+  }
+  .detail-text{
+    font-size: 17px;
+  }
+  .status-badge {
+    font-size: 17px;
+  }
+  .button-text {
+    font-size: 17px;
+  }
+  .card-details .left .detail:nth-child(1),
+  .card-details .right .detail:nth-child(1){
+    min-height: 100px;
+  }
+
+  .card-details .left .detail:nth-child(2) ,
+  .card-details .right .detail:nth-child(2) {
+      min-height: 200px;
+  } */
+}
+
 
 
 /*✅ qualify-#.html */

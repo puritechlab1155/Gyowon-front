@@ -430,9 +430,10 @@ document.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', function () {
     const guideToggle = document.querySelector('.guide-toggle');
     const guideTextSpan = guideToggle.querySelector('.toggle-text');
-    const guideIcon = guideToggle.querySelector('.dropdown-icon');
+    const guideIcon = guideToggle.querySelector('.guide-dropdown-icon');
     const guideContentBox = document.querySelector('.guide-content-box');
 
+    
     if (guideToggle && guideTextSpan && guideIcon && guideContentBox) {
         guideToggle.addEventListener('click', function () {
             const isHidden = guideContentBox.style.display === 'none' || guideContentBox.style.display === '';

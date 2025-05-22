@@ -141,10 +141,10 @@ fieldset {
   margin-top: clamp(160px, 19vw, 230px);
 }
 .mb-120 {
-  margin-bottom: 200px;
+  margin-bottom: clamp(300px, 30vw, 400px);
 }
-.mb-200 {
-  margin-bottom: 120px;
+.mb-400 {
+  margin-bottom: clamp(300px, 30vw, 400px);
 }
 
 .btn01 {
@@ -2288,7 +2288,7 @@ fieldset {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 800;
+  z-index: 1000;
 }
 /* 'hidden' 클래스 적용 시 모달 숨김 */
 .apply-modal-overlay.hidden {

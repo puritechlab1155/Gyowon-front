@@ -190,6 +190,91 @@ fieldset {
   color: #FEFEFE;
 }
 
+/*✅ 검색창 .html */
+.search-container {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+}
+
+.serchDropdown {
+  position: relative;
+}
+
+.serchDropdown-button {
+  min-width: 150px;
+  padding: 8px 12px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #727272;
+}
+
+.serchDropdown-menu {
+  position: absolute;
+  top: 90%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.serchDropdown-menu .serchDropdown-li {
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #727272;
+}
+
+.serchDropdown-menu .serchDropdown-li:hover {
+  background-color: #C5CBD0;
+  color: #005AAB;
+}
+
+.serchDropdown-menu .active {
+  background-color: #C5CBD0;
+  color: #005AAB;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box .search-box-input {
+  width: 100%;
+  min-width: 250px;
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.search-box .search-box-input::placeholder{
+  color: #A8A8A8;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+
 
 
 /* ✅ 팝업창 */
@@ -1803,22 +1888,36 @@ fieldset {
 }
 
 /*✅ register-complete.html */
-.register .section01 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-.register.complete .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
 .register .img-box {
   max-width: 700px;
+}
+
+/*✅ #-complete.html */
+.complete .section01 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.complete .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.complete .img-box {
+  max-width: 500px;
+}
+.complete .gray-text {
+  background-color: #F9F9F9;
+  border-radius: 20px;
+  padding: 30px 100px;
+}
+.complete .gray-text .account{
+  font-weight: 600;
+  color: #919191;
 }
 
 /*✅ myCourse.html */
@@ -1918,7 +2017,6 @@ fieldset {
   letter-spacing: -1px;
 }
 
-/* 카드 디테일 4개 */
 .train .card-details {
   flex: 7;
   display: flex;
@@ -1947,7 +2045,6 @@ fieldset {
   display: flex;
   flex-direction: column;
   gap: 20px;
-
 }
 .train .card-details .right {
   flex: 3;
@@ -2047,6 +2144,9 @@ fieldset {
 }
 .train .hidden-content-box .left{
   flex: 7;
+  display: flex;
+  flex-direction: column;
+  gap: 20px
 }
 .train .hidden-content-box .right{
   flex: 3;
@@ -2077,14 +2177,12 @@ fieldset {
   margin: 24px 0;
 }
 
-/* 좌우 선 */
 .train .guide-toggle-line .guide-line {
   flex-grow: 1;
   height: 2px;
   background-color: #e0e0e0;
 }
 
-/* 안내서 버튼 스타일 */
 .train .guide-toggle {
   display: inline-flex;
   align-items: center;
@@ -2099,17 +2197,14 @@ fieldset {
   font-weight: 500;
 }
 
-/* 아이콘 회전 기본 상태 */
 .train .guide-toggle .dropdown-icon {
   transition: transform 0.3s ease;
 }
 
-/* 토글 active일 때 회전 */
 .train .guide-toggle.active .dropdown-icon {
   transform: rotate(180deg);
 }
 
-/* 안내서 박스 스타일 (필요 시 커스터마이징) */
 .train .guide-content-box {
   display: none;
   margin-top: 16px;
@@ -2133,90 +2228,85 @@ fieldset {
   color: #727272;
 }
 
-
-.search-container {
-  display: flex;
-  gap: 10px;
-  justify-content: end;
-}
-
-.serchDropdown {
-  position: relative;
-}
-
-.serchDropdown-button {
-  min-width: 150px;
-  padding: 8px 12px;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
+.apply .train .card-footer {
   justify-content: space-between;
-  align-items: center;
-  color: #727272;
+}
+.apply .train .btn01 {
+  padding: 17px 45px;
+}
+.apply .train .btn01.complete {
+  background-color:#138439;
 }
 
-.serchDropdown-menu {
-  position: absolute;
-  top: 90%;
-  left: 0;
-  width: 100%;
-  background-color: white;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  margin-top: 4px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  overflow: hidden;
-}
-
-.serchDropdown-menu .serchDropdown-li {
-  padding: 8px 12px;
-  cursor: pointer;
-  color: #727272;
-}
-
-.serchDropdown-menu .serchDropdown-li:hover {
-  background-color: #C5CBD0;
-  color: #005AAB;
-}
-
-.serchDropdown-menu .active {
-  background-color: #C5CBD0;
-  color: #005AAB;
-}
-
-.search-box {
-  position: relative;
-}
-
-.search-box .search-box-input {
-  width: 100%;
-  min-width: 250px;
-  padding: 8px 15px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
-.search-box .search-box-input::placeholder{
-  color: #A8A8A8;
-}
-
-.search-icon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: gray;
-  pointer-events: none;
+/* 모달 오버레이 */
+.apply-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
+  justify-content: center;
+  z-index: 800;
 }
 
-.hidden {
+/* 'hidden' 클래스 적용 시 모달 숨김 */
+.apply-modal-overlay.hidden {
   display: none;
 }
 
+/* 모달 박스 */
+.apply-modal-overlay .modal-box {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 360px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.apply-modal-overlay .modal-icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 20px;
+}
+.apply-modal-overlay .modal-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.apply-modal-overlay .modal-message {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.apply-modal-overlay .modal-buttons {
+  display: flex;
+  gap: 10px;
+}
+.apply-modal-overlay .btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.apply-modal-overlay .btn.confirm {
+  background-color: #2b5bbb;
+  color: white;
+}
+.apply-modal-overlay .btn.cancel {
+  background-color: #adadad;
+  color: white;
+}
+.apply-modal-overlay .highlight-blue {
+  color: #2b5bbb;
+  font-weight: bold;
+}
+.apply-modal-overlay .highlight-red {
+  color: red;
+  font-weight: bold;
+}
 @media (max-width: 1280px) {
   .train .card-info {
     flex-direction: column;

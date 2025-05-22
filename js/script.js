@@ -389,6 +389,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
 /*✅ 검색 드롭다운 */
 const serchDropdownButton = document.getElementById('serchDropdownButton');
 const serchDropdownMenu = document.getElementById('serchDropdownMenu');
@@ -413,4 +414,151 @@ document.addEventListener('click', () => {
     if (!serchDropdownMenu.classList.contains('hidden')) {
         serchDropdownMenu.classList.add('hidden');
     }
+});
+
+/*✅ 안내서 토글 */
+document.addEventListener('DOMContentLoaded', function () {
+    const guideToggle = document.querySelector('.guide-toggle');
+    const guideTextSpan = guideToggle.querySelector('.toggle-text');
+    const guideIcon = guideToggle.querySelector('.dropdown-icon');
+    const guideContentBox = document.querySelector('.guide-content-box');
+
+    if (guideToggle && guideTextSpan && guideIcon && guideContentBox) {
+        guideToggle.addEventListener('click', function () {
+            const isHidden = guideContentBox.style.display === 'none' || guideContentBox.style.display === '';
+
+            if (isHidden) {
+                guideContentBox.style.display = 'flex';
+                guideTextSpan.textContent = '접기';
+                guideToggle.classList.add('active');
+            } else {
+                guideContentBox.style.display = 'none';
+                guideTextSpan.textContent = '안내서 보기';
+                guideToggle.classList.remove('active');
+            }
+        });
+    }
+});
+
+/*✅ 연수 신청 모달  */
+// document.addEventListener('DOMContentLoaded', function () {
+//     const modal = document.getElementById('applyModal');
+//     const confirmBtn = document.getElementById('applyConfirmBtn');
+//     const cancelBtn = document.getElementById('applyCancelBtn');
+//     const modalTitle = document.getElementById('modalTitle'); // 모달 제목 요소
+//     const modalMessage = document.getElementById('modalMessage'); // 모달 메시지 요소
+
+//     // 중요: apply-btn 클래스를 가진 모든 버튼을 선택합니다.
+//     const applyBtns = document.querySelectorAll('.apply-btn');
+
+//     let targetBtn = null; // 어떤 버튼이 모달을 열었는지 저장할 변수
+//     let isCancelling = false; // 현재 모달이 신청 취소 모드인지 여부
+
+//     // 각 신청/완료 버튼에 클릭 이벤트 리스너 추가
+//     applyBtns.forEach(button => {
+//         button.addEventListener('click', function () {
+//             targetBtn = this; // 클릭된 버튼을 targetBtn에 할당
+//             isCancelling = targetBtn.classList.contains('complete'); // 버튼이 'complete' 클래스를 가지고 있으면 취소 모드
+
+//             if (isCancelling) {
+//                 // 취소 모드일 때 모달 내용 변경
+//                 modalTitle.textContent = '연수신청 취소하기';
+//                 modalMessage.innerHTML = '선택하신 연수를 <span class="highlight-red">취소</span>하시겠습니까?';
+//             } else {
+//                 // 신청 모드일 때 모달 내용 변경
+//                 modalTitle.textContent = '연수 신청하기';
+//                 modalMessage.innerHTML = '선택하신 연수를 <span class="highlight-blue">신청</span>하시겠습니까?';
+//             }
+
+//             modal.classList.remove('hidden'); // 모달 열기 (hidden 클래스 제거)
+//         });
+//     });
+
+//     // '예' 버튼 클릭 시
+//     confirmBtn.addEventListener('click', () => {
+//         if (!targetBtn) return; // targetBtn이 없으면 함수 종료 (예외 처리)
+
+//         if (isCancelling) {
+//             // 취소 모드일 때: '완료' -> '신청'으로 변경
+//             targetBtn.textContent = '신청하기';
+//             targetBtn.classList.remove('complete');
+//         } else {
+//             // 신청 모드일 때: '신청' -> '완료'로 변경
+//             targetBtn.textContent = '신청취소';
+//             targetBtn.classList.add('complete');
+//         }
+
+//         modal.classList.add('hidden'); // 모달 닫기
+//     });
+
+//     // '취소' 버튼 클릭 시
+//     cancelBtn.addEventListener('click', () => {
+//         modal.classList.add('hidden'); // 모달 닫기
+//     });
+// });
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('applyModal');
+    const confirmBtn = document.getElementById('applyConfirmBtn');
+    const cancelBtn = document.getElementById('applyCancelBtn');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalMessage = document.getElementById('modalMessage');
+    const applyBtns = document.querySelectorAll('.apply-btn');
+
+    let targetBtn = null;
+    let isCancelling = false;
+
+    const pageId = location.pathname.split('/').pop().split('.')[0]; 
+    // ex: apply-common, apply-seoul
+
+    // 버튼 상태 로드
+    applyBtns.forEach((button, index) => {
+        const savedState = localStorage.getItem(`${pageId}_btn_${index}`);
+        if (savedState === 'complete') {
+            button.textContent = '신청취소';
+            button.classList.add('complete');
+        } else {
+            button.textContent = '신청하기';
+            button.classList.remove('complete');
+        }
+
+        // 버튼 클릭 이벤트
+        button.addEventListener('click', function () {
+            targetBtn = this;
+            isCancelling = targetBtn.classList.contains('complete');
+
+            if (isCancelling) {
+                modalTitle.textContent = '연수신청 취소하기';
+                modalMessage.innerHTML = '선택하신 연수를 <span class="highlight-red">취소</span>하시겠습니까?';
+            } else {
+                modalTitle.textContent = '연수 신청하기';
+                modalMessage.innerHTML = '선택하신 연수를 <span class="highlight-blue">신청</span>하시겠습니까?';
+            }
+
+            modal.classList.remove('hidden');
+        });
+    });
+
+    // 예 버튼 클릭 시
+    confirmBtn.addEventListener('click', () => {
+        if (!targetBtn) return;
+
+        const index = Array.from(applyBtns).indexOf(targetBtn);
+
+        if (isCancelling) {
+            targetBtn.textContent = '신청하기';
+            targetBtn.classList.remove('complete');
+            localStorage.setItem(`${pageId}_btn_${index}`, 'not-complete');
+        } else {
+            localStorage.setItem(`${pageId}_btn_${index}`, 'complete');
+            // 완료 페이지로 이동
+            location.href = `${pageId}-complete.html`;
+        }
+
+        modal.classList.add('hidden');
+    });
+
+    // 취소 버튼 클릭 시
+    cancelBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
 });

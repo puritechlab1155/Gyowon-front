@@ -235,12 +235,12 @@ fieldset {
 }
 
 .serchDropdown-menu .serchDropdown-li:hover {
-  background-color: #C5CBD0;
+  background-color: #ECF3FE;
   color: #005AAB;
 }
 
 .serchDropdown-menu .active {
-  background-color: #C5CBD0;
+  background-color: #ECF3FE;
   color: #005AAB;
 }
 
@@ -1958,7 +1958,7 @@ fieldset {
 }
 
 /* 구분선 */
-.train .divider {
+.divider {
   margin-top: 10px;
   border: none;
   height: 1px;
@@ -2307,6 +2307,72 @@ fieldset {
   color: red;
   font-weight: bold;
 }
+
+
+.board .table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 14px;
+}
+.board .tbody .board-title {
+  text-align: left;
+}
+.board .thead .tr {
+  background-color: #F4F7FC;
+  border-bottom: 1px solid #2B5BBB;
+}
+
+.board .th, .board .td {
+  padding: 12px 15px;
+}
+
+.board .tbody .tr:hover{
+  background-color: #ECF3FE;
+}
+.board .tbody .tr:hover .board-a{
+  color: #2B5BBB;
+  text-decoration: underline;
+}
+.board .tbody .tr:nth-child(odd) {
+  background-color: #FEFEFE;
+}
+.board .tbody .tr:nth-child(odd) {
+  background-color: #FEFEFE;
+}
+
+.board .tbody .tr:nth-child(even) {
+  background-color: #F8F8F8;
+}
+
+.board .pagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.board .pagination button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.board .pagination button.active {
+  background-color: #2b5bbb;
+  color: white;
+  font-weight: bold;
+}
+
+.board .pagination button:disabled {
+  background-color: #e2e2e2;
+  cursor: default;
+}
+
+
 @media (max-width: 1280px) {
   .train .card-info {
     flex-direction: column;

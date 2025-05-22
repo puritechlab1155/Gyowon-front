@@ -279,7 +279,13 @@ fieldset {
   display: none;
 }
 
-
+/* ✅ 구분선 */
+.divider {
+  margin-top: 10px;
+  border: none;
+  height: 1px;
+  background-color: #e0e0e0;
+}
 
 
 /* ✅ 팝업창 */
@@ -1966,7 +1972,8 @@ fieldset {
 }
 
 /*✅ myCourse.html */
-.myClass .inner {
+.myClass .inner,
+.apply .inner {
   padding: 0 40px;
 }
 
@@ -2000,14 +2007,6 @@ fieldset {
 .train .tab.active .count {
   background: white;
   color: #0049b7;
-}
-
-/* 구분선 */
-.divider {
-  margin-top: 10px;
-  border: none;
-  height: 1px;
-  background-color: #e0e0e0;
 }
 
 /* 카드 레이아웃 */
@@ -2125,7 +2124,6 @@ fieldset {
   letter-spacing: -0.5px;
 }
 
-/* 하단 */
 .train .card-footer {
   display: flex;
   justify-content: end;
@@ -2274,7 +2272,7 @@ fieldset {
   color: #727272;
 }
 
-
+/* ✅ "apply-#" */
 .apply .train .card-footer {
   justify-content: space-between;
 }
@@ -2284,7 +2282,7 @@ fieldset {
 .apply .train .btn01.complete {
   background-color:#138439;
 }
-/* 모달 오버레이 */
+/* ✅ 연수신청하기 모달 */
 .apply-modal-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -2352,7 +2350,7 @@ fieldset {
   font-weight: bold;
 }
 
-
+/* ✅ 게시글 형태 */
 .board .table {
   width: 100%;
   border-collapse: collapse;
@@ -2369,8 +2367,11 @@ fieldset {
 
 .board .th, .board .td {
   padding: 12px 15px;
+  color: #333333;
 }
-
+.board .tbody .board-a {
+  color: #333333;
+}
 .board .tbody .tr:hover{
   background-color: #ECF3FE;
 }
@@ -2421,38 +2422,109 @@ fieldset {
 }
 
 
-@media (max-width: 1280px) {
-  .train .card-info {
-    flex-direction: column;
-    display: flex;
-    align-items: start;
-    gap: 10px;
-    flex: 1;
+@media (max-width: 767px) {
+  .board .table {
+      border: none;
+      box-shadow: none;
   }
-  .train .card-details {
-    width: 100%;
-    /* flex: 0 0 auto; */
+
+  .board .thead {
+      display: none; 
   }
-  .train .card-header {
-    min-height: 0;
+
+  .board .tr {
+    display: grid;
+      grid-template-areas: 
+        "number title title"
+        "author views date"; 
+      grid-template-columns: min-content 1fr auto; 
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px 15px;
+      background-color: #fff;
   }
-  .train .deposit-wrap {
-    flex-direction: row;
+
+  .board .td {
+    display: flex; 
     align-items: center;
+    padding: 5px 10px; 
+    border: none; 
+    text-align: left;
   }
-  .train .card-header .deposit-wrap.one{
-    display: none;
+  .board .td.board-title {
+    grid-area: title;
+    width: 100%;
+    flex-grow: 1;
+    min-width: 0;
   }
-  .train .card-footer .deposit-wrap.two{
-    display: flex;
-    justify-content: space-between;
+
+  .board .td.board-number {
+      grid-area: number;
+      color: #727272;
+      font-size: 16px;
+      font-weight: 500;
+      white-space: nowrap;
   }
-  .train .card-footer {
-    justify-content: space-between;
+
+  .board .td.board-title .board-a {
+      color: #005AAB;
+      font-size: 18px;
+      font-weight: 600;
+      display: block;
+      width: 100%; /* 필수! */
+    min-width: 0; 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
-  .train .hidden-content-box {
-    flex-direction: column;
+
+  /* 작성자, 조회수, 작성일을 한 줄에 배치 (플렉스 아이템으로 동작) */
+  .board .td.board-author{
+    grid-area: author;
+    color: #727272;
+    font-size: 16px;
+    font-weight: 400;
+    white-space: nowrap;
+    font-weight: bold;
+    
   }
+  .board .td.board-views{
+    grid-area: views;
+    color: #727272;
+    font-size: 16px;
+    font-weight: 400;
+    white-space: nowrap; 
+  }
+  .board .td.board-date {
+    grid-area: date;
+    color: #727272;
+    font-size: 16px;
+    font-weight: 400;
+    white-space: nowrap; 
+  }
+
+  /* 작성자, 조회수, 작성일의 라벨 (숨겨진 th 내용) */
+  .board .td.board-author::before { content: ""; display: inline;}
+  .board .td.board-views::before { content: "조회수:"; display: inline; margin-right: 5px;}
+  .board .td.board-date::before { content: ""; display: inline; margin-right: 5px;}
+
+  
+  .board .td {
+      position: relative;
+  }
+
+  .board .td.board-number,
+  .board .td.board-author,
+  .board .td.board-views,
+  .board .td.board-date {
+      text-align: left; 
+  }
+
+}
+
+@media (max-width: 1280px) {
+
 }
 @media (max-width: 767px) {
   .train .mob-br {
@@ -2528,7 +2600,12 @@ fieldset {
   .search-box .search-box-input {
     min-width: 0;
   }
-  
+  .apply .train .btn01 {
+    padding: 15px 20px;
+  }
+  .apply .card-footer {
+    align-items: center;
+  }
 }
 @media (max-width: 520px) {
   /* .train .card-details{
@@ -2609,6 +2686,9 @@ fieldset {
 @media (max-width: 480px) {
   .train .deposit-wrap{
     flex-direction: column;
+  }
+  .apply .train .btn01 {
+    padding: 10px 20px;
   }
 }
 

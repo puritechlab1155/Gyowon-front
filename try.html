@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콘텐츠 박스 레이아웃 (고정 크기)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px; /* 전체 컨테이너 최대 너비 */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.layout-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 2em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.layout-grid {
+    display: flex;
+    flex-direction: column; /* 행들이 세로로 쌓이도록 */
+    gap: 15px; /* 행 간의 간격 */
+}
+
+.row {
+    display: flex; /* 한 행의 박스들이 가로로 정렬되도록 */
+    gap: 10px; /* 박스들 간의 간격 */
+    align-items: stretch; /* 이 속성이 중요! 한 행 안의 박스들이 내용에 맞춰 동일한 높이를 가짐 */
+}
+
+.box {
+    background-color: #e8f5e9; /* 연한 녹색 계열 */
+    border: 1px solid #a5d6a7; /* 테두리 색상 */
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column; /* 박스 내부 텍스트 세로 정렬 */
+    justify-content: flex-start; /* 텍스트 상단 정렬 */
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+/* 너비 비율 설정 */
+.box-1x {
+    flex-grow: 1; /* 1배 비율 */
+}
+
+.box-2x {
+    flex-grow: 2; /* 2배 비율 */
+}
+
+/* 반응형 레이아웃을 위한 미디어 쿼리 */
+@media (max-width: 768px) {
+    .row.responsive-row {
+        flex-direction: column; /* 작은 화면에서는 박스들이 세로로 쌓이도록 */
+    }
+
+    .row.responsive-row .box {
+        flex-grow: 1; /* 세로로 쌓일 때는 너비를 꽉 채우도록 */
+        width: 100%; /* 너비를 꽉 채움 */
+    }
+}
+
+/* 추가 스타일: 예시로 Box 색상 조금 다르게 */
+.responsive-grid .box {
+    background-color: #e3f2fd; /* 연한 파란색 계열 */
+    border-color: #90caf9; /* 테두리 색상 */
+}
+
+/* 박스 내부 p 태그 기본 마진 제거 (옵션) */
+.box p {
+    margin: 0;
+    padding-bottom: 5px; /* 단락 아래 여백 */
+}
+.box p:last-child {
+    padding-bottom: 0; /* 마지막 단락은 여백 없음 */
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <section class="layout-section">
+            <h2 class="section-title">기본 레이아웃 (고정 크기)</h2>
+            <div class="layout-grid">
+                <div class="row">
+                    <div class="box box-2x">
+                        <p>기본 박스 1</p>
+                        <p>이 박스는 내용이 많아지면</p>
+                        <p>높이가 고정되므로</p>
+                        <p>스크롤이 생길 수 있습니다.</p>
+                        <p>예를 들어 이렇게...</p>
+                        <p>더 많은 내용</p>
+                        <p>추가 내용</p>
+                    </div>
+                    <div class="box box-2x">
+                        <p>기본 박스 2</p>
+                    </div>
+                    <div class="box box-1x">
+                        <p>기본 박스 3</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="box box-2x">
+                        <p>기본 박스 4</p>
+                        <p>여기도 내용이 길어지면</p>
+                        <p>스크롤이 생깁니다.</p>
+                    </div>
+                    <div class="box box-2x">
+                        <p>기본 박스 5</p>
+                    </div>
+                    <div class="box box-1x">
+                        <p>기본 박스 6</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="layout-section">
+            <h2 class="section-title">반응형 레이아웃 (고정 크기)</h2>
+            <div class="layout-grid responsive-grid">
+                <div class="row responsive-row">
+                    <div class="box box-1x">
+                        <p>반응형 박스 A</p>
+                        <p>내용이 많아도</p>
+                        <p>높이는 고정됩니다.</p>
+                        <p>넘치는 내용은</p>
+                        <p>스크롤됩니다.</p>
+                    </div>
+                    <div class="box box-1x">
+                        <p>반응형 박스 B</p>
+                    </div>
+                </div>
+                <div class="row responsive-row">
+                    <div class="box box-1x">
+                        <p>반응형 박스 C</p>
+                    </div>
+                    <div class="box box-1x">
+                        <p>반응형 박스 D</p>
+                        <p>여기도 내용이 길어질 수 있습니다.</p>
+                        <p>반응형에서는 박스들이 1:1 비율입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

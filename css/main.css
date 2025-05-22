@@ -1973,7 +1973,8 @@ fieldset {
 
 /*✅ myCourse.html */
 .myClass .inner,
-.apply .inner {
+.apply .inner,
+.detail .inner {
   padding: 0 40px;
 }
 
@@ -2357,12 +2358,14 @@ fieldset {
   text-align: center;
   font-size: 14px;
 }
-.board .tbody .board-title {
+/* .board .tbody .board-title,
+.board .tbody .board-author,
+.board .tbody .board-views{
   text-align: left;
-}
+} */
 .board .thead .tr {
   background-color: #F4F7FC;
-  border-bottom: 1px solid #2B5BBB;
+  border-bottom: 2px solid #2B5BBB;
 }
 
 .board .th, .board .td {
@@ -2420,108 +2423,165 @@ fieldset {
   background-color: #FEFEFE;
   font-weight: 400;
 }
-
-
-@media (max-width: 767px) {
-  .board .table {
-      border: none;
-      box-shadow: none;
-  }
-
-  .board .thead {
-      display: none; 
-  }
-
-  .board .tr {
-    display: grid;
-      grid-template-areas: 
-        "number title title"
-        "author views date"; 
-      grid-template-columns: min-content 1fr auto; 
-      margin-bottom: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 10px 15px;
-      background-color: #fff;
-  }
-
-  .board .td {
-    display: flex; 
-    align-items: center;
-    padding: 5px 10px; 
-    border: none; 
-    text-align: left;
-  }
-  .board .td.board-title {
-    grid-area: title;
-    width: 100%;
-    flex-grow: 1;
-    min-width: 0;
-  }
-
-  .board .td.board-number {
-      grid-area: number;
-      color: #727272;
-      font-size: 16px;
-      font-weight: 500;
-      white-space: nowrap;
-  }
-
-  .board .td.board-title .board-a {
-      color: #005AAB;
-      font-size: 18px;
-      font-weight: 600;
-      display: block;
-      width: 100%; /* 필수! */
-    min-width: 0; 
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
-  /* 작성자, 조회수, 작성일을 한 줄에 배치 (플렉스 아이템으로 동작) */
-  .board .td.board-author{
-    grid-area: author;
-    color: #727272;
-    font-size: 16px;
-    font-weight: 400;
-    white-space: nowrap;
-    font-weight: bold;
-    
-  }
-  .board .td.board-views{
-    grid-area: views;
-    color: #727272;
-    font-size: 16px;
-    font-weight: 400;
-    white-space: nowrap; 
-  }
-  .board .td.board-date {
-    grid-area: date;
-    color: #727272;
-    font-size: 16px;
-    font-weight: 400;
-    white-space: nowrap; 
-  }
-
-  /* 작성자, 조회수, 작성일의 라벨 (숨겨진 th 내용) */
-  .board .td.board-author::before { content: ""; display: inline;}
-  .board .td.board-views::before { content: "조회수:"; display: inline; margin-right: 5px;}
-  .board .td.board-date::before { content: ""; display: inline; margin-right: 5px;}
-
-  
-  .board .td {
-      position: relative;
-  }
-
-  .board .td.board-number,
-  .board .td.board-author,
-  .board .td.board-views,
-  .board .td.board-date {
-      text-align: left; 
-  }
-
+.board .author-icon,
+.board .view-icon{
+  margin-right: 5px;
 }
+
+.detail-container {
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.detail-header {
+  background-color: #F4F7FC;
+  border-bottom: 2px solid #005AAB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-top-left-radius: 20px;  
+  border-top-right-radius: 20px;
+}
+
+.detail-title {
+  font-size: 24px;
+  color: #2c3e50;
+  margin: 0;
+  flex-basis: 100%;
+}
+
+.detail-meta {
+  font-size: 0.9em;
+  color: #888;
+  display: flex;
+  gap: 15px; /* 작성자, 날짜 사이 간격 */
+  flex-wrap: wrap;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  width: 100%; /* 메타 정보가 오른쪽 끝으로 가도록 */
+}
+
+.detail-content {
+  padding: 30px 30px;
+  font-size: 1.05em;
+  line-height: 1.6;
+  color: #555;
+  border-bottom: 1px dashed #e0e0e0;
+  min-height: 500px;
+  /* background-color: #FAFAFA; */
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+}
+
+.detail-content p {
+  margin-bottom: 10px;
+}
+.detail-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* 댓글 섹션 */
+.detail-comment-section {
+  padding: 30px;
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+}
+
+.detail-comment-title {
+  font-size: 1.2em;
+  color: #2c3e50;
+  margin: 0;
+  display: inline-block; /* 날짜와 한 줄에 있도록 */
+}
+
+.detail-comment-meta {
+  font-size: 0.85em;
+  color: #888;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.detail-comment-content {
+  margin-top: 15px;
+  padding-top: 10px;
+  font-size: 1em;
+  line-height: 1.5;
+  color: #555;
+  border-top: 1px solid #D9D9D9;
+}
+.detail-comment-content p {
+  margin-bottom: 8px;
+}
+.detail-comment-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* 답글 입력창 */
+.detail-reply-box {
+  padding: 30px;
+  background-color: #f9f9f9;
+  border: 1px solid #DDDDDD;
+  border-bottom-left-radius: 20px;  
+  border-bottom-right-radius: 20px;
+}
+
+.detail-reply-textarea {
+  width: 100%;
+  min-height: 150px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box; 
+  font-size: 1em;
+  color: #333;
+  resize: vertical; 
+}
+
+.detail-reply-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 0.85em;
+  color: #888;
+}
+
+.detail-reply-box .btn01 {
+  flex-shrink: 0;
+  width: auto;
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+.detail-submit-btn:hover {
+  background-color: #004a8e;
+}
+
+
+/* 하단 네비게이션 버튼 */
+.detail-footer-nav {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  gap: 20px;
+}
+
+/* .detail-footer-nav button {
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+} */
+
+/* 목록으로 버튼은 오른쪽에 고정 */
+.detail-list-btn {
+  margin-left: auto; /* 이전글/다음글과 목록으로 버튼 분리 */
+}
+
+
 
 @media (max-width: 1280px) {
 
@@ -2606,7 +2666,142 @@ fieldset {
   .apply .card-footer {
     align-items: center;
   }
+  .board .table {
+    border: none;
+    box-shadow: none;
+  }
+
+  .board .thead {
+    display: none; 
+  }
+
+  .board .tr {
+    display: grid;
+    grid-template-areas: 
+      "number title title"
+      "author views date"; 
+    grid-template-columns: min-content 1fr auto; 
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 15px;
+    background-color: #fff;
+  }
+
+  .board .td {
+    display: flex; 
+    align-items: center;
+    padding: 5px 10px; 
+    border: none; 
+    text-align: left;
+  }
+  .board .td.board-title {
+    grid-area: title;
+    width: 100%;
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  .board .td.board-number {
+    grid-area: number;
+    color: #727272;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .board .td.board-title .board-a {
+    color: #005AAB;
+    font-size: 18px;
+    font-weight: 600;
+    display: block;
+    width: 100%; /* 필수! */
+    min-width: 0; 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .board .td.board-author{
+    grid-area: author;
+    color: #727272;
+    font-size: 16px;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .board .td.board-views{
+    grid-area: views;
+    color: #727272;
+    font-size: 16px;
+    font-weight: 400;
+    white-space: nowrap; 
+  }
+  .board .td.board-date {
+    grid-area: date;
+    color: #727272;
+    font-size: 16px;
+    font-weight: 400;
+    white-space: nowrap; 
+  }
+
+  /* 작성자, 조회수, 작성일의 라벨 (숨겨진 th 내용) */
+  .board .td.board-author::before { content: ""; display: inline;}
+  .board .td.board-views::before { content: ""; display: inline; margin-right: 5px;}
+  .board .td.board-date::before { content: ""; display: inline; margin-right: 5px;}
+
+  .board .td {
+      position: relative;
+  }
+
+  .board .td.board-number,
+  .board .td.board-author,
+  .board .td.board-views,
+  .board .td.board-date {
+      text-align: left; 
+  }
+  .board .tr {
+    border-top: 2px solid #C0D2F4;
+  }
+  .detail-header {
+    flex-direction: column;
+    padding: 20px 20px 10px 20px;
+    justify-content: flex-start;
+    align-items: flex-start; 
+    gap: 10px;
+  }
+  .detail .inner {
+    padding: 0 20px;
+  }
+  .detail-content {
+    padding: 20px;
+    min-height: 300px;
+    overflow-y: auto;
+    max-height: 500px;
+    /* 웹킷 기반 브라우저 스크롤바 스타일링 */
+    &::-webkit-scrollbar {
+      width: 10px; 
+      height: 10px; 
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #c5c5c5; 
+        border-radius: 5px; /* 스크롤바 핸들을 둥글게 */
+        border: 2px solid transparent; /* 핸들 주위에 여백/테두리 추가 (스크롤바 트랙 색상과 일치하게 투명으로) */
+        background-clip: padding-box; /* border-radius가 테두리까지 적용되도록 */
+    }
+  }
+  .detail-comment-section {
+    padding: 20px;
+  }
+  .detail-reply-box{
+    padding: 20px;
+  }
+
+
+
+
 }
+
 @media (max-width: 520px) {
   /* .train .card-details{
     flex-direction: column;

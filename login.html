@@ -442,7 +442,7 @@
                 <div class="nav-container inner">
                     <div class="nav-wrap">
                         <div class="home-btn">
-                            <a href="index.html">
+                            <a href="index.html" class="home-btn-a">
                                 <svg width="25" height="22" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path class="home-path" d="M8 15.75V11.25H11V15.75H14.75V9.75H17L9.5 3L2 9.75H4.25V15.75H8Z" fill="#292929"/>
                                 </svg>
@@ -548,7 +548,7 @@
                             <div class="comment mt-20">한국교원댄스스포츠협회  <br class="mob-br"/> 홈페이지를 방문해주셔서 감사합니다. <br/>
                                 로그인하시면 홈페이지를 <br class="mob-br"/>  보다 편리하게 이용하실 수 있습니다.</div>
                             <form class="input_wrap mt-30">
-                                <input type="email" id="email" class="user-input" aria-label="아이디" placeholder="아이디"/>
+                                <input type="id" id="id" class="user-input" aria-label="아이디" placeholder="아이디"/>
                                 <div class="password_container">
                                     <input class="password user-input" id="password" aria-label="비밀번호" autocomplete="off" placeholder="비밀번호" oninput="updatePassword()"/>
                                     <span class="eyeBtn">
@@ -885,13 +885,12 @@
 
         eyeBtn.addEventListener('click', () => {
             if (passwordInput.type === 'password') {
-                passwordInput.type = 'text'; // 비밀번호 표시
+                passwordInput.type = 'text'; 
             } else {
-                passwordInput.type = 'password'; // 비밀번호 숨기기
+                passwordInput.type = 'password';
             }
         });
         
-        //패스워드 눈 아이콘 클릭
         let $eyeBtn = $('.eyeBtn');
 
         $eyeBtn.click(function(){
@@ -905,7 +904,7 @@
             }
         });
 
-        //로그인 상태 유지 클릭
+        //✅ 로그인 상태 유지 클릭
         let $keepLogin = $('.keep_login');
 
         $keepLogin.click(function(){

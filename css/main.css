@@ -141,6 +141,9 @@ fieldset {
   margin-top: clamp(160px, 19vw, 230px);
 }
 .mb-120 {
+  margin-bottom: 200px;
+}
+.mb-200 {
   margin-bottom: 120px;
 }
 
@@ -1815,7 +1818,7 @@ fieldset {
   flex-grow: 1;
   width: auto;
   min-width: 0;
-  min-height: 60px;
+  min-height: 50px;
 }
 
 .register .form-group .input:focus {
@@ -3190,6 +3193,7 @@ fieldset {
   }
   .register .form-group .input {
     font-size: 16px;
+    padding: 10px 12px;
   }
   .register .info-wrap {
     padding: 30px 20px;

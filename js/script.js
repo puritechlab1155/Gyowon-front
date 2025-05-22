@@ -74,8 +74,6 @@ $(document).ready(function () {
     }
     // window.addEventListener('resize', adjustFeatureList);
 });
-
-// ✅ nav바 드롭다운 
 document.querySelectorAll('.nav-drop').forEach(navDrop => {
     navDrop.addEventListener('click', function() {
         // 클릭된 .nav-drop의 가장 가까운 부모 .nav-item 찾기
@@ -102,6 +100,8 @@ document.querySelectorAll('.nav-drop').forEach(navDrop => {
         }
     });
 });
+
+// ✅ nav바 드롭다운 
 document.addEventListener("DOMContentLoaded", () => {
     const mainMenuItems = document.querySelectorAll(".nav-main-menu a");
     const firstTitle = document.querySelector(".nav-drop.first");
@@ -184,7 +184,17 @@ document.addEventListener("DOMContentLoaded", () => {
             navMainMenu.classList.remove("open");
         });
     });
+    document.addEventListener("click", function (event) {
+        const isClickInsideNav = event.target.closest(".nav-sub-menu, .nav-main-menu, .nav-drop");
+    
+        if (!isClickInsideNav) {
+            document.querySelector(".nav-sub-menu")?.classList.remove("open");
+            document.querySelector(".nav-main-menu")?.classList.remove("open");
+        }
+    });
 });
+
+
 
 
 

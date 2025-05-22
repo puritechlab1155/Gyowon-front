@@ -568,7 +568,7 @@
                         <div class="term-wrap mt-100">
                             <div class="terms">
                                 <!-- 전체 동의 체크박스 -->
-                                <fieldset class="keep_agree">
+                                <fieldset class="keep_agree first">
                                     <input class="checkbox-input" type="checkbox" id="all-agree"/>
                                     <label class="checkbox-label" class="fs-18 fw-6" for="all-agree">
                                         <span class="checkBox">
@@ -581,9 +581,14 @@
                                     </label>
                                 </fieldset>
                                 
-                                <div class="sub-head">한국댄스스포츠협회 <br class="mob-br"/><span class="blue-text">이용약관</span></div>
+                                
                                 <form class="terms-form mt-10">
-                                    
+                                    <div class="sub-head">
+                                        <span class="sub-head-text">한국댄스스포츠협회 <br class="mob-br"/><span class="blue-text">이용약관</span></span>
+                                        <svg class="toggle-arrow" width="30" height="30" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.9998 13.3234L4.28605 28.0371L2.04687 25.7979L18.9998 8.84502L35.9527 25.7979L33.7135 28.0371L18.9998 13.3234Z" fill="#005AAB"/>
+                                        </svg>
+                                    </div>
                                     <div class="terms-content">
                                         <p class="terms-one">제 1 장 총칙</p>
                                         <p class="terms-two">제 1 조 (목적)</p>
@@ -767,7 +772,12 @@
                                             이용약관 동의 <span class="blue">(필수)</span>
                                         </label>
                                     </fieldset>
-                                    <div class="sub-head mt-100">개인정보 수집 및 <br class="mob-br"/> 이용에 관한 <span class="blue-text">동의사항</span></div>
+                                    <div class="sub-head mt-100">
+                                        <span class="sub-head-text">개인정보 수집 및 <br class="mob-br"/> 이용에 관한 <span class="blue-text">동의사항</span></span>
+                                        <svg class="toggle-arrow"width="30" height="30" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.9998 13.3234L4.28605 28.0371L2.04687 25.7979L18.9998 8.84502L35.9527 25.7979L33.7135 28.0371L18.9998 13.3234Z" fill="#005AAB"/>
+                                        </svg>
+                                    </div>
                                     <div class="terms-content">
                                         <p class="terms-one">■ 수집하는 개인정보 항목</p>
                                         <p class="terms-three">
@@ -1151,7 +1161,31 @@
                 }
             }
         });
-        
+
+        // ✅ 약관 숨기기
+        document.addEventListener("DOMContentLoaded", () => {
+            const subHeads = document.querySelectorAll(".sub-head");
+            
+            subHeads.forEach(subHead => {
+                const toggleArrow = subHead.querySelector(".toggle-arrow");
+                const termsContent = subHead.nextElementSibling; // 다음 형제 요소인 terms-content
+                
+                if (toggleArrow && termsContent) {
+                    subHead.addEventListener("click", () => {
+                        // terms-content 토글
+                        if (termsContent.style.display === "none") {
+                            // 현재 닫혀있으면 열기
+                            termsContent.style.display = "block";
+                            toggleArrow.style.transform = "rotate(0deg)"; // 위쪽 화살표 (^)
+                        } else {
+                            // 현재 열려있으면 닫기
+                            termsContent.style.display = "none";
+                            toggleArrow.style.transform = "rotate(180deg)"; // 아래쪽 화살표 (v)
+                        }
+                    });
+                }
+            });
+        });
     </script>
 
     <script>

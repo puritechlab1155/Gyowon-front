@@ -1445,13 +1445,18 @@ fieldset {
   font-weight: bold;
 }
 .register .sub-head {
-  font-size: clamp(25px, 2vw, 30px);
+  border-bottom: 2px solid #D9D9D9;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.register .sub-head .sub-head-text {
+  font-size: clamp(20px, 2vw, 25px);
   line-height: 140%;
   color: #333333;
   font-family: 'NanumSquareNeoHeavy';
   font-weight: 400;
-  border-bottom: 2px solid #D9D9D9;
-  padding-bottom: 10px;
 }
 .register .sub-head2 {
   border-bottom: 2px solid #D9D9D9;
@@ -1471,9 +1476,16 @@ fieldset {
   padding-top: 10px;
   font-weight: 500;
 }
-.register .blue-text{
+/* .register .blue-text{
   color: #005AAB;
   font-size: clamp(25px, 2vw, 30px);
+  line-height: 140%;
+  font-family: 'NanumSquareNeoHeavy';
+  font-weight: 400;
+} */
+.register .blue-text{
+  color: #005AAB;
+  font-size: clamp(20px, 2vw, 25px);
   line-height: 140%;
   font-family: 'NanumSquareNeoHeavy';
   font-weight: 400;
@@ -1510,8 +1522,17 @@ fieldset {
   padding: 20px;
   border-radius: 5px;
   box-sizing: border-box;
+  transition: max-height 0.3s ease;
 }
-.register .terms-content::-webkit-scrollbar {
+.register .sub-head.open .toggle-arrow {
+  transform: rotate(90deg); /* 오른쪽 > 에서 위쪽 ^ 방향으로 회전 */
+  transition: transform 0.3s ease;
+}
+
+.register .sub-head .toggle-arrow {
+  transition: transform 0.3s ease;
+}
+.register .register .terms-content::-webkit-scrollbar {
   width: 8px; 
 }
 .register .terms-content::-webkit-scrollbar-thumb {
@@ -1530,12 +1551,29 @@ fieldset {
 .register .keep_agree {
   margin-top: 20px;
 }
-.register .keep_agree:first-of-type {
+/* .register .keep_agree.first {
   margin-top: 40px;
   padding-bottom: 10px;
   text-align: center;
   border-bottom: 2px solid #D9D9D9;
   margin-bottom: 100px;
+} */
+.register .keep_agree.first {
+  padding: 20px 20px;
+  width: 100%;
+  text-align: center;
+  background-color: #E6EFFF;
+  text-align: left;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  border: 1px solid #005AAB;
+}
+.register .terms-form {
+  padding: 20px 20px;
+  width: 100%;
+  background-color: #E6EFFF;
+  border: 1px solid #005AAB;
+  border-radius: 20px;
 }
 .register .keep_agree .checkbox-input {
   display: none;
@@ -1614,6 +1652,7 @@ fieldset {
   display: flex;
   gap: 30px;
 }
+
 .register .selection-box .sub-head {
   font-size: 25px;
   border-bottom: none;
@@ -2228,6 +2267,7 @@ fieldset {
   color: #727272;
 }
 
+
 .apply .train .card-footer {
   justify-content: space-between;
 }
@@ -2237,7 +2277,6 @@ fieldset {
 .apply .train .btn01.complete {
   background-color:#138439;
 }
-
 /* 모달 오버레이 */
 .apply-modal-overlay {
   position: fixed;
@@ -2248,13 +2287,11 @@ fieldset {
   justify-content: center;
   z-index: 800;
 }
-
 /* 'hidden' 클래스 적용 시 모달 숨김 */
 .apply-modal-overlay.hidden {
   display: none;
 }
 
-/* 모달 박스 */
 .apply-modal-overlay .modal-box {
   background-color: white;
   padding: 30px;
@@ -2351,25 +2388,29 @@ fieldset {
   gap: 5px;
 }
 
-.board .pagination button {
+.board .pagination .btn {
   width: 32px;
   height: 32px;
   border: none;
   border-radius: 4px;
-  background-color: #f1f1f1;
+  background-color: #FEFEFE;
   cursor: pointer;
   font-size: 14px;
 }
 
-.board .pagination button.active {
-  background-color: #2b5bbb;
-  color: white;
+.board .pagination .btn.active,
+.board .pagination .btn:hover,
+.board .pagination .btn:focus {
+  background-color: #E6EFFF;
+  color: #005AAB;
   font-weight: bold;
 }
 
-.board .pagination button:disabled {
-  background-color: #e2e2e2;
+.board .pagination .btn:disabled {
   cursor: default;
+  color: #333;
+  background-color: #FEFEFE;
+  font-weight: 400;
 }
 
 

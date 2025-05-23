@@ -381,7 +381,7 @@ document.querySelectorAll('.tab').forEach(tab => {
     document.querySelectorAll('.list-container').forEach(container => {
         container.style.display = 'none';
     });
-    document.getElementById(targetId).style.display = 'block';
+    document.getElementById(targetId).style.display = 'flex';
     });
 });
 

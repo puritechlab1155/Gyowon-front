@@ -286,6 +286,7 @@ fieldset {
   gap: 12px;
   font-size: 14px;
   font-weight: 500;
+  overflow-x: auto;
 }
 
 .tab {
@@ -294,6 +295,10 @@ fieldset {
   padding: 6px 12px;
   border-radius: 20px;
   cursor: pointer;
+  white-space: nowrap;
+}
+.tabs::-webkit-scrollbar {
+  display: none; 
 }
 
 .tab .count {
@@ -333,12 +338,51 @@ fieldset {
 .tab.shoes.active {
   background-color: #328BDE;
 } 
-
+.tab.order {
+  background-color: #FF8D8F;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.tab.order.active {
+  background-color: #E45053;
+} 
+.tab.order .count {
+  background: #FF6163;
+}
+.tab.order.active .count {
+  background: white;
+}
+.tab.order.active .pen-path{
+  stroke: #E45053;
+}
 /* 탭 내용 */
 .list-container {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
+}
+.myClass .list-container{
+  margin-top: 50px;
+  gap: 50px;
+  min-height: 500px;
+}
+.list-container .btn03{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EDF3FF;
+  gap: 10px;
+}
+.list-container .btn03:hover{
+  color: #005AAB;
+  background-color: #C0D2F4;
+}
+.btn-search-wrap{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .train .list-container {
@@ -2614,42 +2658,32 @@ fieldset {
 .detail-footer-nav .next-text {
   color: #005AAB;
 }
-
-
-
-#guide-02 {
-  background-color: #e0f7fa; /* 연하늘 */
-}
-
-#shoes-practice {
-  background-color: #e8f5e9; /* 연초록 */
-}
-
-#shoes-latin {
-  background-color: #fff3e0; /* 연오렌지 */
-}
-
-#shoes-modern {
-  background-color: #ede7f6; /* 연보라 */
-}
-
-#shoes-line {
-  background-color: #fce4ec; /* 연핑크보라 */
-}
+/* 댄스화 필요성 / 소개 */
 .list-title {
   font-size: 25px;
   font-weight: 700;
-  margin: 40px 0 8px 4px;
   color: #111;
 }
-
 .list-card {
-  position: relative;
-  background-color: #EFEFEF;
+  background-color: #f6f6f6;
   border-left: 5px solid #1a73e8;
   border-radius: 8px;
   padding: 20px 24px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+}
+.context-img-container .list-card {
+  flex: 7;
+  display: flex;
+  justify-content: center;
+}
+.context-img-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: stretch;
 }
 .list-header {
   display: flex;
@@ -2657,6 +2691,9 @@ fieldset {
   align-items: end;
   color: #333333;
   font-size: 25px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  letter-spacing: -0.5px;
 }
 .list-blue {
   font-size: 18px;
@@ -2667,18 +2704,97 @@ fieldset {
 .list-link:hover {
   text-decoration: underline;
 }
-.list-card p,
-.list-card li {
-  font-size: 18px;
-  line-height: 1.6;
-}
 
-.list-card ul {
+.list-card .list-ul {
   padding-left: 20px;
   margin: 0;
   list-style: disc;
 }
+.guide-img {
+  flex: 3;
+  border-radius: 10px;
+  min-width: 0;
+  align-self: stretch;
+  display: block;
+}
+.guide-img.two2 {
+  display: none;
+}
+.guide-img.three2 {
+  display: none;
+}
+/* 댄스화 목록 */
+.product-section {
+  padding: 20px;
+  font-family: 'Pretendard', sans-serif;
+}
+.product-section .h3-title {
+  font-size: 25px;
+  font-weight: 600;
+}
 
+/* .product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.product-card {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+} */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start; /* 아이템 부족 시 왼쪽 정렬 */
+}
+
+.product-card {
+  flex: 0 0 calc(25% - 12px); /* 4개 꽉 차게, gap 고려 */
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  box-sizing: border-box; /* 패딩 포함한 크기 계산 */
+}
+.product-card:hover {
+  transform: translateY(-4px);
+}
+.img-container {
+  min-width: 150px;
+  background-color: white;
+  border-radius: 10px;
+}
+.product-card .product-img {
+  width: auto;
+  height: 100%;;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  display: block;
+  color: #0047ab;
+  font-weight: 500;
+  margin-bottom: 4px;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.product-price {
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: #222;
+}
 
 
 
@@ -2719,6 +2835,23 @@ fieldset {
   }
   .train .hidden-content-box {
     flex-direction: column;
+  }
+  .context-img-container .mob-br3{
+    display: none;
+  }
+  .guide-img.two1 {
+    display: none;
+  }
+  .guide-img.two2 {
+    display: block;
+  }
+  .two-wrap{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  .product-card {
+    flex: 0 0 calc(33.333% - 12px); /* 3개 한 줄 */
   }
 }
 
@@ -2769,7 +2902,16 @@ fieldset {
     font-size: 16px;
     line-height: 1.5;
   }
-
+  .btn-search-wrap{
+    gap: 10px;
+  }
+  .search-container{
+    align-self: flex-end;
+  }
+  .list-container .btn03 {
+    align-self: flex-start;
+    padding: 8px 12px;
+  }
   .serchDropdown-button {
     min-width: 110px;
     padding: 8px 12px;
@@ -2912,6 +3054,11 @@ fieldset {
         background-clip: padding-box; /* border-radius가 테두리까지 적용되도록 */
     }
   }
+  .list-header {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
   .detail-comment-section {
     padding: 20px;
   }
@@ -2939,26 +3086,34 @@ fieldset {
   .detail-footer-nav{
     justify-content: center;
   }
+  .context-img-container {
+    flex-direction: column;
+  }
+  .two-wrap{
+    flex-direction: column;
+  }
+  .guide-img.three1 {
+    display: none;
+  }
+  .guide-img.three2 {
+    display: block;
+  }
+  .list-container .mob-br{
+    display: block;
+  }
+   .product-card {
+    flex: 0 0 calc(50% - 12px); /* 2개 한 줄 */
+  }
 }
 
-@media (max-width: 520px) {
-  /* .train .card-details{
+@media (max-width: 600px) {
+  .btn-search-wrap{
     flex-direction: column;
+    gap: 20px;
   }
-  .train .card-footer .deposit-wrap.two {
-    flex-direction: column;
-    justify-content: start;
-    text-align: left;
-    align-items: flex-start;
+  .list-container .btn03 {
+    align-self: flex-end;
   }
-  .train .card-footer {
-    align-items: start;
-  }
-  .train .detail-wrap {
-    gap: 5px;
-  } */
-
-  
 }
 
 @media (max-width: 480px) {
@@ -2989,6 +3144,12 @@ fieldset {
   }
   .apply-modal-overlay .mob-br{
     display: block;
+  }
+  .list-container .mob-br2{
+    display: block;
+  }
+  .product-card {
+    flex: 0 0 100%; /* 모바일에서는 한 개씩 */
   }
 }
 

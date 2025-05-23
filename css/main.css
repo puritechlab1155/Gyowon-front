@@ -2297,32 +2297,31 @@ fieldset {
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 20px;
 }
 /* 'hidden' 클래스 적용 시 모달 숨김 */
 .apply-modal-overlay.hidden {
   display: none;
 }
-
 .apply-modal-overlay .modal-box {
   background-color: white;
   padding: 30px;
   border-radius: 12px;
-  width: 360px;
+  width: 400px;
   text-align: center;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 .apply-modal-overlay .modal-icon {
-  width: 70px;
-  height: 70px;
-  margin-bottom: 20px;
+  width: 150px;
+  height: 120px;
 }
 .apply-modal-overlay .modal-title {
-  font-size: 20px;
+  font-size: clamp(25px, 2vw, 28px);
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 .apply-modal-overlay .modal-message {
-  font-size: 15px;
+  font-size: 18px;
   color: #555;
   margin-bottom: 20px;
   line-height: 1.5;
@@ -2336,7 +2335,7 @@ fieldset {
   padding: 10px;
   border: none;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 18px;
   cursor: pointer;
 }
 .apply-modal-overlay .btn.confirm {
@@ -2900,6 +2899,9 @@ fieldset {
   }
   .train .hidden-content-box {
     padding: 0px;
+  }
+  .apply-modal-overlay .mob-br{
+    display: block;
   }
 }
 

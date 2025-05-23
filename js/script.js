@@ -539,10 +539,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (isCancelling) {
                 modalTitle.textContent = '연수신청 취소하기';
-                modalMessage.innerHTML = '선택하신 연수를 <span class="highlight-red">취소</span>하시겠습니까?';
+                modalMessage.innerHTML = '선택하신 연수를  <br class="mob-br"/><span class="highlight-red">취소</span>하시겠습니까?';
             } else {
                 modalTitle.textContent = '연수 신청하기';
-                modalMessage.innerHTML = '선택하신 연수를 <span class="highlight-blue">신청</span>하시겠습니까?';
+                modalMessage.innerHTML = '선택하신 연수를  <br class="mob-br"/><span class="highlight-blue">신청</span>하시겠습니까?';
             }
 
             modal.classList.remove('hidden');

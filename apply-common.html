@@ -24,7 +24,7 @@
     <!-- 메인공통 -->
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/main2.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <style>
 
@@ -1159,16 +1159,17 @@
         <!-- 신청 모달 -->
         <div id="applyModal" class="apply-modal-overlay hidden">
             <div class="modal-box">
-                <svg class="modal-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.2" d="M21 6L12 9L3 6L12 3L21 6Z" fill="#005AAB"/>
-                    <path d="M3 6V13.5" stroke="#005AAB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M5.08203 20.2504C5.83246 19.0994 6.8582 18.1538 8.06631 17.4993C9.27443 16.8447 10.6267 16.502 12.0008 16.502C13.3748 16.502 14.7271 16.8447 15.9353 17.4993C17.1434 18.1538 18.1691 19.0994 18.9195 20.2504" stroke="#005AAB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M21 6L12 9L3 6L12 3L21 6Z" stroke="#005AAB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M15.8719 7.70703C16.5599 8.45832 17.0144 9.39355 17.1801 10.3987C17.3458 11.4038 17.2155 12.4355 16.805 13.3678C16.3946 14.3002 15.7218 15.093 14.8686 15.6496C14.0154 16.2062 13.0187 16.5026 12 16.5026C10.9813 16.5026 9.9846 16.2062 9.13141 15.6496C8.27822 15.093 7.6054 14.3002 7.19497 13.3678C6.78453 12.4355 6.65422 11.4038 6.81991 10.3987C6.98561 9.39355 7.44015 8.45832 8.12813 7.70703" stroke="#005AAB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
                 <h1 id="modalTitle" class="modal-title">신청하기</h1>
+                
+                <svg class="modal-icon" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.2" d="M30.625 8.75L17.5 13.125L4.375 8.75L17.5 4.375L30.625 8.75Z" fill="#005AAB"/>
+                    <path d="M4.375 8.75V19.6875" stroke="#005AAB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.41016 29.531C8.50454 27.8524 10.0004 26.4734 11.7622 25.5189C13.5241 24.5644 15.4962 24.0645 17.5 24.0645C19.5038 24.0645 21.4759 24.5644 23.2378 25.5189C24.9996 26.4734 26.4955 27.8524 27.5898 29.531" stroke="#005AAB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30.625 8.75L17.5 13.125L4.375 8.75L17.5 4.375L30.625 8.75Z" stroke="#005AAB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M23.1465 11.2383C24.1498 12.3339 24.8127 13.6978 25.0543 15.1636C25.2959 16.6294 25.1059 18.1339 24.5073 19.4936C23.9088 20.8533 22.9276 22.0095 21.6834 22.8212C20.4391 23.6329 18.9856 24.0652 17.5 24.0652C16.0144 24.0652 14.5609 23.6329 13.3166 22.8212C12.0724 22.0095 11.0912 20.8533 10.4927 19.4936C9.89411 18.1339 9.70407 16.6294 9.94571 15.1636C10.1873 13.6978 10.8502 12.3339 11.8535 11.2383" stroke="#005AAB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
                 <p id="modalMessage" class="modal-message">
-                해당 강의를 <span class="highlight-blue">신청</span>하시겠습니까?
+                    해당 강의를 <span class="highlight-blue"><br class="mob-br/">신청</span>하시겠습니까?
                 </p>
                 <div class="modal-buttons">
                     <button id="applyCancelBtn" class="btn cancel">아니요</button>

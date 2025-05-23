@@ -1972,8 +1972,7 @@ fieldset {
 }
 
 /*✅ myCourse.html */
-.myClass .inner,
-.apply .inner,
+.train .inner,
 .detail .inner {
   padding: 0 40px;
 }
@@ -2063,11 +2062,11 @@ fieldset {
 }
 
 .train .card-details {
-  flex: 7;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   border-radius: 8px;
   gap: 20px;
+  flex: 7;
 }
 
 .train .detail {
@@ -2088,13 +2087,16 @@ fieldset {
 .train .card-details .left {
   flex: 7;
   display: flex;
-  flex-direction: column;
   gap: 20px;
 }
 .train .card-details .right {
   flex: 3;
   display: flex;
-  flex-direction: column;
+  gap: 20px;
+}
+.train .row {
+  display: flex;
+  align-items: stretch;
   gap: 20px;
 }
 .train .card-details .right .detail{
@@ -2123,6 +2125,7 @@ fieldset {
   margin-top: 2px;
   font-weight: 500;
   letter-spacing: -0.5px;
+  line-height: 1.3;
 }
 
 .train .card-footer {
@@ -2178,11 +2181,11 @@ fieldset {
 }
 .train .hidden-content-box {
   display: flex; 
-  margin-top: 20px; 
-  padding: 30px 60px;
-  border: 1px solid #EFEFEF;
+  margin-top: 30px; 
+  /* padding: 30px 60px; */
+  /* border: 1px solid #EFEFEF; */
   border-radius: 8px;
-  background-color: #FAFAFA;
+  /* background-color: #FAFAFA; */
   justify-content: space-between;
   gap: 20px
 }
@@ -2273,8 +2276,10 @@ fieldset {
   color: #727272;
 }
 
+
 /* ✅ "apply-#" */
 .apply .train .card-footer {
+  margin-top: 30px;
   justify-content: space-between;
 }
 .apply .train .btn01 {
@@ -2591,13 +2596,19 @@ fieldset {
 .detail-next-btn.btn03{
   padding-right: 15px;
 } */
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
   .train .card-info {
     flex-direction: column;
     display: flex;
     align-items: start;
     gap: 10px;
     flex: 1;
+  }
+  .train .card-header{
+    width: 100%;
+  }
+  .train .card-title {
+    text-align: center;
   }
   .train .card-details {
     width: 100%;
@@ -2636,22 +2647,15 @@ fieldset {
     gap: 10px;
     justify-content: space-between
   }
-  /* .card-details .left .detail:nth-child(1),
-  .card-details .right .detail:nth-child(1){
-    flex: 1;
-    min-height: 80px;
-  }
-
-  .card-details .left .detail:nth-child(2) ,
-  .card-details .right .detail:nth-child(2) {
-    flex: 1;
-    min-height: 130px;
-  } */
-  
   .train .card-details .left {
-    gap: 10px;
+    flex: 1;
+    gap: 5px;
   }
   .train .card-details .right {
+    flex: 1;
+    gap: 5px;
+  }
+  .train .row {
     gap: 10px;
   }
   .train .card-footer {
@@ -2660,30 +2664,26 @@ fieldset {
   .train .detail {
     padding: 10px;
   }
-  .train .card-title {
-    text-align: center;
-  }
   .train .card-info {
     margin: 0 auto;
-  }
-  .train .card-header{
-    width: 100%;
-  }
-  .train .hidden-content-box {
-    padding: 20px;
   }
   .train .guide-content-box {
     flex-direction: column;
   }
-  .train .status-badge {
-    font-size: 16px;
-  }
-  .train .button-text {
-    font-size: 16px;
-  }
   .complete .mob-br {
     display: block;
   }
+  .train .status-badge {
+    font-size: 17px;
+  }
+  .train .button-text {
+    font-size: 17px;
+  }
+  .train .train .price {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
   .serchDropdown-button {
     min-width: 110px;
     padding: 8px 12px;
@@ -2709,11 +2709,9 @@ fieldset {
     border: none;
     box-shadow: none;
   }
-
   .board .thead {
     display: none; 
   }
-
   .board .tr {
     display: grid;
     grid-template-areas: 
@@ -2726,7 +2724,6 @@ fieldset {
     padding: 10px 15px;
     background-color: #fff;
   }
-
   .board .td {
     display: flex; 
     align-items: center;
@@ -2874,73 +2871,35 @@ fieldset {
   .train .detail-wrap {
     gap: 5px;
   } */
-  .train .card-details .left {
-    flex-grow: 1; 
-  }
-  .train .card-details .right {
-    flex-grow: 1; 
-  }
-  .train .card-details .detail{
-    flex-grow: 1; 
-  }
-  .train .card-details .details{
-    width: 100%;
-  }
-  .train .detail {
-    flex-direction: column;
-  }
-  .detail .icon {
-    display: none;
-  }
-  .train .card-details .left {
-    flex: 1;
-  }
-  .train .card-details .right {
-    flex: 1;
-  }
-  .train .label {
-    text-align: center;
-    font-size: 17px;
-  }
-  .train .value{
-    text-align: center;
-    font-size: 17px;
-  }
-  .train .detail-text{
-    font-size: 17px;
-  }
-  .train .status-badge {
-    font-size: 17px;
-  }
-  .train .button-text {
-    font-size: 17px;
-  }
-  .train .card-details .left .detail:nth-child(1),
-  .train .card-details .right .detail:nth-child(1){
-    /* min-height: 100px; */
-    flex: 1;
-  }
-  .train .card-details .left .detail:nth-child(2) ,
-  .train .card-details .right .detail:nth-child(2) {
-      /* min-height: 130px; */
-      flex: 1;
-  }
-  .train .train .price {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  .train .deposit-wrap {
-    align-items: start;
-  }
+
   
 }
 
 @media (max-width: 480px) {
-  .train .deposit-wrap{
+  /* .train .deposit-wrap{
     flex-direction: column;
-  }
+    gap: 0px;
+  } */
   .apply .train .btn01 {
     padding: 10px 20px;
+  }
+  /* .detail .icon {
+    display: none;
+  } */
+  .train .card {
+    padding: 10px;
+  }
+  .train .row {
+    gap: 5px;
+  }
+  .train .card-details {
+    gap: 5px;
+  }
+  .train .inner {
+    padding: 0 20px;
+  }
+  .train .hidden-content-box {
+    padding: 0px;
   }
 }
 

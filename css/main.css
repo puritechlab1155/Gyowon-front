@@ -2591,9 +2591,39 @@ fieldset {
 .detail-next-btn.btn03{
   padding-right: 15px;
 } */
-
-
-
+@media (max-width: 1280px) {
+  .train .card-info {
+    flex-direction: column;
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    flex: 1;
+  }
+  .train .card-details {
+    width: 100%;
+    /* flex: 0 0 auto; */
+  }
+  .train .card-header {
+    min-height: 0;
+  }
+  .train .deposit-wrap {
+    flex-direction: row;
+    align-items: center;
+  }
+  .train .card-header .deposit-wrap.one{
+    display: none;
+  }
+  .train .card-footer .deposit-wrap.two{
+    display: flex;
+    justify-content: space-between;
+  }
+  .train .card-footer {
+    justify-content: space-between;
+  }
+  .train .hidden-content-box {
+    flex-direction: column;
+  }
+}
 
 @media (max-width: 767px) {
   .train .mob-br {

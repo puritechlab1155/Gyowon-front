@@ -1904,7 +1904,30 @@
 
     <script src="js/script.js"></script>
     <script>
+        /*✅ 안내서 토글 */
+        document.addEventListener('DOMContentLoaded', function () {
+            const guideToggle = document.querySelector('.guide-toggle');
+            const guideTextSpan = guideToggle.querySelector('.toggle-text');
+            const guideIcon = guideToggle.querySelector('.guide-dropdown-icon');
+            const guideContentBox = document.querySelector('.guide-content-box');
 
+            
+            if (guideToggle && guideTextSpan && guideIcon && guideContentBox) {
+                guideToggle.addEventListener('click', function () {
+                    const isHidden = guideContentBox.style.display === 'none' || guideContentBox.style.display === '';
+
+                    if (isHidden) {
+                        guideContentBox.style.display = 'flex';
+                        guideTextSpan.textContent = '접기';
+                        guideToggle.classList.add('active');
+                    } else {
+                        guideContentBox.style.display = 'none';
+                        guideTextSpan.textContent = '안내서 보기';
+                        guideToggle.classList.remove('active');
+                    }
+                });
+            }
+        });
 
     </script>
 

@@ -2899,7 +2899,7 @@ fieldset {
     font-size: 17px;
   }
   .train .train .price {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.5;
   }
   .btn-search-wrap{
@@ -2969,7 +2969,7 @@ fieldset {
   .board .td.board-number {
     grid-area: number;
     color: #727272;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 500;
     white-space: nowrap;
   }
@@ -2989,21 +2989,21 @@ fieldset {
   .board .td.board-author{
     grid-area: author;
     color: #727272;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 400;
     white-space: nowrap;
   }
   .board .td.board-views{
     grid-area: views;
     color: #727272;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 400;
     white-space: nowrap; 
   }
   .board .td.board-date {
     grid-area: date;
     color: #727272;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 400;
     white-space: nowrap; 
   }
@@ -3101,8 +3101,11 @@ fieldset {
   .list-container .mob-br{
     display: block;
   }
-   .product-card {
+  .product-card {
     flex: 0 0 calc(50% - 12px); /* 2개 한 줄 */
+  }
+  .register .radio-text {
+    font-size: 17px;
   }
 }
 
@@ -3248,14 +3251,14 @@ fieldset {
   .mainIndex .mainBtn-container .ver-03 .logIn-btnBox .btn01:nth-child(1) {
     background: #62D51C;
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 17px;
     padding: 12px 5px;
   }
   .mainIndex .mainBtn-container .btn01{
     padding: 12px 5px;
     padding-bottom: 12px;
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 17px;
   }
   .main_visual .swiper-button-prev,
   .main_visual .swiper-button-next{
@@ -3578,11 +3581,11 @@ fieldset {
       display: none;
   }
   .mainIndex .section04 .event-title {
-      font-size: 16px;
+      font-size: 17px;
   }
 
   .mainIndex .section04 .event-date {
-      font-size: 16px;
+      font-size: 17px;
   }
   .mainIndex .section04 .visible-left {
       transform: translateX(-40%) scale(0.7);
@@ -3595,7 +3598,7 @@ fieldset {
     width: calc(70% - 10px);
   }
   .mainIndex .section05.account-list .account-item {
-    font-size: 16px;
+    font-size: 17px;
   }
   .mainIndex .mainBtn-container .quick-btnBox .btnName {
     margin-top: 10px;
@@ -3624,13 +3627,13 @@ fieldset {
     display: none;
   }
   .user .comment {
-    font-size: 16px;
+    font-size: 17px;
   }
   .user .input_wrap {
     max-width: 400px;
   }
   .user .user-input {
-      font-size: 16px;
+      font-size: 17px;
   }
   .user .keep_login .checkbox-input {
     display: none;
@@ -3645,7 +3648,7 @@ fieldset {
     cursor: pointer;
   }
   .user .user-find .user-find-a{
-    font-size: 16px;
+    font-size: 17px;
   }
   .user-btn { 
     padding: 15px 0;
@@ -3681,7 +3684,7 @@ fieldset {
     min-width: 100px;
     width: 100%;
     padding: 12px 20px;
-    font-size: 16px;
+    font-size: 17px;
   }
   .register .mob-br {
     display: block;
@@ -3739,17 +3742,17 @@ fieldset {
 }
 @media (max-width: 660px) {
   .register .form-group .label {
-    font-size: 16px;
+    font-size: 17px;
   }
   .register .form-group .label {
     width: 60px;
   }
   .register .form-group .check-btn {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 17px;
   }
   .register .form-group .input {
-    font-size: 16px;
+    font-size: 17px;
     padding: 10px 12px;
   }
   .register .info-wrap {
@@ -3831,7 +3834,7 @@ fieldset {
     padding: 0px;
   }
   .register {
-    padding: 0 20px;
+    padding: 0;
   }
   .register .term-wrap.mt-100{
     margin-top: 50px;
@@ -3848,7 +3851,7 @@ fieldset {
     margin: 6px auto 8px;
   }
   .register .step-label {
-    font-size: 16px;
+    font-size: 17px;
     color: #888888;
   }
   .register .selection-box .sub-head {
@@ -3875,6 +3878,8 @@ fieldset {
   .complete .mob-br2 {
     display: block;
   }
-  
+  .complete .gray-text {
+    padding: 20px 15px;
+  }
 
 }

@@ -2472,6 +2472,11 @@ fieldset {
   border-left: 1px solid #DDDDDD;
   border-right: 1px solid #DDDDDD;
 }
+.training .detail-content {
+  border-bottom: 1px solid #e0e0e0;
+  border-bottom-left-radius: 20px;  
+  border-bottom-right-radius: 20px;
+}
 
 .detail-content p {
   margin-bottom: 10px;
@@ -2517,7 +2522,6 @@ fieldset {
   margin-bottom: 0;
 }
 
-
 /* 답글 입력창 */
 .detail-reply-box {
   padding: 30px;
@@ -2526,7 +2530,6 @@ fieldset {
   border-bottom-left-radius: 20px;  
   border-bottom-right-radius: 20px;
 }
-
 .detail-reply-textarea {
   width: 100%;
   min-height: 150px;
@@ -2538,7 +2541,6 @@ fieldset {
   color: #333;
   resize: vertical; 
 }
-
 .detail-reply-info {
   display: flex;
   justify-content: space-between;
@@ -2547,7 +2549,6 @@ fieldset {
   font-size: 0.85em;
   color: #888;
 }
-
 .detail-reply-box .btn01 {
   flex-shrink: 0;
   width: auto;
@@ -2557,35 +2558,43 @@ fieldset {
 .detail-submit-btn:hover {
   background-color: #004a8e;
 }
-
-
-/* 하단 네비게이션 버튼 */
 .detail-footer-nav {
   display: flex;
   justify-content: space-between; 
   align-items: center;
   gap: 20px;
 }
+.footer-nav-wrap {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  gap: 20px;
+}
 
-/* .detail-footer-nav button {
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+.detail-list-btn {
+  margin-left: auto; 
+}
+.detail-prev-btn,
+.detail-next-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px
+}
+.detail-footer-nav .prev-text,
+.detail-footer-nav .next-text {
+  color: #005AAB;
+}
+/* .detail-prev-btn.btn03{
+  padding-left: 15px;
+}
+.detail-next-btn.btn03{
+  padding-right: 15px;
 } */
 
-/* 목록으로 버튼은 오른쪽에 고정 */
-.detail-list-btn {
-  margin-left: auto; /* 이전글/다음글과 목록으로 버튼 분리 */
-}
 
 
 
-@media (max-width: 1280px) {
-
-}
 @media (max-width: 767px) {
   .train .mob-br {
     display: block;
@@ -2776,7 +2785,7 @@ fieldset {
     padding: 20px;
     min-height: 300px;
     overflow-y: auto;
-    max-height: 500px;
+    max-height: 1200px;
     /* 웹킷 기반 브라우저 스크롤바 스타일링 */
     &::-webkit-scrollbar {
       width: 10px; 
@@ -2796,10 +2805,27 @@ fieldset {
   .detail-reply-box{
     padding: 20px;
   }
-
-
-
-
+  .detail-footer-nav .prev-text,
+  .detail-footer-nav .next-text {
+    display: none;
+  }
+  .detail-footer-nav .prev-svg,
+  .detail-footer-nav .next-svg{
+    display: block;
+  }
+  .detail-prev-btn.btn03 , 
+  .detail-next-btn.btn03 {
+    padding: 12px 15px;
+  }
+  .detail-list-btn.one {
+    display: block;
+  }
+  .detail-list-btn.two{
+    display: none;
+  }
+  .detail-footer-nav{
+    justify-content: center;
+  }
 }
 
 @media (max-width: 520px) {
@@ -2876,6 +2902,7 @@ fieldset {
   .train .deposit-wrap {
     align-items: start;
   }
+  
 }
 
 @media (max-width: 480px) {
@@ -3229,7 +3256,6 @@ fieldset {
 
 @media (max-width: 767px) {
   .btn03 {
-      font-size: 16px;
       color: #005AAB;
       background: #FEFEFE;
       padding: 10px 30px;

@@ -368,6 +368,22 @@ document.addEventListener('DOMContentLoaded', function () {
 //     }
 // }
 
+/*✅ 탭설정 */
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+    const targetId = tab.getAttribute('data-tab');
+
+    // 탭 active 클래스 토글
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    // 리스트 컨테이너 표시/숨김
+    document.querySelectorAll('.list-container').forEach(container => {
+        container.style.display = 'none';
+    });
+    document.getElementById(targetId).style.display = 'block';
+    });
+});
 
 /*✅ apply-# */
 /*✅ myClass-# */
@@ -450,6 +466,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
 
 /*✅ 연수 신청 모달  */
 // document.addEventListener('DOMContentLoaded', function () {

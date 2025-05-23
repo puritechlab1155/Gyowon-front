@@ -617,7 +617,7 @@
                         <hr class="divider"/>
 
                         <!-- 진행 연수 카드 -->
-                        <div class="card-container" id="in-progress">
+                        <div class="list-container" id="in-progress">
                             <div class="card">
                                 <div class="card-info">
                                     <div class="card-header">
@@ -1147,7 +1147,7 @@
                         
 
                         <!-- 종료 연수 카드 (비활성 상태) -->
-                        <div class="card-container" id="completed" style="display: none;">
+                        <div class="list-container" id="completed" style="display: none;">
                             <div class="card">
                                 <div class="card-info">
                                     <div class="card-header">
@@ -1904,24 +1904,7 @@
 
     <script src="js/script.js"></script>
     <script>
-        /*✅ 탭설정 */
-        const tabs = document.querySelectorAll(".tab");
-        const containers = {
-            "in-progress": document.getElementById("in-progress"),
-            "completed": document.getElementById("completed")
-        };
 
-        tabs.forEach(tab => {
-            tab.addEventListener("click", () => {
-                tabs.forEach(t => t.classList.remove("active"));
-                tab.classList.add("active");
-
-                const selected = tab.getAttribute("data-tab");
-                Object.keys(containers).forEach(id => {
-                    containers[id].style.display = id === selected ? "flex" : "none";
-                });
-            });
-        });
 
     </script>
 

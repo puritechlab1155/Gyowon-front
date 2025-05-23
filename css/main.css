@@ -148,6 +148,9 @@ fieldset {
 .mb-400 {
   margin-bottom: clamp(300px, 30vw, 400px);
 }
+.hidden {
+  display: none;
+}
 
 .btn01 {
   width: 100%;
@@ -275,8 +278,71 @@ fieldset {
   align-items: center;
 }
 
-.hidden {
-  display: none;
+
+
+/* ✅ 탭 */
+.tabs {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tab {
+  background-color: #eee;
+  color: #666;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.tab .count {
+  background: #ddd;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 6px;
+}
+
+.tab.active {
+  background-color: #0049b7;
+  color: white;
+}
+
+.tab.active .count {
+  background: white;
+  color: #0049b7;
+}
+/* .tab.shoes {
+  background-color: #EEF7FF;
+  color: #0049b7;
+  padding: 6px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.tab.shoes.active {
+  background-color: #BBE0FF;
+} */
+.tab.shoes {
+  background-color: #71BEFF;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.tab.shoes.active {
+  background-color: #328BDE;
+} 
+
+/* 탭 내용 */
+.list-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.train .list-container {
+  gap: 30px;
 }
 
 /* ✅ 구분선 */
@@ -1976,47 +2042,6 @@ fieldset {
 .detail .inner {
   padding: 0 40px;
 }
-
-.train .tabs {
-  display: flex;
-  gap: 12px;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.train .tab {
-  background-color: #eee;
-  color: #666;
-  padding: 6px 12px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.train .tab .count {
-  background: #ddd;
-  padding: 2px 8px;
-  border-radius: 999px;
-  margin-left: 6px;
-}
-
-.train .tab.active {
-  background-color: #0049b7;
-  color: white;
-}
-
-.train .tab.active .count {
-  background: white;
-  color: #0049b7;
-}
-
-/* 카드 레이아웃 */
-.train .card-container {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
 .train .card {
   background: #f5f9ff;
   border-radius: 12px;
@@ -2589,12 +2614,74 @@ fieldset {
 .detail-footer-nav .next-text {
   color: #005AAB;
 }
-/* .detail-prev-btn.btn03{
-  padding-left: 15px;
+
+
+
+#guide-02 {
+  background-color: #e0f7fa; /* 연하늘 */
 }
-.detail-next-btn.btn03{
-  padding-right: 15px;
-} */
+
+#shoes-practice {
+  background-color: #e8f5e9; /* 연초록 */
+}
+
+#shoes-latin {
+  background-color: #fff3e0; /* 연오렌지 */
+}
+
+#shoes-modern {
+  background-color: #ede7f6; /* 연보라 */
+}
+
+#shoes-line {
+  background-color: #fce4ec; /* 연핑크보라 */
+}
+.list-title {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 40px 0 8px 4px;
+  color: #111;
+}
+
+.list-card {
+  position: relative;
+  background-color: #EFEFEF;
+  border-left: 5px solid #1a73e8;
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  color: #333333;
+  font-size: 25px;
+}
+.list-blue {
+  font-size: 18px;
+  color: #005AAB;
+  text-decoration: none;
+}
+
+.list-link:hover {
+  text-decoration: underline;
+}
+.list-card p,
+.list-card li {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.list-card ul {
+  padding-left: 20px;
+  margin: 0;
+  list-style: disc;
+}
+
+
+
+
 @media (max-width: 1024px) {
   .train .card-info {
     flex-direction: column;

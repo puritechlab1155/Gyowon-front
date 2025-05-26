@@ -688,25 +688,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="label" for="path">가입경로</label>
-                                        <div class="column path">
-                                            <div class="input-group">
-                                                <select class="input select" id="path">
-                                                    <option class="option" value="" disabled selected hidden>선택하세요</option>
-                                                    <option value="인터넷 검색" selected>인터넷 검색</option>
-                                                    <option value="동료교사 추천">동료교사 추천</option>
-                                                    <option value="연수안내 공문">연수안내 공문</option>
-                                                    <option value="교육청 단체연수">교육청 단체연수</option>
-                                                    <option value="연수안내 책자">연수안내 책자</option>
-                                                    <option value="기타">기타 (직접입력)</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="column path-group hidden">
-                                                    <input class="input" type="text" id="path-etc" name="path_etc" placeholder="가입 경로를 입력하세요"/>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <label class="label" for="path">가입일</label>
+                                        <input class="input" type="input" value="2020.08.08" disabled/>
                                     </div>
                                 </form>
                             </div>
@@ -796,14 +779,39 @@
                             </div>
                         </div>
                         <div class="btn-box mt-100">
-                            <button class="l-btn" type="button" onclick="location.href='myInfo.html'">취소</button>
-                            <button id="next-btn" class="r-btn" type="button" onclick="location.href='myInfo.html'">수정완료</button>
+                            <button class="withdraw-btn" type="button">탈퇴하기</button>
+                            <button class="l-btn" type="button" onclick="location.href='indext.html'">메인으로</button>
+                            <button id="next-btn" class="r-btn" type="button">수정완료</button>
                         </div>
                     </div>
                 </div>
             </div>
 
         </main>
+
+        <!-- 탈퇴하기 모달 -->
+        <div id="withdrawModal" class="withdraw-modal-overlay hidden">
+            <div class="modal-box">
+                <h1 id="modalTitle" class="modal-title">탈퇴하기</h1>
+                <svg class="modal-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1998_13459)">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.998 1.24805C4.03059 1.24805 3.24609 2.03252 3.24609 3.00053C3.24609 3.96854 4.03059 4.75301 4.998 4.75301C5.96541 4.75301 6.74991 3.96854 6.74991 3.00053C6.74991 2.03252 5.96541 1.24805 4.998 1.24805ZM1.99609 3.00053C1.99609 1.34245 3.33995 -0.00195312 4.998 -0.00195312C6.65605 -0.00195312 7.99991 1.34245 7.99991 3.00053C7.99991 4.65861 6.65605 6.00301 4.998 6.00301C3.33995 6.00301 1.99609 4.65861 1.99609 3.00053ZM0 12.3729C0 9.45551 2.19041 7.00147 4.99791 7.00147C7.52008 7.00147 9.54421 8.98203 9.9296 11.4998H8.23559C7.35465 11.4998 6.62574 12.1507 6.5036 12.9979H0.625C0.279822 12.9979 0 12.718 0 12.3729ZM7.5292 12.9979C7.6327 12.7076 7.90976 12.4998 8.23559 12.4998H8.48559H13.0263C13.4405 12.4998 13.7763 12.8356 13.7763 13.2498C13.7763 13.664 13.4405 13.9998 13.0263 13.9998H8.23584C7.82162 13.9998 7.48584 13.664 7.48584 13.2498C7.48584 13.1614 7.50113 13.0766 7.5292 12.9979Z" fill="#005AAB"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_1998_13459">
+                    <rect width="14" height="14" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+                <p id="modalMessage" class="modal-message">
+                    모든 회원정보가 사라집니다. <br/> 정말로 <span class="highlight-blue">탈퇴</span>하시겠습니까?
+                </p>
+                <div class="modal-buttons">
+                    <button id="withdrawConfirmBtn" class="btn confirm">예</button>
+                    <button id="withdrawCancelBtn" class="btn cancel">아니요</button>
+                </div>
+            </div>
+        </div>
 
         <footer id="footer">
             <div class="footer-background-image">
@@ -1248,17 +1256,6 @@
                 phoneInfo.classList.add('success');
             }
         });
-        // ✅ 가입경로 기타 눌렀을 시 인풋창 등장 (통합된 코드)
-        pathSelect.addEventListener('change', function () {
-            if (this.value === '기타') {
-                pathEtcGroup.classList.remove('hidden');
-                pathEtcInput.setAttribute('required', true); // 기타 선택 시 필수 필드로 설정
-            } else {
-                pathEtcGroup.classList.add('hidden');
-                pathEtcInput.removeAttribute('required'); // 기타 외 선택 시 필수 필드 해제
-                pathEtcInput.value = ''; // '기타' 외 선택 시 입력 필드 초기화
-            }
-        });
 
         // ✅ select 박스 선택 시 색상 변경 (통합된 코드)
         document.querySelectorAll('select.select').forEach(select => {
@@ -1338,15 +1335,6 @@
                         }
                     }
                 }
-
-                // 특별한 경우: path가 '기타'인데 path-etc가 비어있을 경우
-                if (isValid && pathSelect && pathSelect.value === '기타' && pathEtcInput && !pathEtcInput.value.trim()) {
-                    alert('가입 경로를 입력하세요.');
-                    pathEtcInput.focus();
-                    isValid = false;
-                    firstInvalidField = pathEtcInput;
-                }
-
                 if (!isValid) {
                     if (firstInvalidField) {
                         firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1354,8 +1342,8 @@
                     }
                     return;
                 }
-                alert('수정이 완료되었습니다!'); // 확인용 알림
-                window.location.href = 'myInfo.html';
+                alert('내 정보가 수정되었습니다.'); // 확인용 알림
+                window.location.href = 'index.html';
                 // // 모든 유효성 검사를 통과했을 경우, 서버로 데이터 전송
                 // const formData = new FormData(infoForm);
                 // fetch('/api/register', { // 실제 API 엔드포인트로 변경하세요.
@@ -1437,17 +1425,6 @@
         }
         document.getElementById("search-btn").addEventListener("click", onClickSearch);
 
-        // ✅ 가입경로 기타 눌렀을 시 인풋창 등장
-        document.getElementById('path').addEventListener('change', function () {
-            const etcInputGroup = document.querySelector('.path-group');
-            if (this.value === '기타') {
-                etcInputGroup.classList.remove('hidden');
-            } else {
-                etcInputGroup.classList.add('hidden');
-                document.getElementById('path-etc').value = '';
-            }
-        });
-
         document.querySelectorAll('select.select').forEach(select => {
             const updateColor = () => {
                 const selectedOption = select.options[select.selectedIndex];
@@ -1460,6 +1437,36 @@
 
             select.addEventListener('change', updateColor);
             updateColor(); 
+        });
+
+
+        // ✅ 탈퇴하기 모달
+        document.addEventListener('DOMContentLoaded', () => {
+            const withdrawModal = document.getElementById('withdrawModal'); // 여기가 수정되었습니다!
+            const openBtn = document.querySelector('.withdraw-btn');
+            const cancelBtn = document.getElementById('withdrawCancelBtn');
+            const confirmBtn = document.getElementById('withdrawConfirmBtn');
+            
+            // 모달 열기
+            openBtn.addEventListener('click', () => {
+                withdrawModal.classList.remove('hidden'); // 변수 이름을 수정했습니다.
+                document.body.classList.add('modal-open');
+            });
+
+            // 모달 닫기 (아니요 클릭 시)
+            cancelBtn.addEventListener('click', () => {
+                withdrawModal.classList.add('hidden'); // 변수 이름을 수정했습니다.
+                document.body.classList.remove('modal-open');
+            });
+
+            // 모달 닫기 + 탈퇴 처리 (예 클릭 시)
+            confirmBtn.addEventListener('click', () => {
+                withdrawModal.classList.add('hidden'); // 변수 이름을 수정했습니다.
+                document.body.classList.remove('modal-open');
+                // 여기에 탈퇴 요청 처리 로직 추가
+                alert('탈퇴 처리가 완료되었습니다.');
+                // 예: location.href = 'withdrawComplete.html';
+            });
         });
     </script>
 

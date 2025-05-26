@@ -416,33 +416,38 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-/*✅ 검색 드롭다운 */
+/*✅ 검색창 드롭다운 */
 const serchDropdownButton = document.getElementById('serchDropdownButton');
 const serchDropdownMenu = document.getElementById('serchDropdownMenu');
 
 // 드롭다운 열고 닫기
-serchDropdownButton.addEventListener('click', (e) => {
-    e.stopPropagation();
-    serchDropdownMenu.classList.toggle('hidden');
-});
+if (serchDropdownButton && serchDropdownMenu) {
+    serchDropdownButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        serchDropdownMenu.classList.toggle('hidden');
+    });
+}
 
 // 드롭다운 항목 클릭 시 텍스트 변경
-const dropdownItems = serchDropdownMenu.querySelectorAll('li');
-dropdownItems.forEach(item => {
-    item.addEventListener('click', (e) => {
+if (serchDropdownButton && serchDropdownMenu) {
+    // 드롭다운 항목 클릭 시 텍스트 변경
+    const dropdownItems = serchDropdownMenu.querySelectorAll('li');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', (e) => {
         serchDropdownButton.childNodes[0].nodeValue = e.target.textContent; // 텍스트 변경
         serchDropdownMenu.classList.add('hidden'); // 메뉴 닫기
+        });
     });
-});
 
-// 외부 클릭 시 닫기
-document.addEventListener('click', () => {
-    if (!serchDropdownMenu.classList.contains('hidden')) {
+    // 외부 클릭 시 닫기
+    document.addEventListener('click', () => {
+        if (!serchDropdownMenu.classList.contains('hidden')) {
         serchDropdownMenu.classList.add('hidden');
-    }
-});
+        }
+    });
+}
 
-/*✅ 안내서 토글 */
+    /*✅ 안내서 토글 */
 document.addEventListener('DOMContentLoaded', function () {
     const guideToggle = document.querySelector('.guide-toggle');
     const guideTextSpan = guideToggle.querySelector('.toggle-text');
@@ -563,6 +568,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             modal.classList.remove('hidden');
+            document.body.classList.add('modal-open');
         });
     });
 
@@ -588,5 +594,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // 취소 버튼 클릭 시
     cancelBtn.addEventListener('click', () => {
         modal.classList.add('hidden');
+        document.body.classList.remove('modal-open');
     });
 });

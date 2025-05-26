@@ -95,6 +95,7 @@
 }
 .header .content .nav .gnb-menu:hover .gnb-sub {
     max-height: 500px;
+    z-index: 100;
 }
 /* 사이트맵 */
 .header .sitemapBtn {

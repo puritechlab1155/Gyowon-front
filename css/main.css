@@ -187,6 +187,12 @@ fieldset {
   color: #EFEFEF;
   background: #005AAB;
 }
+
+.btn03:focus .prev-svg path, 
+.btn03:focus .next-svg path {
+  fill: white;
+}
+
 .user-btn { 
   background-color: #005AAB;
   border-color: #005AAB;
@@ -265,6 +271,7 @@ fieldset {
   padding: 8px 15px;
   border: 1px solid #ccc;
   border-radius: 10px;
+  padding-right: 50px;
 }
 .search .search-box-input::placeholder{
   color: #A8A8A8;
@@ -276,9 +283,10 @@ fieldset {
   top: 50%;
   transform: translateY(-50%);
   color: gray;
-  pointer-events: none;
+  /* pointer-events: none; */
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 /* ✅ 버튼+검색창인 경우 감싸기 */
 .btn-search-wrap{
@@ -2178,10 +2186,11 @@ fieldset {
 .withdraw-btn {
   color: #999;        
   font-size: 18px;
-  margin-right: auto; 
   cursor: pointer;
-  margin-right: 0;
   font-weight: 500;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
 }
 
 /*✅ #-complete.html */
@@ -2554,7 +2563,7 @@ fieldset {
 .board .pagination {
   display: flex;
   justify-content: center;
-  gap: 6px;
+  gap: 15px;
 }
 
 .board .pagination .btn {
@@ -2746,6 +2755,10 @@ fieldset {
 .post-detail .detail-footer-nav .next-text {
   color: #005AAB;
 }
+.post-detail .detail-footer-nav .btn03:hover .prev-text,
+.post-detail .detail-footer-nav .btn03:hover .next-text {
+  color: #fff;
+}
 
 /*  ✅ 설명칸 레이아웃 */
 .explain .list-title {
@@ -2874,6 +2887,9 @@ fieldset {
 
 
 @media (max-width: 1024px) {
+  .apply .train .btn01 {
+    padding: 5px 20px;
+  }
   .train .card-info {
     display: flex;
     flex-direction: column;
@@ -3087,6 +3103,7 @@ fieldset {
     font-size: 17px;
     font-weight: 400;
     white-space: nowrap;
+    min-width: 120px;
   }
   .board .td.board-views{
     grid-area: views;

@@ -24,11 +24,6 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/main.css">
-
-    <style>
-        
-    </style>
-
 </head>
 <body>
     <section id="home" class="sub-page">
@@ -60,7 +55,7 @@
                                             <a href="myClass-license.html" class="sItem">나의 자격증</a>
                                         </li>
                                         <li class="gnb-sub-item">
-                                            <a href="myClass-shoes" class="sItem">댄스화 주문 / 조회</a>
+                                            <a href="myClass-shoes.html" class="sItem">댄스화 주문 / 조회</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -479,62 +474,6 @@
                 </div>
             </div>
         </header>
-        <!-- 퀵메뉴 // 로그인 전 클릭하면 로그인페이지로 이동   -------추후에 반영하기 -->
-        <!-- <div class="quick-contain quick-pc"> -->
-        <div class="quick-contain">
-            <!-- 관리자에게만 보여지는 버튼 -->
-            <div class="quick-item lms-btn">
-                <button type="button" class="quick-btn" onclick="window.location.href='https://puritechlab1155.github.io/Gyowon/index.html';">
-                    <div class="icon"><img src="img/lms.svg" alt="관리자 아이콘"/></div>
-                    <span class="quick-txt">관리자</span>
-                </button> 
-            </div>
-            <!-- 공통으로 보여지는 버튼 -->
-            <div class="quick-item">
-                <button type="button" class="quick-btn" onclick="window.location.href='#';">
-                    <div class="icon"><img src="img/training.svg" alt="신청내역 아이콘"/></div>
-                    <span class="quick-txt">신청내역</span>
-                </button>
-            </div>
-            <div class="quick-item">
-                <button type="button" class="quick-btn" onclick="window.location.href='#';">
-                    <div class="icon"><img src="img/daum.svg" alt="다음카페 아이콘"/></div>
-                    <span class="quick-txt">다음카페</span>
-                </button>
-            </div>
-            <div class="quick-item">
-                <button type="button" class="quick-btn" onclick="window.location.href='#';">
-                    <div class="icon"><img src="img/video.svg" alt="영상자료 아이콘"/></div>
-                    <span class="quick-txt">영상자료</span>
-                </button>
-            </div>
-            <div class="quick-item">
-                <button type="button" class="scrollTop quick-btn" aria-label="페이지 맨 위로 이동">
-                    <div class="icon"><img src="img/top.svg" alt="TOP 아이콘"/></div>
-                    <span class="quick-txt">TOP</span>
-                </button>
-            </div>
-        </div>
-
-
-        <!-- quick-mo  -->
-        <div class="quick-contain quick-mob">
-
-            <div class="quick-menu-button">
-                <button type="button" class="quick-btn-initial" onclick="toggleQuickMenu()">
-                    <span class="quick-text-initial">퀵메뉴</span>
-                </button>
-                <button type="button" class="scrollTop quick-btn">
-                    <div class="icon"><img src="img/top.svg" alt="TOP 아이콘"/></div>
-                    <span class="quick-txt">TOP</span>
-                </button>
-            </div>
-
-
-        </div>
-
-
-
 
         <main id="main" class="register">
             <div class="mt-230 mb-400">
@@ -585,9 +524,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="user-btn mt-50" onclick="onClickNext()"" disabled>다음</button>
+                            <button class="user-btn mt-50" onclick="onClickNext(); document.querySelector('.user-btn').scrollIntoView({ behavior: 'smooth' });" disabled >다음</button>
                         </div>
-                        <div class="info-wrap common mt-100">
+                        <div id="infoInput" class="info-wrap common mt-100">
                             <div>
                                 <div class="sub-head2"><span class="big">회원정보 입력</span> <small class="small">공통</small></div>
                                 <form class="info-form mt-50">
@@ -601,6 +540,7 @@
                                         <div class="column">
                                             <div class="input-group">
                                                 <input class="input" type="text" id="id" required/>
+                                                <!-- 중복확인 버튼 클릭 후 회원가입 진행되도록 작업 필요 -->
                                                 <button class="check-btn" type="button" data-check-type="id">중복확인</button>
                                             </div>
                                             <div class="description">※ 영문, 숫자의 조합 5~13자로 작성해 주세요.</div>
@@ -1390,27 +1330,7 @@
                 let firstInvalidField = null;
 
                 for (const field of requiredFields) {
-                    if (field.type === 'radio') {
-                        // 라디오 버튼 그룹 체크
-                        const radioGroup = document.querySelectorAll(`input[name="${field.name}"]`);
-                        const isChecked = Array.from(radioGroup).some(radio => radio.checked);
-                        
-                        if (!isChecked) {
-                            const labelText = getLabelText(field);
-                            alert(`${labelText}을(를) 선택하세요.`);
-                            isValid = false;
-                            firstInvalidField = field;
-                            break;
-                        }
-                    } else if (!field.value.trim()) {
-                        // 텍스트 필드 체크
-                        const labelText = getLabelText(field);
-                        alert(`${labelText}을(를) 입력하세요.`);
-                        field.focus();
-                        isValid = false;
-                        firstInvalidField = field;
-                        break;
-                    } else if (field.id === 'email') {
+                    if (field.id === 'email') {
                         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                         if (!emailRegex.test(field.value)) {
                             alert('유효한 이메일 형식이 아닙니다.');

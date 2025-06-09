@@ -25,11 +25,6 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/main.css">
-
-    <style>
-
-    </style>
-
 </head>
 
 <body>
@@ -63,7 +58,7 @@
                                             <a href="myClass-license.html" class="sItem">나의 자격증</a>
                                         </li>
                                         <li class="gnb-sub-item">
-                                            <a href="myClass-shoes" class="sItem">댄스화 주문 / 조회</a>
+                                            <a href="myClass-shoes.html" class="sItem">댄스화 주문 / 조회</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -539,63 +534,94 @@
                 </div>
             </div>
         </header>
-        <!-- 퀵메뉴 // 로그인 전 클릭하면 로그인페이지로 이동   -------추후에 반영하기 -->
-        <!-- <div class="quick-contain quick-pc"> -->
-        <div class="quick-contain">
-            <!-- 관리자에게만 보여지는 버튼 -->
-            <div class="quick-item lms-btn">
-                <button type="button" class="quick-btn"
-                    onclick="window.location.href='https://puritechlab1155.github.io/Gyowon/index.html';">
-                    <div class="icon"><img src="img/lms.svg" alt="관리자 아이콘" /></div>
-                    <span class="quick-txt">관리자</span>
+        <!-- 퀵메뉴 // 로그인 전 클릭하면 로그인페이지로 이동 -->
+        <!-- 퀵메뉴 -->
+        <div class="quick-contain" id="quickMenu">
+            <div class="quick-menu-button quick-mob">
+                <!-- TOP 버튼 -->
+                <button type="button" class="scrollTop quick-btn" aria-label="맨 위로 이동">
+                    <span class="quick-txt q-btn">TOP</span>
                 </button>
+            
+                <!-- 퀵메뉴 본체 -->
+                <div class="quick-menu-area">
+                    <button type="button" class="quick-btn-initial" aria-label="퀵메뉴 열기" onclick="toggleQuickMenu(this)">
+                        <span class="quick-text-initial q-btn">퀵메뉴</span>
+                    </button>
+                
+                    <!-- 펼쳐지는 퀵메뉴 -->
+                    <div id="qItemWrapper" class="quick-menu qItem-wrapper">
+                        <div class="quick-x-section">
+                            <button type="button" class="quick-btn close-btn" aria-label="퀵메뉴 닫기">
+                                <span class="quick-txt close">X</span>
+                            </button>
+                        </div>
+                        <div class="quick-links">
+                        <!-- 관리자에게만 보야지는 버튼 -->
+                        <div class="quick-item lms-btn">
+                            <button type="button" class="quick-btn" onclick="location.href='https://puritechlab1155.github.io/Gyowon/index.html'">
+                                <img src="img/lms.svg" alt="관리자 아이콘" />
+                                <span class="quick-txt">관리자</span>
+                            </button>
+                        </div>
+                        <!-- 공통 노출 -->
+                        <div class="quick-item">
+                            <button type="button" class="quick-btn" onclick="location.href='#'">
+                                <img src="img/training.svg" alt="신청내역" />
+                                <span class="quick-txt">신청내역</span>
+                            </button>
+                        </div>
+                        <div class="quick-item">
+                            <button type="button" class="quick-btn" onclick="location.href='#'">
+                                <img src="img/daum.svg" alt="다음카페" />
+                                <span class="quick-txt">다음카페</span>
+                            </button>
+                        </div>
+                        <div class="quick-item">
+                            <button type="button" class="quick-btn" onclick="location.href='#'">
+                                <img src="img/video.svg" alt="영상자료" />
+                                <span class="quick-txt">영상자료</span>
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- 공통으로 보여지는 버튼 -->
-            <div class="quick-item">
-                <button type="button" class="quick-btn" onclick="window.location.href='#';">
-                    <div class="icon"><img src="img/training.svg" alt="신청내역 아이콘" /></div>
-                    <span class="quick-txt">신청내역</span>
-                </button>
-            </div>
-            <div class="quick-item">
-                <button type="button" class="quick-btn" onclick="window.location.href='#';">
-                    <div class="icon"><img src="img/daum.svg" alt="다음카페 아이콘" /></div>
-                    <span class="quick-txt">다음카페</span>
-                </button>
-            </div>
-            <div class="quick-item">
-                <button type="button" class="quick-btn" onclick="window.location.href='#';">
-                    <div class="icon"><img src="img/video.svg" alt="영상자료 아이콘" /></div>
-                    <span class="quick-txt">영상자료</span>
-                </button>
-            </div>
-            <div class="quick-item">
-                <button type="button" class="scrollTop quick-btn" aria-label="페이지 맨 위로 이동">
-                    <div class="icon"><img src="img/top.svg" alt="TOP 아이콘" /></div>
-                    <span class="quick-txt">TOP</span>
-                </button>
+
+            <!-- pc 전용  -->
+            <div class="quick-pc">
+                <div class="quick-item lms-btn">
+                    <button type="button" class="quick-btn" onclick="location.href='https://puritechlab1155.github.io/Gyowon/index.html'">
+                        <div class="icon"><img src="img/lms.svg" alt="관리자 아이콘" /></div>
+                        <span class="quick-txt">관리자</span>
+                    </button>
+                </div>
+                <div class="quick-item">
+                    <button type="button" class="quick-btn" onclick="location.href='#'">
+                        <div class="icon"><img src="img/training.svg" alt="신청내역 아이콘" /></div>
+                        <span class="quick-txt">신청내역</span>
+                    </button>
+                </div>
+                <div class="quick-item">
+                    <button type="button" class="quick-btn" onclick="location.href='#'">
+                        <div class="icon"><img src="img/daum.svg" alt="다음카페 아이콘" /></div>
+                        <span class="quick-txt">다음카페</span>
+                    </button>
+                </div>
+                <div class="quick-item">
+                    <button type="button" class="quick-btn" onclick="location.href='#'">
+                        <div class="icon"><img src="img/video.svg" alt="영상자료 아이콘" /></div>
+                        <span class="quick-txt">영상자료</span>
+                    </button>
+                </div>
+                <div class="quick-item">
+                    <button type="button" class="scrollTop quick-btn" aria-label="페이지 맨 위로 이동">
+                        <div class="icon"><img src="img/top.svg" alt="TOP 아이콘" /></div>
+                        <span class="quick-txt">TOP</span>
+                    </button>
+                </div>
             </div>
         </div>
-
-
-        <!-- quick-mo  -->
-        <div class="quick-contain quick-mob">
-
-            <div class="quick-menu-button">
-                <button type="button" class="quick-btn-initial" onclick="toggleQuickMenu()">
-                    <span class="quick-text-initial">퀵메뉴</span>
-                </button>
-                <button type="button" class="scrollTop quick-btn">
-                    <div class="icon"><img src="img/top.svg" alt="TOP 아이콘" /></div>
-                    <span class="quick-txt">TOP</span>
-                </button>
-            </div>
-
-
-        </div>
-
-
-
 
         <main id="main" class="training">
 
@@ -716,7 +742,7 @@
                                             <path d="M8 0.75C5.92893 0.75 4.25 2.42893 4.25 4.5C4.25 6.57107 5.92893 8.25 8 8.25C10.0711 8.25 11.75 6.57107 11.75 4.5C11.75 2.42893 10.0711 0.75 8 0.75Z" fill="#9D9D9D"/>
                                             <path d="M4 10.25C1.92893 10.25 0.25 11.9289 0.25 14V15.1883C0.25 15.9415 0.795884 16.5837 1.53927 16.7051C5.8181 17.4037 10.1819 17.4037 14.4607 16.7051C15.2041 16.5837 15.75 15.9415 15.75 15.1883V14C15.75 11.9289 14.0711 10.25 12 10.25H11.6591C11.4746 10.25 11.2913 10.2792 11.1159 10.3364L10.2504 10.6191C8.78813 11.0965 7.21187 11.0965 5.74959 10.6191L4.88407 10.3364C4.70869 10.2792 4.52536 10.25 4.34087 10.25H4Z" fill="#9D9D9D"/>
                                         </svg>
-                                        김이름
+                                        최고관리자
                                     </td>
                                     <td class="td board-views">
                                         <svg class="view-icon" width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -225,68 +225,190 @@
 #home .lms-btn {  /* 관리자에게만 보여지는 버튼 */
     /* display: none;   */
 }
-
-
-
-
-
-/* .quick-contain {
-    position: fixed;
-    bottom: 20px;
-    right: 0%;
-    transform: translateX(-50%);
-    z-index: 100;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+/* PC용 퀵메뉴 */
+#quickMenu .quick-pc {
     display: flex;
-    background-color: #FEFEFE;
-    border-radius: 20px;
-    box-shadow: 0px 3px 12px #D9D9D9;
     flex-direction: column;
-    max-width: 76px;
-} */
-
-#home .quick-contain {
-    position: fixed;
-    bottom: 20px;
-    right: 20px; /* 모바일에서 오른쪽으로 위치 */
-    z-index: 100;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    display: flex;
-    background-color: #FEFEFE;
+    background: #fefefe;
     border-radius: 20px;
-    box-shadow: 0px 3px 12px #D9D9D9;
-    flex-direction: column;
     max-width: 76px;
+    box-shadow: 0px 3px 12px #D9D9D9;
 }
-#home .quick-contain.show {
-    opacity: 1;
-    visibility: visible;
+#quickMenu .quick-pc .quick-item {
+    border-bottom: 1px solid #d9d9d9;
 }
-#home .quick-contain .quick-item {
-    border-bottom: 1px solid #D9D9D9;
-}
-
-#home .quick-contain .quick-item:last-child {
+#quickMenu .quick-pc .quick-item:last-child {
     border-bottom: none;
 }
-#home .quick-contain .quick-btn {
+#quickMenu .quick-pc .quick-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     padding: 8px;
 }
-#home .quick-contain .icon {
+#quickMenu .quick-pc .icon {
     width: 48px;
     height: 48px;
 }
-
-#home .quick-contain .quick-mob {
+#quickMenu .qItem-wrapper .quick-txt {
+    font-size: 10px;
+    font-weight: 600;
+    color: #2A5AB9;
+}
+#quickMenu .scrollTop .quick-txt, #quickMenu .q-btn, #quickMenu .qItem-wrapper .quick-txt.close {
+    font-size: 16px;
+    font-weight: 600;
+    color: #FEFEFE;
+}
+#quickMenu.quick-contain {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+#quickMenu.quick-contain.show {
+    opacity: 1;
+    visibility: visible;
+}
+#quickMenu .quick-btn-initial {
+    box-shadow: 0 3px 12px #d9d9d9;
+}
+#quickMenu .quick-item .quick-txt {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2A5AB9;
+    margin-top: 2px;
+}
+/* 모바일용 퀵메뉴 */
+#quickMenu .quick-menu-button {
     display: none;
+}
+  
+@media (max-width: 1024px) { 
+    #quickMenu .quick-pc {
+        display: none;
+    }
+    #quickMenu .quick-menu-button {
+        display: block;
+    }
+    #quickMenu .quick-menu-button {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 15px;
+    }
+  
+    #quickMenu .scrollTop.quick-btn {
+        background-color: #2A5AB9;
+        border-radius: 50%;
+        width: 54px;
+        height: 54px;
+        box-shadow: 0 3px 12px #d9d9d9;
+        color: #fff;
+        font-weight: bold;
+        font-size: 16px;
+    }
+  
+    #quickMenu .quick-btn-initial {
+        background-color: #2A5AB9;
+        color: #fff;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        z-index: 5; 
+        position: relative; 
+    }
+  
+    #quickMenu .quick-menu-area {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+  
+    #quickMenu .quick-menu.qItem-wrapper {
+        position: absolute;
+        right: 0; /* 기존: 64px -> 수정 */
+        top: -5px;
+        display: flex;
+        align-items: center;
+        transform: translateX(20px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 10; /* 버튼보다 위에 */
+    }
+  
+    #quickMenu.open .quick-menu.qItem-wrapper {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+  
+    #quickMenu .quick-x-section {
+        background-color: #2A5AB9;
+        padding: 0 16px;
+        height: 64px;
+        border-top-left-radius: 999px;
+        border-bottom-left-radius: 999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  
+    #quickMenu .quick-btn.close-btn .quick-txt {
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+    }
+  
+    #quickMenu .quick-links {
+        background-color: #fff;
+        padding: 6px 16px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        border-top-right-radius: 999px;
+        border-bottom-right-radius: 999px;
+        box-shadow: 0 3px 12px #d9d9d9;
+        /* gap: 16px; */
+        padding-left: 0;
+    }
+  
+    #quickMenu .quick-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    #quickMenu .quick-item .quick-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+  
+    #quickMenu .quick-item img {
+        width: 44px;
+        height: 28px;
+    }
+  
+    #quickMenu .quick-item .quick-txt {
+        font-size: 10px;
+        /* font-weight: 600;
+        color: #2A5AB9;
+        margin-top: 2px; */
+    }
 }
 
 /* ✅ 서브페이지 적용 */
@@ -337,7 +459,7 @@
 
 .sub-page .nav-var .nav-drop {
     height: 20px;
-    width: 180px;
+    width: 200px;
     border-right: 1px solid #DDDDDD;
     padding: 0 20px;
     display: flex;
@@ -364,6 +486,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .sub-page .nav-item {
     position: relative; 
@@ -376,7 +499,7 @@
     position: absolute;
     top: 37.5px; 
     left: 0px;
-    width: 180px; 
+    width: 200px; 
     background-color: white;
     border-top: none;
     box-shadow: 0 24px 14px rgba(0, 0, 0, 0.1);
@@ -816,9 +939,6 @@
     /* 모바일 전용 퀵메뉴 */
     #home .quick-pc {
         display: none;
-    }
-    #home .quick-mob {
-        display: block;
     }
 }
 @media (max-width: 480px) {

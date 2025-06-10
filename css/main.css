@@ -1819,7 +1819,7 @@ fieldset {
 /*✅ register-info.html */
 
 .register .btn-box{
-  display: none;
+  /* display: none; */
 }
 .register.info .btn-box{
   display: flex;
@@ -1933,7 +1933,7 @@ fieldset {
 }
 .register .info-wrap.common,
 .register .info-wrap.teacher {
-  display: none;
+  /* display: none; */
 }
 
 .register .info-wrap.teacher {
@@ -3983,6 +3983,9 @@ fieldset {
   }
   .complete .gray-text {
     padding: 20px 15px;
+  }
+  .complete .title-area {
+    width: 100%;
   }
 
 }

@@ -4,41 +4,22 @@
 
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
 
-@font-face {
-  font-family: 'NanumSquareNeoLight';
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot);
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-aLt.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: 'NanumSquareNeo';
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot);
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: 'NanumSquareNeoBold';
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot);
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-cBd.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: 'NanumSquareNeoExtraBold';
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot);
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-dEb.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: 'NanumSquareNeoHeavy';
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot);
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-eHv.ttf) format("truetype");
-}
-
+/* 나눔스퀘어 네오 사파리 폰트 적용 위해 font-face 현재방식사용  */
 @font-face {
   font-family: 'NanumSquareNeoVariable';
   src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot);
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf) format("truetype");
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot?#iefix) format("embedded-opentype"), 
+  url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff2) format("woff2"),
+   url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf) format("truetype");
 }
+/* Safari 고려해 굵기 줄이기 */
+.sub-page .title,.mainIndex .main_visual .text-box .text-box-inner .text .txt-middle,
+.mainIndex .mainBtn-container .koName, .title-area .title, .mainIndex .section02 .text-box .font-bold, .mainIndex .section03 .text-box .font-bold,
+.mainIndex .text-box .sub-title  {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 
 *{
   font-family: 'Pretendard Variable';
@@ -52,6 +33,7 @@
 a {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
 }
 ul, ol {
     list-style: none;
@@ -619,14 +601,16 @@ fieldset {
   color: #fff;
   font-size: clamp(18px,2vw,28px);
   line-height: 120%;
-  font-family: 'NanumSquareNeo', 'Pretendard-Regular';
+  font-family: 'NanumSquareNeoVariable', 'Pretendard Variable';
   margin-left: 5px;
+  font-weight: 400;
 }
 .mainIndex .main_visual .text-box .text-box-inner .text .txt-middle {
   color: #fff;
   font-size: clamp(48px,5vw,65px);
   line-height: 150%;
-  font-family: 'NanumSquareNeoExtraBold', 'Pretendard-Regular';
+  font-family: 'NanumSquareNeoVariable', 'Pretendard Variable';
+  font-weight: 700;
 
 }
 .mainIndex .main_visual .text-box .text-box-inner .text .txt-bottom {
@@ -652,7 +636,7 @@ fieldset {
 }
 .mainIndex .main_visual .text-box .text-box-inner .slide-link .button-text {
   color: #0657CE;
-  font-family: "Pretendard-Bold";
+  font-family: "Pretendard Variable";
   font-size: 18px;
   font-weight: 700;
   line-height: 180%; /* 32.4px */
@@ -690,12 +674,14 @@ fieldset {
 .mainIndex .mainBtn-container .enName {
   font-size: 18px;
   color: #949494;
-  font-family: 'NanumSquareNeoBold';
+  font-family: 'NanumSquareNeoVariable';
+  font-weight: 400;
 }
 .mainIndex .mainBtn-container .koName {
   line-height: 130%;
   font-size: 25px;
-  font-family: 'NanumSquareNeoExtraBold';
+  font-family: 'NanumSquareNeoVariable';
+  font-weight: 800;
 }
 .mainIndex .mainBtn-container .quick-btnBox {
   display: flex;
@@ -898,14 +884,16 @@ fieldset {
   line-height: 140%;
   color: #6F6F6F;
   text-align: center;
-  font-family: 'NanumSquareNeoHeavy';
+  font-family: 'NanumSquareNeoVariable';
+  font-weight: 900;
 }
 .title-area .font-bold {
   font-size: clamp(35px, 3vw, 50px);
   line-height: 140%;
   color: #005AAB;
   text-align: center;
-  font-family: 'NanumSquareNeoHeavy';
+  font-family: 'NanumSquareNeoVariable';
+  font-weight: 900;
 }
 .title-area .title .fontColor-blue {
   font-size: 50px;
@@ -932,12 +920,14 @@ fieldset {
 .mainIndex .text-box .sub-title {
   font-size: clamp(28px, 3vw, 40px);
   line-height: 100%;
-  font-family: 'NanumSquareNeoBold';
+  font-family: 'NanumSquareNeoVariable';
+  font-weight: 700;
 }
 .mainIndex .section02 .text-box .font-bold,
 .mainIndex .section03 .text-box .font-bold {
   color: #333;
-  font-family: 'NanumSquareNeoExtraBold';
+  font-family: 'NanumSquareNeoVariable';
+  font-weight: 800;
   font-size: clamp(28px, 4vw, 45px);
 }
 .mainIndex .text-box .font-bold, 
@@ -945,7 +935,8 @@ fieldset {
   font-size: clamp(28px, 2vw, 40px);
   display: block;
   color: #005AAB;
-  font-family: 'NanumSquareNeoExtraBold';
+  font-family: 'NanumSquareNeoVariable';
+  font-weight: 800;
 }
 
 .mainIndex .text-box .desc {
@@ -995,7 +986,7 @@ fieldset {
 .mainIndex .section03-card .slide-content {
   display: flex;
   width: 100%;
-  align-items: flex-start;
+  align-items: center;
   padding: 0 20px;
 }
 .mainIndex .section03-card .img-box {
@@ -1003,7 +994,7 @@ fieldset {
   margin-top: 50px;
   box-sizing: border-box;
 }
-.mainIndex .section03-card .swiper-slide:nth-child(2) .img-box {
+/* .mainIndex .section03-card .swiper-slide:nth-child(2) .img-box {
   margin-top: 0px;
 }
 .mainIndex .section03-card .swiper-slide:nth-child(3) .img-box {
@@ -1011,7 +1002,7 @@ fieldset {
 }
 .mainIndex .section03-card .swiper-slide:nth-child(4) .img-box {
   margin-top: 70px;
-}
+} */
 .mainIndex .section03-card .right-box {
   flex: 0 0 49%; 
   box-sizing: border-box;
@@ -1428,14 +1419,15 @@ fieldset {
   line-height: 140%;
   color: #005AAB;
   text-align: center;
-  font-family: 'NanumSquareNeoHeavy';
+  font-family: 'NanumSquareNeoVariable';
+  font-weight: 900;
 }
 .sub-page .sub-title {
   font-size: clamp(25px, 2vw, 35px);
   line-height: 140%;
   color: #005AAB;
   text-align: center;
-  font-family: 'pretendard';
+  font-family: 'Pretendard Variable';
 }
 
 /*✅ login.html 
@@ -1640,8 +1632,9 @@ fieldset {
   font-size: clamp(20px, 2vw, 25px);
   line-height: 140%;
   color: #333333;
-  font-family: 'NanumSquareNeoHeavy';
-  font-weight: 400;
+  font-family: 'NanumSquareNeoVariable';
+  font-weight: 700;
+  /* font-weight: 400; */
 }
 .register .sub-head2 {
   border-bottom: 2px solid #D9D9D9;
@@ -1653,8 +1646,8 @@ fieldset {
 .register .sub-head2 .big{
   font-size: clamp(25px, 2vw, 30px);
   line-height: 140%;
-  font-family: 'NanumSquareNeoHeavy';
-  font-weight: 400;
+  font-family: 'NanumSquareNeoVariable';
+  font-weight: 900;
 }
 .register .sub-head2 .small{
   font-size: clamp(18px, 1.5vw, 20px);
@@ -1672,8 +1665,8 @@ fieldset {
   color: #005AAB;
   font-size: clamp(20px, 2vw, 25px);
   line-height: 140%;
-  font-family: 'NanumSquareNeoHeavy';
-  font-weight: 400;
+  font-family: 'NanumSquareNeoVariable';
+  font-weight: 900;
 }
 .register .term-wrap {
   background-color: #F9F9F9;
@@ -2829,7 +2822,6 @@ fieldset {
 /* ✅ 댄스화 목록 */
 .product {
   padding: 20px;
-  font-family: 'Pretendard', sans-serif;
 }
 .product .h3-title {
   font-size: 25px;
@@ -3614,7 +3606,7 @@ fieldset {
   }
   .mainIndex .main_visual .text-box .text-box-inner .text .txt-top {
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 400 !important;
   }
   .mainIndex .main_visual .text-box .text-box-inner .text .txt-middle{
     line-height: 180%;

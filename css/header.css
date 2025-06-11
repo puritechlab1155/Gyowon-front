@@ -77,9 +77,8 @@
     width: 214px;
     transition: all 200ms;
     color: #6F6F6F;
-    font-family: "Pretendard-Regular";
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: -0.3px;
 }
 .header .content .nav .gnb-menu .gnb-sub .gnb-sub-item .sItem .sItem-s{
@@ -91,7 +90,7 @@
 .header .content .nav .gnb-menu .gnb-sub .gnb-sub-item:hover .sItem {
     background: #ECF3FE;
     /* color: #6F6F6F; */
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard Variable";
 }
 .header .content .nav .gnb-menu:hover .gnb-sub {
     max-height: 500px;
@@ -418,7 +417,8 @@
     align-items: center;
     gap: 10px;
 }
-.sub-page .header-login {
+.sub-page .header-login, .login-link .login, .login-link .join,
+.login-link .my-info , .login-link .join-out .login-link .login-manager {
     padding-top: 2px;
     color: #333333;
     font-weight: 600;

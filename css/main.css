@@ -726,6 +726,15 @@ fieldset {
   align-items: center;
 }
 /* 오른쪽 -  로그인 전 */
+.mainIndex .mainBtn-container .logIn.ver-01 { /* 일반 로그인 전 */
+  /* display: none; */
+}
+.mainIndex .mainBtn-container .logIn.ver-03 { /* 관리자 로그인 후 */
+  display: none;
+}
+.mainIndex .mainBtn-container .logIn.ver-02 { /* 일반 회원 로그인 후 */
+  display: none;
+}
 .mainIndex .mainBtn-container .logIn {
   background-color: #FEFEFE;
   max-width: 450px;

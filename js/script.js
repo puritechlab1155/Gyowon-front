@@ -18,87 +18,65 @@ $(document).ready(function () {
 
     // 햄버거 아이콘 클릭 이벤트
     $hamIcon.click(function () {
-        // changeHead() 호출 위치 조정: 모바일 메뉴 상태에 따라 헤더가 변경되어야 하므로 클릭 이벤트 내부에서 호출
-        // 그러나, changeHead 함수 자체는 스크롤 상태와 sub-page 여부로 판단하므로,
-        // 여기서는 offcanvas 상태에 따른 로고/햄버거 아이콘 색상 직접 제어에 집중하는 것이 맞음.
-        // 스크롤이 없는 상태에서만 햄버거 클릭 시 로고/색상 변경 로직이 필요.
+        let currentScrollTop = $(window).scrollTop();
+        let isOffcanvasOpen = $offcanvas.hasClass('active');
 
-        // 스크롤 탑 변수 다시 가져오기
-        let currentScrollTop = $(window).scrollTop(); 
-
-        // 햄버거 아이콘 클릭 시, 스크롤이 0이고 offcanvas가 닫혀있을 때
-        if (currentScrollTop === 0 && !$offcanvas.hasClass('active')) {
-            // 열리기 전 상태: 배경 투명, 글자 흰색 -> 열릴 때 배경 흰색, 글자 검정
-            $logoImg.attr('src', 'img/offcanvas-logo.png'); // 열릴 때는 검정 로고 (offcanvas-logo.png)
-            $hamIcon.css({ background: '#333' }); // 햄버거 아이콘 색상도 검정
-            $header.css({ background: '#fff' }); // 헤더 배경도 흰색으로
-            // 다른 메뉴 아이템들의 색상도 조정 필요할 수 있음
-            // $menuItem.css({ color: '#333' }); 
-            // $userBtn.css({ color: '#333' });
-            // $line.css({ background: '#999' });
-
-        // 햄버거 아이콘 클릭 시, offcanvas가 열려있을 때 (닫힐 때)
-        } else if ($offcanvas.hasClass('active')) {
-            // 닫힐 때: 다시 스크롤 상태에 따라 원래대로 복구
-            if (currentScrollTop === 0) { // 스크롤이 0이면 원래대로 투명 배경, 흰색 글자
+        if (!isOffcanvasOpen) {
+            // 메뉴 열릴 때
+            $header.css({ background: '#fff' });
+            $logoImg.attr('src', 'img/offcanvas-logo.png');
+            $hamIcon.css({ background: '#333' });
+        } else {
+            // 메뉴 닫힐 때
+            if (currentScrollTop === 0) {
                 $header.css({ background: 'transparent' });
-                $logoImg.attr('src', 'img/avv_logo.png'); // 원래 로고 (avv_logo.png)
-                $hamIcon.css({ background: '#fff' }); // 햄버거 아이콘 색상 흰색
-            } else { // 스크롤이 있으면 흰색 배경, 검정 글자 유지
-                $hamIcon.css({ background: '#333' }); // 햄버거 아이콘 색상 검정 유지
+                $logoImg.attr('src', 'img/avv_logo.png');
+                $hamIcon.css({ background: '#fff' });
+            } else {
+                $header.css({ background: '#fff' });
+                $logoImg.attr('src', 'img/offcanvas-logo.png');
+                $hamIcon.css({ background: '#333' });
             }
         }
-        // changeHead()는 스크롤 이벤트와 서브페이지 여부에만 반응하도록 하는 것이 더 명확
-        // 여기서 직접 offcanvas 상태에 따른 로고/아이콘 색상 변경 로직을 추가
     });
+
 
     function changeHead() {
         let $scrollTop = $(window).scrollTop();
-        let $hamIcon = $('.offcanvas-open span'); // 함수 내에서 다시 선택자로 가져오는 것이 안전
+        let isOffcanvasOpen = $offcanvas.hasClass('active');
 
-        // isSubPage는 페이지 로드 시 단 한 번만 체크되므로, 동적으로 변하지 않음
-        // $offcanvas.hasClass('active')는 모바일 메뉴의 열림/닫힘 상태를 나타냄
-        // 이 로직은 주로 PC/스크롤 상태에 따른 헤더 변경에 사용하고,
-        // 모바일 메뉴 열림/닫힘에 따른 헤더 변경은 햄버거 아이콘 클릭 이벤트에서 따로 처리하는 것이 좋음
-
-        if ($scrollTop > 0 || isSubPage) { // 스크롤 탑이 0 이상이거나 서브페이지일 때
+        if ($scrollTop > 0 || isSubPage) {
+            // 스크롤 있거나 서브페이지
             $header.css({ background: '#fff' });
-            $logoImg.attr('src', 'img/offcanvas-logo.png'); // 검정 로고
+            $logoImg.attr('src', 'img/offcanvas-logo.png');
             $menuItem.css({ color: '#333' });
             $userBtn.css({ color: '#333' });
             $line.css({ background: '#999' });
-            $hamIcon.css({ background: '#333' }); // 햄버거 아이콘도 검정
-        } else { // 스크롤 탑이 0일 때 (메인페이지에서만)
-            // 모바일 메뉴가 열려있지 않을 때만 투명 헤더 적용
-            if (!$offcanvas.hasClass('active')) { 
+            $hamIcon.css({ background: '#333' });
+        } else {
+            // 메인페이지 최상단, 오프캔버스 닫힌 경우에만 투명
+            if (!isOffcanvasOpen) {
                 $header.css({ background: 'transparent' });
-                $logoImg.attr('src', 'img/avv_logo.png'); // 흰색 로고
+                $logoImg.attr('src', 'img/avv_logo.png');
                 $menuItem.css({ color: '#fff' });
                 $userBtn.css({ color: '#fff' });
                 $line.css({ background: '#fff' });
-                $hamIcon.css({ background: '#fff' }); // 햄버거 아이콘도 흰색
+                $hamIcon.css({ background: '#fff' });
             }
         }
 
-        // 마우스 호버/리브 이벤트는 롤백되는 문제가 있으므로, 한 번만 바인딩
-        // 이 부분은 changeHead 함수 밖에서 한 번만 설정하는 것이 좋습니다.
-        // 또는 CSS :hover를 사용하는 것이 더 효율적입니다.
-        // 하지만 기존 코드의 의도를 살려두자면...
-        $menuItem.off('mouseenter mouseleave'); // 기존 이벤트 핸들러 제거
+        // 메뉴 hover 효과
+        $menuItem.off('mouseenter mouseleave');
         if ($scrollTop > 0 || isSubPage) {
-            $menuItem.mouseenter(function () {
-                $(this).css({ color: '#005AAB' });
-            });
-            $menuItem.mouseleave(function () {
-                $(this).css({ color: '#333' });
-            });
+            $menuItem.hover(
+                function () { $(this).css({ color: '#005AAB' }); },
+                function () { $(this).css({ color: '#333' }); }
+            );
         } else {
-            $menuItem.mouseenter(function () {
-                $(this).css({ color: '#005AAB' });
-            });
-            $menuItem.mouseleave(function () {
-                $(this).css({ color: '#fff' });
-            });
+            $menuItem.hover(
+                function () { $(this).css({ color: '#005AAB' }); },
+                function () { $(this).css({ color: '#fff' }); }
+            );
         }
     }
 
@@ -123,7 +101,7 @@ $(document).ready(function () {
             }
         });
     });
-}); // $(document).ready 끝
+}); 
 
 
 // ✅ nav바 드롭다운
@@ -171,12 +149,12 @@ document.addEventListener("DOMContentLoaded", () => {
     mainMenuItems.forEach(item => {
         item.addEventListener("click", (event) => {
             const menuKey = item.dataset.menu;
-            const menuName = item.textContent.trim();
+            const firstTitleText = document.querySelector(".nav-drop.first .nav-drop-text");
 
-            // 1. 상단 제목 변경
-            firstTitle.textContent = menuName;
+            // 1. nav 첫번째 메뉴 변경
+            firstTitleText.textContent = item.textContent;
 
-            // 2. 서브 메뉴 변경
+            // 2. nav 두번째 메뉴 변경
             const submenuList = subMenuData[menuKey];
             subMenu.innerHTML = ""; // 초기화
 
@@ -199,7 +177,8 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             // 3. 두 번째 타이틀도 첫 메뉴 이름으로 바꿔줌
-            secondTitle.textContent = submenuList[0]?.text || submenuList[0] || "";
+            const secondTitleText = document.querySelector(".nav-drop.second .nav-drop-text");
+            secondTitleText.textContent = submenuList[0]?.text || submenuList[0] || "";
 
             // 4. 드롭다운 효과 (클래스 토글 또는 강제 설정)
             subMenu.classList.toggle("open");
@@ -234,24 +213,35 @@ document.addEventListener('DOMContentLoaded', function () {
             offcanvasOpen.classList.toggle('active');
             offcanvas.classList.toggle('active'); // .offcanvas에 active 클래스 토글
 
-            // offcanvas의 transform 속성 변경
             if (offcanvas.classList.contains('active')) {
+                // 메뉴 열기 상태
                 mobileoffcanvas.style.height = '100vh';
-                offcanvas.style.transform = 'translateX(0%)'; // 메뉴 열기
+                offcanvas.style.transform = 'translateX(0%)';
                 header.style.backgroundColor = '#fff';
-                headerLogoImg.src = 'img/offcanvas-logo.png'; // 활성화 상태의 로고
+                headerLogoImg.src = 'img/offcanvas-logo.png';
                 hamIcon.forEach(function (span) {
                     span.style.backgroundColor = '#222';
                 });
-                document.body.style.overflow = 'hidden'
+                document.body.style.overflow = 'hidden';
             } else {
+                // 메뉴 닫기 상태
                 mobileoffcanvas.style.height = 'auto';
-                offcanvas.style.transform = 'translateX(100%)'; // 메뉴 닫기
-                // 아래 두 변수는 이 스코프에 정의되지 않았습니다. 필요하다면 정의하거나 주석 처리하세요.
-                // dropIconL.style.transform = 'rotate(-45deg)'; // 드롭 아이콘 원래대로
-                // dropIconR.style.transform = 'rotate(45deg)';
-                // gnbSub.style.display = 'none'; // 드롭다운 숨김
-                document.body.style.overflow = ''; // 모달 닫을 때 body 스크롤 복원
+                offcanvas.style.transform = 'translateX(100%)';
+                document.body.style.overflow = '';
+
+                // ✅ 메뉴 닫힐 때 헤더/로고/햄버거 색상 복구
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const isSubPage = document.querySelector('.sub-page') !== null;
+
+                if (scrollTop > 0 || isSubPage) {
+                    header.style.backgroundColor = '#fff';
+                    headerLogoImg.src = 'img/offcanvas-logo.png';
+                    hamIcon.forEach(span => span.style.backgroundColor = '#222');
+                } else {
+                    header.style.backgroundColor = 'transparent';
+                    headerLogoImg.src = 'img/avv_logo.png';
+                    hamIcon.forEach(span => span.style.backgroundColor = '#fff');
+                }
             }
         });
 
@@ -272,8 +262,9 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
+        // 여기까지 헤더 관련
 
-// ✅ 공유 버튼 (현재 페이지 링크 복사) - alert 창만 사용
+// ✅ 네비게이션 공유 버튼 (현재 페이지 링크 복사) - alert 창만 사용
 const shareButton = document.querySelector('.share-btn');
 
 if (shareButton) { // shareButton이 존재할 때만 이벤트 리스너를 추가

@@ -467,9 +467,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+}
+.sub-page .nav-drop-text {
     color: #727272;
     font-size: 16px;
-    cursor: pointer;
+
 }
 .sub-page .nav-var .nav-title {
     height: 20px;
@@ -952,8 +955,8 @@
         width: 22px;
     }
     .header .offcanvas-open {
-        height: 15px;
-        margin: 30px 20px;
+        height: 16px;
+        /* margin: 30px 20px; */
     }
     .header .offcanvas {
         padding: 20px 0px;

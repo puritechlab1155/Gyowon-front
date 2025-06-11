@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
         apply: [
             {text: "서울 직무 연수", href: "apply-seoul.html"},
             {text: "경기 직무 연수", href: "apply-gyeonggi.html"},
-            {text: "자율 연수", href: "apply-common.html"},
+            {text: "자율 연수", href: "apply-free.html"},
             {text: "자주 묻는 질문", href: "apply-faq.html"},
             {text: "Q&A", href: "apply-qna.html"},
         ],
@@ -559,10 +559,11 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             localStorage.setItem(`${pageId}_btn_${index}`, 'complete');
             // 완료 페이지로 이동
-            location.href = `apply-common-complete.html`;
+            location.href = `${pageId}-complete.html`;
         }
 
         modal.classList.add('hidden');
+        document.body.classList.remove('modal-open');  // ← 스크롤 다시 가능하게!
     });
 
     // 취소 버튼 클릭 시

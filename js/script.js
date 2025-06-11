@@ -140,7 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
             {text: "나의 연수과정", href: "myClass-course.html"},
             {text: "연수 이력 조회", href: "qualify-apply.html"},
             {text: "수강연기 / 취소(환불)", href: "myClass-before.html"},
-            {text: "나의 자격증 조회", href: "myClass-license.html"},
             {text: "댄스화 주문 / 조회", href: "myClass-shoes.html"},
         ],
         apply: [

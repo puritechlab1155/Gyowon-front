@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const subMenuData = {
         lecture: [
             {text: "나의 연수과정", href: "myClass-course.html"},
-            {text: "연수 이력 조회", href: "qualify-apply.html"},
+            {text: "연수 이력 조회", href: "myClass-before.html"},
             {text: "수강연기 / 취소(환불)", href: "myClass-before.html"},
             {text: "댄스화 주문 / 조회", href: "myClass-shoes.html"},
         ],
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
             {text: "기관 지정서", href: "training-agency.html"},
         ],
         qualify: [
-            { text: "자격 신청", href: "qualify-apply.html" },
+            { text: "자격증 신청", href: "qualify-apply.html" },
             { text: "합격 공지", href: "qualify-pass.html" },
             { text: "자격증 발송 신청", href: "qualify-license.html" }
         ],
